@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\Users\Administrator\Desktop\kitri\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\560066492.index
+\foot\src\main\java
+C:\Users\Administrator\Desktop\kitri\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2395216977.index
+\foot\src\main\java

@@ -1,0 +1,40 @@
+package kim.kang.kitri;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class UserServiceClient {
+
+	public static void main(String[] args) {
+		
+		AbstractApplicationContext container 
+		= new GenericXmlApplicationContext("applicationContext.xml");
+		
+		UserService userService = 
+				(UserService) container.getBean("userService");
+		
+		
+		UserVO vo = new UserVO();
+		vo.setID("jiin");
+		vo.setPASSWORD("jiin");
+		
+		UserVO user = userService.getUser(vo);
+		
+		
+		if(user!=null)
+		{
+			System.out.print(user.getNAME()+"로그인 성공");
+		}
+		else
+		{
+			System.out.print("로그인실패");
+			
+		}
+		
+		container.close();
+		
+		
+		
+	}
+
+}

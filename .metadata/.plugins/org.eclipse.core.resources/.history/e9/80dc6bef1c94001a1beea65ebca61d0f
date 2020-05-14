@@ -1,0 +1,5 @@
+package kim.kang.kitri;
+
+public class UserDAO {
+
+}
