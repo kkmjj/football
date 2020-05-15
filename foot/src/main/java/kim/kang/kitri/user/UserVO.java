@@ -1,14 +1,12 @@
-package kim.kang.kitri;
+package kim.kang.kitri.user;
 
 public class UserVO {
-	
 	String ID;
 	String PASSWORD;
 	String GRADE;
 	String NAME;
-	String EMAIL;
+	String GENDER;
 	String PHONE;
-	String ADDRESS;
 	public String getID() {
 		return ID;
 	}
@@ -33,11 +31,11 @@ public class UserVO {
 	public void setNAME(String nAME) {
 		NAME = nAME;
 	}
-	public String getEMAIL() {
-		return EMAIL;
+	public String getGENDER() {
+		return GENDER;
 	}
-	public void setEMAIL(String eMAIL) {
-		EMAIL = eMAIL;
+	public void setGENDER(String gENDER) {
+		GENDER = gENDER;
 	}
 	public String getPHONE() {
 		return PHONE;
@@ -45,16 +43,5 @@ public class UserVO {
 	public void setPHONE(String pHONE) {
 		PHONE = pHONE;
 	}
-	public String getADDRESS() {
-		return ADDRESS;
-	}
-	public void setADDRESS(String aDDRESS) {
-		ADDRESS = aDDRESS;
-	}
 	
-	
-	
-	
-	
-
 }
