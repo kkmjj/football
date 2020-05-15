@@ -1,7 +1,10 @@
-package kim.kang.kitri;
+package kim.kang.kitri.user.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import kim.kang.kitri.user.UserService;
+import kim.kang.kitri.user.UserVO;
 
 @Service("userService")
 public class UserServiceImpI implements UserService {

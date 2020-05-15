@@ -29,5 +29,14 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	  <servlet>
+      <servlet-name>action</servlet-name>
+      <servlet-class>kim.kang.kitri.view.controller.DispatcherServlet</servlet-class>
+   </servlet>
+   
+   <servlet-mapping>
+      <servlet-name>action</servlet-name>
+      <url-pattern>*.do</url-pattern>
+   </servlet-mapping>
 
 </web-app>
