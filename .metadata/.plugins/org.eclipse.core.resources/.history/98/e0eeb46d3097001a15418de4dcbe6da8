@@ -1,0 +1,32 @@
+package kim.kang.kitri.post.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import kim.kang.kitri.post.PostVO;
+
+@Repository
+public class PostDAO {
+
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	//공고 리스트 쿼리 
+	private final String POST_List = "select * from POST order by ID desc";
+	
+	public List<PostVO> getPostList(PostVO vo)
+	{
+		System.out.println("글목록리스트 쿼리 실행 ");
+		return jdbcTemplate.query(POST_List, new PostRowMapper());
+		
+	}
+	
+	
+	
+	
+
+}

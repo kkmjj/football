@@ -1,0 +1,78 @@
+package kim.kang.kitri.post.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import kim.kang.kitri.comm.JDBCUtil;
+import kim.kang.kitri.post.PostVO;
+
+@Repository
+public class JDBCDAO {
+
+	
+
+
+	private Connection conn =null;
+	private PreparedStatement stmt =null;
+	private ResultSet rs =null;
+	
+	
+	//게시판 내용 출력 하기 
+	private final String d = "select * from POST order by ID desc";
+	
+	public List<PostVO> getPostList(PostVO vo){
+		System.out.println("JDBC로 getBoardList 처리");
+		
+		List<PostVO> boardList = new ArrayList<PostVO>();
+		
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			
+		
+				stmt = conn.prepareStatement(d);	
+			
+			
+			
+			rs = stmt.executeQuery();
+			
+			while(rs.next())
+			{
+			
+				PostVO post = new PostVO();
+				post.setID(rs.getInt("ID"));
+				post.setWriter(rs.getString(("WRITER")));
+				post.setDATETIME(rs.getDate(("DATETIME")));
+				post.setPLACE((rs.getString("PLACE")));
+				post.setPER(rs.getInt("PER"));
+				post.setCONTENT(rs.getString("CONTENT"));
+				post.setSTATUS(rs.getString("STATUS"));
+				boardList.add(post);
+			}
+			
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally
+		{
+			JDBCUtil.close(rs,stmt,conn);
+		}
+		
+		return boardList;
+		
+	}
+	
+	
+
+	
+	
+	
+
+}
