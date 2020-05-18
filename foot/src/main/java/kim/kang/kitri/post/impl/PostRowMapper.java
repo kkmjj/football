@@ -15,10 +15,12 @@ public class PostRowMapper implements RowMapper<PostVO> {
 		post.setID(rs.getInt("ID"));
 		post.setWriter(rs.getString(("WRITER")));
 		post.setDATETIME(rs.getDate(("DATETIME")));
-		post.setPLACE((rs.getString("PLACE")));
 		post.setPER(rs.getInt("PER"));
 		post.setCONTENT(rs.getString("CONTENT"));
 		post.setSTATUS(rs.getString("STATUS"));
+		post.setZIP_CODE(rs.getString("ZIP_CODE"));
+		post.setADDRESS(rs.getString("ADDRESS"));
+		post.setADDRESS_DETAIL(rs.getString("ADDRESS_DETAIL"));
 		
 		System.out.println("postMapper"+post.getWriter());
 		return post;

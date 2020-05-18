@@ -7,13 +7,33 @@ public class PostVO {
 	private int ID;
 	private String WRITER;
 	private Date DATETIME;
-	private String PLACE;
 	private int PER;
 	private String CONTENT;
 	private String STATUS;
 	private String searchCondition;
 	private String searchKeyword;
+	private String ZIP_CODE;
+	private String ADDRESS;
+	private String ADDRESS_DETAIL;
 	
+	public String getZIP_CODE() {
+		return ZIP_CODE;
+	}
+	public void setZIP_CODE(String zIP_CODE) {
+		ZIP_CODE = zIP_CODE;
+	}
+	public String getADDRESS() {
+		return ADDRESS;
+	}
+	public void setADDRESS(String aDDRESS) {
+		ADDRESS = aDDRESS;
+	}
+	public String getADDRESS_DETAIL() {
+		return ADDRESS_DETAIL;
+	}
+	public void setADDRESS_DETAIL(String aDDRESS_DETAIL) {
+		ADDRESS_DETAIL = aDDRESS_DETAIL;
+	}
 	public String getWRITER() {
 		return WRITER;
 	}
@@ -50,12 +70,7 @@ public class PostVO {
 	public void setDATETIME(Date dATETIME) {
 		DATETIME = dATETIME;
 	}
-	public String getPLACE() {
-		return PLACE;
-	}
-	public void setPLACE(String pLACE) {
-		PLACE = pLACE;
-	}
+	
 	public int getPER() {
 		return PER;
 	}
