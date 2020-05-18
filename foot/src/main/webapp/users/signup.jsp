@@ -77,7 +77,7 @@
 	
 	            <div class="col-md-12 col-lg-8 mb-5">
 	                
-	                <form action="signupUser.do" method="post" class="p-5 bg-white">
+	                <form action="../signupUser.do" method="post" class="p-5 bg-white">
                             <div class="form-group" align="left">
                                 <label for="name">이름</label>
                                 <input type="text" class="form-control" id="NAME" name="NAME" placeholder="">
@@ -93,7 +93,7 @@
                             </div>
                             <div class="form-group" align="left">
                                 <label for="">비밀번호</label>
-                                <input type="password" class="form-control" id="pwd1" name="pass" placeholder="">
+                                <input type="password" class="form-control" id="pwd1" name="PASSWORD" placeholder="">
                             </div>
                             <div class="form-group" align="left">
                                 <label for="">비밀번호재입력</label>
@@ -109,7 +109,7 @@
                             <div class="form-group" align="left">
                                 <label for="tel">전화번호</label>
                                 <div id="tel" class="custom-control-inline">
-                                    <select class="form-control" id="tel1" name="tel1">
+                                    <select class="form-control" id="TEL1" name="TEL1">
                                         <option value="010">010</option>
                                         <option value="02">02</option>
                                         <option value="031">031</option>
@@ -118,25 +118,25 @@
                                         <option value="051">051</option>
                                         <option value="061">061</option>
                                     </select> _
-                                    <input type="text" class="form-control" id="tel2" name="tel2"
+                                    <input type="text" class="form-control" id="TEL2" name="TEL2"
                                         onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength=4> _
-                                    <input type="text" class="form-control" id="tel3" name="tel3"
+                                    <input type="text" class="form-control" id="TEL3" name="TEL3"
                                         onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength=4>
                                 </div>
                             </div>
                             <div class="form-group" align="left">
                                 <label for="">주소</label><br>
                                 <input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호"
-                                    name="addr1" id="addr1" type="text" readonly="readonly">
+                                    name="ZIP_CODE" id="ZIP_CODE" type="text" >
                                 <button type="button" class="btn btn-warning" onclick="execPostCode();">
                                 <i class="fa fa-search"></i> 우편번호 찾기</button>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="addr2"
-                                    id="addr2" type="text" readonly="readonly" />
+                                <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="ADDRESS"
+                                    id="ADDRESS" type="text"  />
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="상세주소" name="addr3" id="addr3" type="text" />
+                                <input class="form-control" placeholder="상세주소" name="ADDRESS_DETAIL" id="ADDRESS_DETAIL" type="text" />
                             </div>
                             <div class="form-group" align="center">
                                 <button type="submit" class="btn btn-primary" id="registerBtn">회원가입</button>
