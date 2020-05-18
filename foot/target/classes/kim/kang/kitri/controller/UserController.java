@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kim.kang.kitri.post.PostService;
 import kim.kang.kitri.post.PostVO;
+import kim.kang.kitri.post.impl.PostRowMapper;
 import kim.kang.kitri.user.UserVO;
 import kim.kang.kitri.user.impl.UserDAO;
 
@@ -29,16 +30,13 @@ public class UserController {
 	
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String login(UserVO vo, HttpSession session, Model model) {
-		PostVO postvo = new PostVO();
-		if(postvo.getSearchCondition() ==null) postvo.setSearchCondition("writer");
-		if(postvo.getSearchKeyword()==null) postvo.setSearchKeyword("");
-		model.addAttribute("postlist", postservice.getPostList(postvo));
+		//model.addAttribute("postlist", jdbcTemplate.query("select * from POST", new PostRowMapper()));
 		UserVO user = UserService.getUser(vo);
 		if (user != null) {
 			session.setAttribute("userGRADE", user.getGRADE());
 			session.setAttribute("userID", user.getID());
 			session.setAttribute("userNAME", user.getNAME());	
-			return "redirect:index.jsp";
+			return "redirect:index2.jsp";
 		} else
 			return "/users/login.jsp";
 	}
@@ -73,22 +71,22 @@ public class UserController {
 		return "/users/login.jsp";
 	}
 	
-	@RequestMapping(value = "/users/logout.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "/users/login.jsp";
+		return "redirect:index.jsp";
 	}
 	
-	@RequestMapping(value = "/users/findidpw.do", method = RequestMethod.POST)
-	public String findidpw(UserVO vo, HttpServletRequest request) {
+	@RequestMapping(value = "/findidpw.do", method = RequestMethod.POST)
+	public String findidpw(UserVO vo, HttpSession session) {
 		UserVO findUser = UserService.findUser(vo);
 		if(findUser!=null) {
-			request.setAttribute("userID", findUser.getID());
-			request.setAttribute("userPASSWORD", findUser.getPASSWORD());
-			request.setAttribute("findMessage", "aaaaaaaaaa");
+			session.setAttribute("userID", findUser.getID());
+			session.setAttribute("userPASSWORD", findUser.getPASSWORD());
+			session.setAttribute("findMessage", "이름과 번호로 가입 된 아이디와 비밀번호 입니다");
 		}  else {
-			request.setAttribute("findMessage", "dddddddd");
+			session.setAttribute("findMessage", "해당 내역으로 가입 된 정보를 찾을 수 없습니다");
 		}
-		return "/users/findidpw2.jsp";
+		return "redirect:/users/findidpwResult.jsp";
 	}
 }

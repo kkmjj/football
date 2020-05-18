@@ -49,7 +49,7 @@
 	                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
 	                <li class="nav-item cta mr-md-1"><a href="./login.jsp" class="nav-link">Login</a></li>
 	                <li class="nav-item cta cta-colored"><a href="./mypage.jsp" class="nav-link">MyPage</a></li>
-	                <li class="nav-item cta mr-md-1"><a href="/logout.html" class="nav-link">Logout</a></li>
+					<li class="nav-item cta mr-md-1"><a href="./logout.do" class="nav-link">Logout</a></li>
 	            </ul>
 	        </div>
 	    </div>
@@ -76,7 +76,7 @@
 	
 	            <div class="col-md-12 col-lg-8 mb-5">
 	                
-	                <form action="login.do" method="post" class="p-5 bg-white">
+	                <form action="../login.do" method="post" class="p-5 bg-white">
 	                <!-- <form method="POST" class="form-auth-small" action="/user/login"> -->
 	                    <div class="form-group">
 	                        <label for="signin-id" class="control-label sr-only">ID</label>
