@@ -1,4 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아이디/비밀번호 확인</title>
+</head>
+<body>
+<h1>${findMessage}</h1>
+<br>${userID}
+<br>${userPASSWORD}
+	<form action="login.jsp" method="post">
+		<input type="submit" value="로그인 페이지" />
+	</form>
+</body>
+</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,37 +90,12 @@
 	<section class="ftco-section bg-light">
 	    <div class="container">
 	        <div class="row align-items-center justify-content-center">
-	
 	            <div class="col-md-12 col-lg-8 mb-5">
-	                <form action="login.do" method="post" class="p-5 bg-white">
-                        <div class="form-group">
-                            <label for="name">이름</label>
-                            <input type="text" class="form-control" id="name" name="name">
-                        </div>
-                            <div class="form-group">
-                                <label for="tel" class="mr-4">전화번호</label>
-                                <div id="tel" class="custom-control-inline">
-                                    <select class="form-control" id="tel1" name="tel1">
-                                        <option value="010">010</option>
-                                        <option value="02">02</option>
-                                        <option value="031">031</option>
-                                        <option value="032">032</option>
-                                        <option value="041">041</option>
-                                        <option value="051">051</option>
-                                        <option value="061">061</option>
-                                    </select> _
-                                    <input type="text" class="form-control" id="tel2" name="tel2"
-                                        onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength=4> _
-                                    <input type="text" class="form-control" id="tel3" name="tel3"
-                                        onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength=4>
-                                </div>
-                            </div>
-                            <div class="row mt-4 justify-content-center">
-		                        <button type="submit" class="btn btn-primary mr-4">찾기</button>
-		                        <button type="button" class="btn btn-outline-dark"
-		                            onclick="location.href = 'login.jsp';">취소</button>
-                            </div>
-                    </form>
+					<h1>${findMessage}</h1>
+					<br>${userID}
+					<br>${userPASSWORD}
+						<button type="button" class="btn btn-outline-dark"
+		                            onclick="location.href = './login.jsp';">로그인 페이지</button>
 	            </div>
 	        </div>
 	    </div>

@@ -48,9 +48,9 @@
 	                <li class="nav-item"><a href="candidates.html" class="nav-link">Canditates</a></li>
 	                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
-	                <li class="nav-item cta mr-md-1"><a href="./users/login.html" class="nav-link">Login</a></li>
-	                <li class="nav-item cta cta-colored"><a href="./users/mypage.html" class="nav-link">MyPage</a></li>
-	                <li class="nav-item cta mr-md-1"><a href="/users/logout.html" class="nav-link">Logout</a></li>
+	                <li class="nav-item cta mr-md-1"><a href="./login.jsp" class="nav-link">Login</a></li>
+	                <li class="nav-item cta cta-colored"><a href="./mypage.jsp" class="nav-link">MyPage</a></li>
+	                <li class="nav-item cta mr-md-1"><a href="/logout.html" class="nav-link">Logout</a></li>
 	            </ul>
 	        </div>
 	    </div>

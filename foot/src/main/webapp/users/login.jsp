@@ -47,9 +47,9 @@
 	                <li class="nav-item"><a href="candidates.html" class="nav-link">Canditates</a></li>
 	                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
-	                <li class="nav-item cta mr-md-1"><a href="./users/login.jsp" class="nav-link">Login</a></li>
-	                <li class="nav-item cta cta-colored"><a href="./users/mypage.jsp" class="nav-link">MyPage</a></li>
-	                <li class="nav-item cta mr-md-1"><a href="/users/logout.html" class="nav-link">Logout</a></li>
+	                <li class="nav-item cta mr-md-1"><a href="./login.jsp" class="nav-link">Login</a></li>
+	                <li class="nav-item cta cta-colored"><a href="./mypage.jsp" class="nav-link">MyPage</a></li>
+	                <li class="nav-item cta mr-md-1"><a href="/logout.html" class="nav-link">Logout</a></li>
 	            </ul>
 	        </div>
 	    </div>
@@ -62,8 +62,8 @@
 	    <div class="container">
 	        <div class="row no-gutters slider-text align-items-end justify-content-start">
 	            <div class="col-md-12 ftco-animate text-center mb-5">
-	                <p class="breadcrumbs mb-0"><span class="mr-3"><a href="index.html">Home 
-	                    <i class="ion-ios-arrow-forward"></i></a></span> <span>Job Post</span></p>
+	                <p class="breadcrumbs mb-0"><span class="mr-3"><a href="index.jsp">USER 
+	                    <i class="ion-ios-arrow-forward"></i></a></span> <span>Login</span></p>
 	                <h1 class="mb-3 bread">Login</h1>
 	            </div>
 	        </div>
