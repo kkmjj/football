@@ -8,20 +8,26 @@ import kim.kang.kitri.user.UserVO;
 
 @Service("userService")
 public class UserServiceImpI implements UserService {
-
-	
 	@Autowired
 	private UserDAO userDAO;
-	
-	public void setUserDAO(UserDAO userDAO)
-	{
-		this.userDAO = userDAO;
-	}
-	
 	@Override
 	public UserVO getUser(UserVO vo) {
-		// TODO Auto-generated method stub
 		return userDAO.getUser(vo);
 	}
-
+	@Override
+	public void signupUser(UserVO vo) {
+		
+	}
+	@Override
+	public UserVO findUser(UserVO vo) {
+		return null;
+	}
+	@Override
+	public void updateUser(UserVO vo) {
+		
+	}
+	@Override
+	public void deleteUser(UserVO vo) {
+		
+	}
 }
