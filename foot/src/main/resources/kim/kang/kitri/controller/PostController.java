@@ -36,7 +36,7 @@ public class PostController {
 		System.out.println(contition);
 		model.addAttribute("postlist", postservice.getPostList(vo));
 		
-		return "postlist.jsp";
+		return "index.jsp";
 	}
 
 }
