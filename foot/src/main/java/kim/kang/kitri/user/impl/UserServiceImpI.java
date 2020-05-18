@@ -16,18 +16,22 @@ public class UserServiceImpI implements UserService {
 	}
 	@Override
 	public void signupUser(UserVO vo) {
-		
+		userDAO.signupUser(vo);
 	}
 	@Override
 	public UserVO findUser(UserVO vo) {
-		return null;
+		return userDAO.findUser(vo);
 	}
 	@Override
 	public void updateUser(UserVO vo) {
-		
+		userDAO.updateUser(vo);
 	}
 	@Override
 	public void deleteUser(UserVO vo) {
-		
+		userDAO.deleteUser(vo);
+	}
+	@Override
+	public UserVO sessionUser(UserVO vo) {
+		return userDAO.sessionUser(vo);
 	}
 }

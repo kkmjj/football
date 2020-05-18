@@ -3,6 +3,8 @@ package kim.kang.kitri.user;
 public interface UserService {
 	public UserVO getUser(UserVO vo);
 
+	public UserVO sessionUser(UserVO vo);
+	
 	public void signupUser(UserVO vo);
 
 	public UserVO findUser(UserVO vo);
@@ -10,4 +12,5 @@ public interface UserService {
 	public void updateUser(UserVO vo);
 
 	public void deleteUser(UserVO vo);
+	
 }

@@ -6,7 +6,12 @@ public class UserVO {
 	String GRADE;
 	String NAME;
 	String GENDER;
-	String PHONE;
+	String TEL1;
+	String TEL2;
+	String TEL3;
+	String ZIP_CODE;
+	String ADDRESS;
+	String ADDRESS_DETAIL;
 	public String getID() {
 		return ID;
 	}
@@ -37,11 +42,41 @@ public class UserVO {
 	public void setGENDER(String gENDER) {
 		GENDER = gENDER;
 	}
-	public String getPHONE() {
-		return PHONE;
+	public String getTEL1() {
+		return TEL1;
 	}
-	public void setPHONE(String pHONE) {
-		PHONE = pHONE;
+	public void setTEL1(String tEL1) {
+		TEL1 = tEL1;
+	}
+	public String getTEL2() {
+		return TEL2;
+	}
+	public void setTEL2(String tEL2) {
+		TEL2 = tEL2;
+	}
+	public String getTEL3() {
+		return TEL3;
+	}
+	public void setTEL3(String tEL3) {
+		TEL3 = tEL3;
+	}
+	public String getZIP_CODE() {
+		return ZIP_CODE;
+	}
+	public void setZIP_CODE(String zIP_CODE) {
+		ZIP_CODE = zIP_CODE;
+	}
+	public String getADDRESS() {
+		return ADDRESS;
+	}
+	public void setADDRESS(String aDDRESS) {
+		ADDRESS = aDDRESS;
+	}
+	public String getADDRESS_DETAIL() {
+		return ADDRESS_DETAIL;
+	}
+	public void setADDRESS_DETAIL(String aDDRESS_DETAIL) {
+		ADDRESS_DETAIL = aDDRESS_DETAIL;
 	}
 	
 }

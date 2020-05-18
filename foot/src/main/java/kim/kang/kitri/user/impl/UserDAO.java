@@ -13,31 +13,38 @@ public class UserDAO {
 
 	public UserVO getUser(UserVO vo) {
 		String getUser = "SELECT * FROM users WHERE ID =? AND PASSWORD = ?";
-		Object[] args = {vo.getID(), vo.getPASSWORD()};
+		Object[] args = { vo.getID(), vo.getPASSWORD() };
 		return jdbcTemplate.queryForObject(getUser, args, new UserRowMapper());
 	};
 
+	public UserVO sessionUser(UserVO vo) {
+		String getUser = "SELECT * FROM users WHERE ID =?";
+		Object[] args = { vo.getID() };
+		return jdbcTemplate.queryForObject(getUser, args, new UserRowMapper());
+	};
+	
+	
 	public void signupUser(UserVO vo) {
-		String signupUser = "INSERT INTO users(ID, PASSWORD, GRADE, NAME,GENDER,PHONE) VALUES(?, ?, ?, ?, ?, ?)";
-		Object[] args = {vo.getID(),vo.getPASSWORD(), vo.getGRADE(), vo.getNAME(), vo.getGENDER(), vo.getPHONE()};
+		String signupUser = "INSERT INTO users(ID, PASSWORD, GRADE, NAME,GENDER,TEL1, TEL2,TEL3,ZIP_CODE, ADDRESS, ADDRESS_DETAIL) VALUES(?, ?, ?, ?, ?, ?,?,?,?,?,?)";
+		Object[] args = { vo.getID(), vo.getPASSWORD(), vo.getGRADE(), vo.getNAME(), vo.getGENDER(), vo.getTEL1(),vo.getTEL2(),vo.getTEL3(),vo.getZIP_CODE(),vo.getADDRESS(),vo.getADDRESS_DETAIL() };
 		jdbcTemplate.update(signupUser, args);
 	};
 
 	public UserVO findUser(UserVO vo) {
-		String findUser = "SELECT * FROM users WHERE PHONE =?";
-		Object[] args = {vo.getPHONE()};
+		String findUser = "SELECT * FROM users WHERE TEL1 =? AND TEL2=? AND TEL3=?";
+		Object[] args = { vo.getTEL1(),vo.getTEL2(),vo.getTEL3() };
 		return jdbcTemplate.queryForObject(findUser, args, new UserRowMapper());
 	};
 
 	public void updateUser(UserVO vo) {
-		String updateUser = "UPDATE users SET PASSWORD = ?, GRADE = ?, NAME = ?, GENDER = ?,PHONE = ? WHERE ID = ?";
-		Object[] args = {vo.getPASSWORD(), vo.getGRADE(), vo.getNAME(), vo.getGENDER(), vo.getPHONE(), vo.getID()};
+		String updateUser = "UPDATE users SET PASSWORD = ?, GRADE = ?, NAME = ?, GENDER = ?,TEL1 = ?, TEL2=? ,TEL3=?,ZIP_CODE=?, ADDRESS=?,ADDRESS_DETAIL=? WHERE ID = ?";
+		Object[] args = { vo.getPASSWORD(), vo.getGRADE(), vo.getNAME(), vo.getGENDER(), vo.getTEL1(),vo.getTEL2(),vo.getTEL3(),vo.getZIP_CODE(),vo.getADDRESS(),vo.getADDRESS_DETAIL(), vo.getID() };
 		jdbcTemplate.update(updateUser, args);
 	};
 
 	public void deleteUser(UserVO vo) {
 		String deleteUser = "DELETE users WHERE ID = ?";
-		Object[] args = {vo.getID()};
+		Object[] args = { vo.getID() };
 		jdbcTemplate.update(deleteUser, args);
 	};
 }
