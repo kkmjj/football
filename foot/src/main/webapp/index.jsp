@@ -188,7 +188,7 @@
 						</div><!-- end -->
 
 						<c:forEach items="${postlist}" var="postlist">
-						<div class="col-md-12 ftco-animate">
+						<div class="col-md-12 ftco-animate" onclick="location.href = './post/postDetail.jsp?num=${ postlist.ID}';">
 							<div class="job-post-item p-4 d-block d-lg-flex align-items-center">
 								<div class="one-third mb-4 mb-md-0">
 									<div class="job-post-item-header align-items-center">
@@ -197,7 +197,7 @@
 									</div>
 									<div class="job-post-item-body d-block d-md-flex">
 										<div class="mr-3"><span class="icon-layers"></span> <a href="#">${ postlist.WRITER}</a></div>
-										<div><span class="icon-my_location"></span> <span>${ postlist.PLACE}</span></div>
+										<div><span class="icon-my_location"></span> <span>${ postlist.ADDRESS}</span></div>
 									</div>
 								</div>
 							</div>
