@@ -18,14 +18,14 @@ import kim.kang.kitri.user.impl.UserDAO;
 public class UserController {
 	@Autowired
 	UserDAO UserService;
-	@RequestMapping(value = "/users/login.do", method = RequestMethod.POST)
+	@RequestMapping(value = "users/login.do", method = RequestMethod.POST)
 	public String login(UserVO vo, HttpSession session) {
 		UserVO user = UserService.getUser(vo);
 		if (user != null) {
 			session.setAttribute("userGRADE", user.getGRADE());
 			session.setAttribute("userID", user.getID());
 			session.setAttribute("userNAME", user.getNAME());	
-			return "/users/home.jsp";
+			return "/postlist.do";
 		} else
 			return "/users/login.jsp";
 	}
@@ -72,9 +72,9 @@ public class UserController {
 		if(findUser!=null) {
 			request.setAttribute("userID", findUser.getID());
 			request.setAttribute("userPASSWORD", findUser.getPASSWORD());
-			request.setAttribute("findMessage", "가입하신 핸드폰 번호의 아이디와 비밀번호입니다");
+			request.setAttribute("findMessage", "媛��엯�븯�떊 �빖�뱶�룿 踰덊샇�쓽 �븘�씠�뵒�� 鍮꾨�踰덊샇�엯�땲�떎");
 		}  else {
-			request.setAttribute("findMessage", "해당 핸드폰 번호로 가입 된 내역이 없습니다");
+			request.setAttribute("findMessage", "�빐�떦 �빖�뱶�룿 踰덊샇濡� 媛��엯 �맂 �궡�뿭�씠 �뾾�뒿�땲�떎");
 		}
 		return "/users/findidpw2.jsp";
 	}
