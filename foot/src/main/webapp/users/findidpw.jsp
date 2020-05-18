@@ -75,15 +75,15 @@
 	        <div class="row align-items-center justify-content-center">
 	
 	            <div class="col-md-12 col-lg-8 mb-5">
-	                <form action="login.do" method="post" class="p-5 bg-white">
+	                <form action="../findidpw.do" method="post" class="p-5 bg-white">
                         <div class="form-group">
-                            <label for="name">이름</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <label for="name1">이름</label>
+                            <input type="text" class="form-control" id="NAME" name="NAME">
                         </div>
                             <div class="form-group">
                                 <label for="tel" class="mr-4">전화번호</label>
                                 <div id="tel" class="custom-control-inline">
-                                    <select class="form-control" id="tel1" name="tel1">
+                                    <select class="form-control" id="TEL1" name="TEL1">
                                         <option value="010">010</option>
                                         <option value="02">02</option>
                                         <option value="031">031</option>
@@ -92,9 +92,9 @@
                                         <option value="051">051</option>
                                         <option value="061">061</option>
                                     </select> _
-                                    <input type="text" class="form-control" id="tel2" name="tel2"
+                                    <input type="text" class="form-control" id="TEL2" name="TEL2"
                                         onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength=4> _
-                                    <input type="text" class="form-control" id="tel3" name="tel3"
+                                    <input type="text" class="form-control" id="TEL3" name="TEL3"
                                         onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength=4>
                                 </div>
                             </div>

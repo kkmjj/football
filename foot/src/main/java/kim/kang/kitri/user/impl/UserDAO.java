@@ -31,8 +31,8 @@ public class UserDAO {
 	};
 
 	public UserVO findUser(UserVO vo) {
-		String findUser = "SELECT * FROM users WHERE TEL1 =? AND TEL2=? AND TEL3=?";
-		Object[] args = { vo.getTEL1(),vo.getTEL2(),vo.getTEL3() };
+		String findUser = "SELECT * FROM users WHERE NAME=? AND TEL1 =? AND TEL2=? AND TEL3=?";
+		Object[] args = {vo.getNAME(), vo.getTEL1(),vo.getTEL2(),vo.getTEL3() };
 		return jdbcTemplate.queryForObject(findUser, args, new UserRowMapper());
 	};
 

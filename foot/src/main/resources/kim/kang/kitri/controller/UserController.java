@@ -77,16 +77,16 @@ public class UserController {
 		return "/users/login.jsp";
 	}
 	
-	@RequestMapping(value = "/users/findidpw.do", method = RequestMethod.POST)
-	public String findidpw(UserVO vo, HttpServletRequest request) {
+	@RequestMapping(value = "/findidpw.do", method = RequestMethod.POST)
+	public String findidpw(UserVO vo, HttpSession session) {
 		UserVO findUser = UserService.findUser(vo);
 		if(findUser!=null) {
-			request.setAttribute("userID", findUser.getID());
-			request.setAttribute("userPASSWORD", findUser.getPASSWORD());
-			request.setAttribute("findMessage", "aaaaaaaaaa");
+			session.setAttribute("userID", findUser.getID());
+			session.setAttribute("userPASSWORD", findUser.getPASSWORD());
+			session.setAttribute("findMessage", "이름과 번호로 가입 된 아이디와 비밀번호 입니다");
 		}  else {
-			request.setAttribute("findMessage", "dddddddd");
+			session.setAttribute("findMessage", "해당 내역으로 가입 된 정보를 찾을 수 없습니다");
 		}
-		return "/users/findidpw2.jsp";
+		return "redirect:/users/findidpwResult.jsp";
 	}
 }
