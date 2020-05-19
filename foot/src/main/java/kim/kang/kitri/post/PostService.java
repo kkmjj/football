@@ -9,4 +9,9 @@ public interface PostService {
 	//글 목록 조회 
 	List<PostVO> getPostList(PostVO vo);
 	
+	
+	
+	
+	
+	
 }
