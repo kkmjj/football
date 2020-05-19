@@ -77,10 +77,10 @@ public class UserController {
 		return "/users/login.jsp";
 	}
 	
-	@RequestMapping(value = "/users/logout.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "/users/login.jsp";
+		return "redirect:index.jsp";
 	}
 	
 	@RequestMapping(value = "/findidpw.do", method = RequestMethod.POST)

@@ -18,11 +18,16 @@ public class PostServiceImpl implements PostService {
 	public List<PostVO> myPostList(PostVO vo) {
 		return postDAO.myPostList(vo);
 	}
-
-	@Override
-	public List<PostVO> getPostList(PostVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public List<PostVO> getPostSearchList(PostVO vo) {
+		
+		return postDAO.getPostSearchList(vo);
+	}
+	
+	
+   public List<PostVO> getPostList(PostVO vo) {
+		
+		return postDAO.getPostList(vo);
 	}
 	
 }

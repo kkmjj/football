@@ -19,8 +19,24 @@ public class PostController {
 	@Autowired
 	private PostService postservice;
 	
-	@RequestMapping("/postlist.do")
-	public String getPostList(@RequestParam(value = "searchCondition", defaultValue = "writer", required = false)
+	
+	
+	@RequestMapping("/home.do")
+	public String getPostList( PostVO vo, Model model){ // handleRequest(HttpServletRequest request, HttpServletResponse response) 
+		
+	
+		model.addAttribute("postlist", postservice.getPostList(vo));
+		
+		return "index.jsp";
+	}
+	
+	
+	
+	
+	
+	
+	@RequestMapping("/PostSearchList.do")
+	public String getPostSearchList(@RequestParam(value = "searchCondition", defaultValue = "writer", required = false)
 	String contition,@RequestParam(value = "searchKeyword", defaultValue = "", required = false) String keyword, 
 	PostVO vo, Model model){ // handleRequest(HttpServletRequest request, HttpServletResponse response) 
 		
@@ -34,7 +50,7 @@ public class PostController {
 		
 		System.out.println(keyword);
 		System.out.println(contition);
-		model.addAttribute("postlist", postservice.getPostList(vo));
+		model.addAttribute("postlist", postservice.getPostSearchList(vo));
 		
 		return "redirect:index.jsp";
 	}
