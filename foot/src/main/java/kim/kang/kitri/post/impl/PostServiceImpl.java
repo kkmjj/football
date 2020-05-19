@@ -18,7 +18,13 @@ public class PostServiceImpl implements PostService {
 
 	
 	
-	public List<PostVO> getPostList(PostVO vo) {
+	public List<PostVO> getPostSearchList(PostVO vo) {
+		
+		return postDAO.getPostSearchList(vo);
+	}
+	
+	
+   public List<PostVO> getPostList(PostVO vo) {
 		
 		return postDAO.getPostList(vo);
 	}
