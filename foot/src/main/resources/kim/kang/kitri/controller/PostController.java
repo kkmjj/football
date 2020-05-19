@@ -50,7 +50,7 @@ public class PostController {
 		
 		System.out.println(keyword);
 		System.out.println(contition);
-		model.addAttribute("postlist", postservice.getPostList(vo));
+		model.addAttribute("postlist", postservice.getPostSearchList(vo));
 		
 		return "index.jsp";
 	}
