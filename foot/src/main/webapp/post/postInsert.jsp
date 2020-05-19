@@ -6,7 +6,7 @@
 <body>
 	<%@ include file="/includes/navbar.jsp" %>
 	
-	
+
 	<div class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');"
 	    data-stellar-background-ratio="0.5">
 	    <div class="overlay"></div>
@@ -14,8 +14,8 @@
 	        <div class="row no-gutters slider-text align-items-end justify-content-start">
 	            <div class="col-md-12 ftco-animate text-center mb-5">
 	                <p class="breadcrumbs mb-0"><span class="mr-3"><a href="index.jsp">Post 
-	                    <i class="ion-ios-arrow-forward"></i></a></span> <span>Detail</span></p>
-	                <h1 class="mb-3 bread">공고 정보</h1>
+	                    <i class="ion-ios-arrow-forward"></i></a></span> <span>Insert</span></p>
+	                <h1 class="mb-3 bread">공고 등록</h1>
 	            </div>
 	        </div>
 	    </div>
@@ -27,7 +27,7 @@
 	
 	            <div class="col-md-12 col-lg-8 mb-5">
 	                
-	                <div class="p-5 bg-white">
+	                <form action="../signupUser.do" method="post" class="p-5 bg-white">
                         <div class="form-group" align="left">
                             <label >제목</label>
                             <input type="text" class="form-control" id="title" name="title">
@@ -68,7 +68,7 @@
                         <div class="form-group" align="center">
                             <button type="submit" class="btn btn-primary" id="registerBtn">등록</button>
                         </div>
-	                </div>
+	                </form>
 	            </div>
 	        </div>
 	    </div>

@@ -26,7 +26,7 @@
 					<% if(user == null) { %>
 					<li class="nav-item cta mr-md-1"><a href="loginPage.do" class="nav-link">Login</a></li>
 					<% } else { %>
-					<li class="nav-item cta mr-md-1 cta-colored"><a href="myPage.do" class="nav-link">MyPage</a></li>
+					<li class="nav-item cta mr-md-1 cta-colored"><a href="myPages.do" class="nav-link">MyPage</a></li>
 					<li class="nav-item cta mr-md-1"><a href="logoutPage.do" class="nav-link">Logout</a></li>
 					<% } %>
 				</ul>
