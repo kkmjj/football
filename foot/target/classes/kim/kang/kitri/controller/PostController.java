@@ -40,19 +40,15 @@ public class PostController {
 	String contition,@RequestParam(value = "searchKeyword", defaultValue = "", required = false) String keyword, 
 	PostVO vo, Model model){ // handleRequest(HttpServletRequest request, HttpServletResponse response) 
 		
-		System.out.println("postlist.do 컨트롤러 진입완료");
+		System.out.println("postlist.do ");
 		if(vo.getSearchCondition() ==null) vo.setSearchCondition("writer");
 		if(vo.getSearchKeyword()==null) vo.setSearchKeyword("");
-		
-		
-		// Ű���� ���� ���� ������ �⺻������ ���� �ش�Ǵ� ��� ���� ��� 
-		
 		
 		System.out.println(keyword);
 		System.out.println(contition);
 		model.addAttribute("postlist", postservice.getPostSearchList(vo));
 		
-		return "redirect:index.jsp";
+		return "index.jsp";
 	}
 	
 	

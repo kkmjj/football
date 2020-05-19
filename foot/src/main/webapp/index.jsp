@@ -1,78 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="en">
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
-<script type="text/javascript" src="resources/js/app.js"></script>
-
-<link rel="stylesheet" href="resources/css/app.css">
-<meta charset="utf-8">
-<meta name="viewport"	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="resources/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="resources/css/animate.css">
-
-<link rel="stylesheet" href="resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="resources/css/magnific-popup.css">
-
-<link rel="stylesheet" href="resources/css/aos.css">
-
-<link rel="stylesheet" href="resources/css/ionicons.min.css">
-
-<link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="resources/css/jquery.timepicker.css">
-
-
-<link rel="stylesheet" href="resources/css/flaticon.css">
-<link rel="stylesheet" href="resources/css/icomoon.css">
-<link rel="stylesheet" href="resources/css/style.css">
-<head>
-<title>Every Football</title>
-</head>
+	
+<%@ include file="/includes/header.jsp" %>
 
 <body>
-	<nav
-		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-		id="ftco-navbar">
-		<div class="container-fluid px-md-4	">
-			<a class="navbar-brand" href="./index.jsp">Every Football</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span> Menu
-			</button>
-
-			<div class="collapse navbar-collapse" id="ftco-nav">
-			<% String user = (String)session.getAttribute("userID"); 
-			if(user != null) { %>
-				<div class="row d-md-flex no-gutters slider-text align-items-center justify-content-center">
-				<h5 class="mr-2 align-items-center justify-content-center">${userNAME}님 환영합니다.</h5>
-				</div>
-			<% } %>
-				<ul class="navbar-nav ml-auto">
-					<!-- <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="browsejobs.html" class="nav-link">Browse Jobs</a></li>
-					<li class="nav-item"><a href="candidates.html" class="nav-link">Canditates</a></li>
-					<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
-					<% if(user == null) { %>
-					<li class="nav-item cta mr-md-1"><a href="loginPage.do" class="nav-link">Login</a></li>
-					<% } else { %>
-					<li class="nav-item cta mr-md-1 cta-colored"><a href="myPage.do" class="nav-link">MyPage</a></li>
-					<li class="nav-item cta mr-md-1"><a href="logoutPage.do" class="nav-link">Logout</a></li>
-					<% } %>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<!-- END nav -->
+	<%@ include file="/includes/navbar.jsp" %>
 
 	<div class="hero-wrap img"
 		style="background-image: url(images/bg_1.jpg);">
@@ -137,7 +69,7 @@
 
 										<div class="tab-pane fade show active" id="v-pills-1"
 											role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
-											<form action="postlist.do" method="post" class="search-job">
+											<form action="PostSearchList.do" method="post" class="search-job">
 												<div class="row no-gutters">
 													<div class="col-md mr-md-2">
 														<div class="form-group">
@@ -205,17 +137,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 pr-lg-4">
-					<!-- <div class="col-lg-9 pr-lg-4"> -->
 					<div class="row">
+						<% if(user != null) { %>
 						<div class="col-md-12 ftco-animate text-lg-right">
-							<a href="post/postinsert.jsp" class="btn btn-primary mb-4">공고
-								등록</a>
+							<a href="/postinsert.do" class="btn btn-primary mb-4">공고 등록</a>
 						</div>
+						<% } %>
 						<!-- end -->
 
 						<c:forEach items="${postlist}" var="postlist">
 							<div class="col-md-12 ftco-animate"
-								onclick="location.href = './post/postDetail.jsp?num=${ postlist.ID}';">
+								onclick="location.href = '/postDetail.do?num=${postlist.ID}';">
 								<div
 									class="job-post-item p-4 d-block d-lg-flex align-items-center">
 									<div class="one-third mb-4 mb-md-0">
@@ -259,55 +191,12 @@
 		</div>
 	</section>
 
-	<footer class="ftco-footer ftco-bg-dark ftco-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
 
-					<p>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;
-						<script>
-							document.write(new Date().getFullYear());
-						</script>
-						All rights reserved | This template is made with <i
-							class="icon-heart text-danger" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<%@ include file="/includes/footer.jsp" %>
+	
 
+	<%@ include file="/includes/scripts.jsp" %>
 
-
-	<!-- loader -->
-	<div id="ftco-loader" class="show fullscreen">
-		<svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
-	</div>
-
-
-	<script src="resources/js/jquery.min.js"></script>
-	<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="resources/js/popper.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/jquery.easing.1.3.js"></script>
-	<script src="resources/js/jquery.waypoints.min.js"></script>
-	<script src="resources/js/jquery.stellar.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/jquery.magnific-popup.min.js"></script>
-	<script src="resources/js/aos.js"></script>
-	<script src="resources/js/jquery.animateNumber.min.js"></script>
-	<script src="resources/js/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="resources/js/google-map.js"></script>
-	<script src="resources/js/main.js"></script>
 
 </body>
 
