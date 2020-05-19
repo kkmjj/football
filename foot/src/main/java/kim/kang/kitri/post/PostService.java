@@ -6,7 +6,7 @@ import java.util.List;
 public interface PostService {
 
 	
-	//±Û ¸ñ·Ï Á¶È¸ 
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ 
 	List<PostVO> getPostList(PostVO vo);
-	
+	public List<PostVO> myPostList(PostVO vo);
 }

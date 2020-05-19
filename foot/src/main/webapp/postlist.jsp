@@ -30,29 +30,21 @@
 <!-- - -->
 
 <table  border="1" cellpadding="0" cellspacing="0" width="700">
-
 <tr>
 	<th bgcolor="orange" with="100">번호</th>
-	<th bgcolor="orange" with="100">제목</th>
 	<th bgcolor="orange" with="100">작성자</th>
 	<th bgcolor="orange" with="100">등록일</th>
-	<th bgcolor="orange" with="100">조회수</th>
+	<th bgcolor="orange" with="100">공고상태</th>
 </tr>
-
-<c:forEach items="${postlist}" var="postlist">
+<c:forEach items="${myPostList}" var="myPostList">
 <tr>
 
-	<td>${ postlist.ID}</td>
-	<td>${ postlist.WRITER}</td>
-	<td>${ postlist.DATETIME}</td>
-	<td>${ postlist.PLACE}</td>
-
+	<td>${ myPostList.ID}</td>
+	<td>${ myPostList.WRITER}</td>
+	<td>${ myPostList.DATETIME}</td>
+	<td>${ myPostList.STATUS}</td>
 </tr>
-
-
-
 </c:forEach>
-
 </table>
 
 </body>

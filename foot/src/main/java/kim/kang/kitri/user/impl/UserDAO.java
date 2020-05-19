@@ -47,4 +47,11 @@ public class UserDAO {
 		Object[] args = { vo.getID() };
 		jdbcTemplate.update(deleteUser, args);
 	};
+	
+	public UserVO idGetUser(UserVO vo) {
+		String getUser = "SELECT * FROM users WHERE ID =?";
+		Object[] args = { vo.getID()};
+		return jdbcTemplate.queryForObject(getUser, args, new UserRowMapper());
+	};
+	
 }

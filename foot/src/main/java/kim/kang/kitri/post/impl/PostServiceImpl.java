@@ -11,16 +11,18 @@ import kim.kang.kitri.post.PostVO;
 @Service
 public class PostServiceImpl implements PostService {
 
-	
 	@Autowired
 	private PostDAO postDAO;
-	
 
-	
-	
+	@Override
+	public List<PostVO> myPostList(PostVO vo) {
+		return postDAO.myPostList(vo);
+	}
+
+	@Override
 	public List<PostVO> getPostList(PostVO vo) {
-		
-		return postDAO.getPostList(vo);
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
