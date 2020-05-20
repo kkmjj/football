@@ -18,7 +18,7 @@ public class ApplyRowMapper implements RowMapper<ApplyVO>{
 		apply.setID(rs.getInt("ID"));
 		apply.setPOST_ID(rs.getInt("POST_ID"));
 		apply.setSTATUS(rs.getString("STATUS"));
-		return null;
+		return apply;
 	}
 
 }

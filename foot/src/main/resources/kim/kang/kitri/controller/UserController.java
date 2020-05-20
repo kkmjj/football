@@ -56,16 +56,24 @@ public class UserController {
 		return "redirect:/users/login.jsp";
 	}
 	
+	@RequestMapping(value = "/signup.do", method = RequestMethod.GET)
+	public String signup() {
+		return "users/signup.jsp";
+	}
 	
-	@RequestMapping(value = "/users/updateUser.do", method = RequestMethod.POST)
-	public String updateUser(UserVO vo, HttpSession session) {
-		UserVO loginUser = new UserVO();
-		loginUser.setID((String)session.getAttribute("userID"));
-		loginUser.setPASSWORD((String)session.getAttribute("userPASSWORD"));
-		loginUser = userService.getUser(loginUser); 
-		loginUser.setGRADE(vo.getGRADE());
-		userService.updateUser(loginUser);
-		session.setAttribute("userGRADE", loginUser.getGRADE());
+	@RequestMapping(value = "/addressFind.do", method = RequestMethod.GET)
+	public String addressFind() {
+		return "users/jusoPopup.jsp";
+	}
+	
+	
+	@RequestMapping(value = "/updateUser.do", method = RequestMethod.POST)
+	public String updateUser(UserVO vo, HttpSession session, HttpServletRequest request) {
+		vo.setID((String)session.getAttribute("userID"));
+		vo=userService.idGetUser(vo);
+		
+		userService.updateUser(vo);
+		//session.setAttribute("userGRADE", loginUser.getGRADE());
 		return "/users/mypage.jsp";
 	}
 	
@@ -89,9 +97,9 @@ public class UserController {
 		if(findUser!=null) {
 			session.setAttribute("userID", findUser.getID());
 			session.setAttribute("userPASSWORD", findUser.getPASSWORD());
-			session.setAttribute("findMessage", "이름과 번호로 가입 된 아이디와 비밀번호 입니다");
+			session.setAttribute("findMessage", "�씠由꾧낵 踰덊샇濡� 媛��엯 �맂 �븘�씠�뵒�� 鍮꾨�踰덊샇 �엯�땲�떎");
 		}  else {
-			session.setAttribute("findMessage", "해당 내역으로 가입 된 정보를 찾을 수 없습니다");
+			session.setAttribute("findMessage", "�빐�떦 �궡�뿭�쑝濡� 媛��엯 �맂 �젙蹂대�� 李얠쓣 �닔 �뾾�뒿�땲�떎");
 		}
 		return "/users/findidpwResult.jsp";
 	}
@@ -102,10 +110,25 @@ public class UserController {
 		return "/users/login.jsp";
 	}
 	
-	@RequestMapping(value = "/myPages.do")
-	public String myPage(HttpSession session) {
+	@RequestMapping(value = "/myPage.do")
+	public String myPage(UserVO userVO, PostVO postVO, ApplyVO applyVO, HttpSession session, Model model) {
 		 if(session.getAttribute("userID")!=null) {
-			 return "mypage.do";
+			 userVO.setID((String)session.getAttribute("userID"));
+			 model.addAttribute("user", userService.idGetUser(userVO));
+			 postVO.setWRITER((String)session.getAttribute("userID"));
+			 model.addAttribute("myPostList", postservice.myPostList(postVO));
+			 applyVO.setAPPLICANT((String)session.getAttribute("userID"));
+			 List<ApplyVO> applyList = applyService.myApplyList(applyVO);
+			 System.out.println(applyList);
+			 String applyPostIDList = "";
+			 for(int i=0; i<applyList.size(); i++) {
+				 applyPostIDList += applyList.get(i).getPOST_ID()+",";
+			 }
+			 if(applyPostIDList.length()!=0) {
+				 applyPostIDList = applyPostIDList.substring(0, applyPostIDList.length()-1);
+				 model.addAttribute("myApplyList", postservice.idFindPostList(applyPostIDList));
+			 }
+			 return "/users/mypage.jsp";
 		 }
 		return "redirect:/loginPage.do";
 	}

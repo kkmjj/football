@@ -13,7 +13,7 @@ public class ApplyDAO {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	public List<ApplyVO> myApplyList(ApplyVO vo) {
-		String myApplyList = "select * from POST where APPLICANT = ?";
+		String myApplyList = "select * from apply where APPLICANT = ?";
 		Object[] args = { vo.getAPPLICANT()};
 		return jdbcTemplate.query(myApplyList, args, new ApplyRowMapper() );
 	}

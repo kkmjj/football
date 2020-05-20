@@ -20,10 +20,9 @@ public class PostDAO {
 		return jdbcTemplate.query(myPOST_List, args, new PostRowMapper());
 	}
 	
-	public List<PostVO> idFindPostList(PostVO vo, String postIdList) {
+	public List<PostVO> idFindPostList(String postIdList) {
 		String myPOST_List = "select * from POST where ID IN ("+postIdList+")";
-		Object[] args = { vo.getWRITER()};
-		return jdbcTemplate.query(myPOST_List, args, new PostRowMapper());
+		return jdbcTemplate.query(myPOST_List, new PostRowMapper());
 	}
 	
 	

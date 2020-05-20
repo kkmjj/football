@@ -77,7 +77,7 @@
                                 <label for="">주소</label><br>
                                 <input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호"
                                     name="ZIP_CODE" id="ZIP_CODE" type="text" >
-                                <button type="button" class="btn btn-warning" onclick="execPostCode();">
+                                <button type="button" class="btn btn-warning" onclick="">
                                 <i class="fa fa-search"></i> 우편번호 찾기</button>
                             </div>
                             <div class="form-group">
@@ -92,6 +92,24 @@
                                 <button type="reset" class="btn btn-warning">초기화</button>
                             </div>
 	                </form>
+	                
+	                
+	                <div class="form-group" align="left">
+                                <label for="">주소</label><br>
+                                <input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호"
+                                    name="ZIP_CODE" id="ZIP_CODE" type="text" >
+                                <button type="button" class="btn btn-warning" onclick="">
+                                <i class="fa fa-search"></i> 우편번호 찾기</button>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="ADDRESS"
+                                    id="ADDRESS" type="text"  />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="상세주소" name="ADDRESS_DETAIL" id="ADDRESS_DETAIL" type="text" />
+                            </div>
+                            
+                            
 	            </div>
 	        </div>
 	    </div>

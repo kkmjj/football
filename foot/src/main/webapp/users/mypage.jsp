@@ -26,19 +26,19 @@
 	        <div class="row align-items-center justify-content-center">
 	
 	            <div class="col-md-12 col-lg-8 mb-5">	            
-	                <form action="../signupUser.do" method="post" class="p-5 bg-white">
+	                <form action="userUpdate.do" method="post" class="p-5 bg-white">
                         <h3 class="page-title">개인 정보</h3>    
                         <div class="form-group" align="left">
                             <label for="">아이디</label>
                             <input type="text" class="form-control" id="ID" name="ID"
-                                onkeyup="javascript:idcheck();" value="${userID}" readonly>
+                                onkeyup="javascript:idcheck();" value="${user.ID}" readonly>
                             <span id="idmsg" class="msg"></span>
 
                             <div id="resultview"></div>
                         </div>
                         <div class="form-group" align="left">
                             <label for="">비밀번호</label>
-                            <input type="password" class="form-control" id="pwd1" name="PASSWORD" value="${userPASSWORD}">
+                            <input type="password" class="form-control" id="pwd1" name="PASSWORD" value="${user.PASSWORD}">
                         </div>
                         <div class="form-group" align="left">
                             <label for="">비밀번호재입력</label>
@@ -48,7 +48,7 @@
                         <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
                         <div class="form-group" align="left">
                             <label for="name">이름</label>
-                            <input type="text" class="form-control" id="NAME" name="NAME" value="${userNAME}">
+                            <input type="text" class="form-control" id="NAME" name="NAME" value="${user.NAME}">
                         </div>
                         <div class="form-group" align="left">
                             <label for="gender" class="mr-2">성별</label>
@@ -68,25 +68,25 @@
                                     <option value="061">061</option>
                                 </select> _
                                 <input type="text" class="form-control" id="TEL2" name="TEL2"
-                                    onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength=4 value="${userTEL2}"> _
+                                    onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength=4 value="${user.TEL2}"> _
                                 <input type="text" class="form-control" id="TEL3" name="TEL3"
-                                    onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength=4 value="${userTEL3}">
+                                    onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength=4 value="${user.TEL3}">
                             </div>
                         </div>
                         <div class="form-group" align="left">
                             <label for="">주소</label><br>
                             <input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호"
-                                name="ZIP_CODE" id="ZIP_CODE" type="text" value="${userZIP_CODE}" readonly>
+                                name="ZIP_CODE" id="ZIP_CODE" type="text" value="${user.ZIP_CODE}" readonly>
                             <button type="button" class="btn btn-warning" onclick="execPostCode();">
                             <i class="fa fa-search"></i> 우편번호 찾기</button>
                         </div>
                         <div class="form-group">
                             <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="ADDRESS"
-                                id="ADDRESS" type="text" value="${userADDRESS}" readonly />
+                                id="ADDRESS" type="text" value="${user.ADDRESS}" readonly />
                         </div>
                         <div class="form-group">
                             <input class="form-control" placeholder="상세주소" name="ADDRESS_DETAIL" id="ADDRESS_DETAIL" 
-                            type="text" value="${userADDRESS_DETAIL}" />
+                            type="text" value="${user.ADDRESS_DETAIL}" />
                         </div>
                             <div class="form-group" align="center">
                                 <button type="submit" class="btn btn-primary" id="registerBtn">수정</button>
@@ -140,10 +140,10 @@
                                 <tbody>
 									<c:forEach items="${myApplyList}" var="myApplyList">
 										<tr>
-											<td>${ myPostList.ID}</td>
-											<td>${ myPostList.DATETIME}</td>
-											<td>${ myPostList.ADDRESS}</td>
-											<td>${ myPostList.STATUS}</td>
+											<td>${ myApplyList.ID}</td>
+											<td>${ myApplyList.DATETIME}</td>
+											<td>${ myApplyList.ADDRESS}</td>
+											<td>${ myApplyList.STATUS}</td>
 										</tr>
 									</c:forEach>
                                 </tbody>
