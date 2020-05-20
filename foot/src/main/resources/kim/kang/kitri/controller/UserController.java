@@ -1,21 +1,15 @@
 package kim.kang.kitri.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kim.kang.kitri.post.PostService;
-import kim.kang.kitri.post.PostVO;
-import kim.kang.kitri.post.impl.PostRowMapper;
 import kim.kang.kitri.user.UserVO;
 import kim.kang.kitri.user.impl.UserDAO;
 
@@ -36,7 +30,7 @@ public class UserController {
 			session.setAttribute("userGRADE", user.getGRADE());
 			session.setAttribute("userID", user.getID());
 			session.setAttribute("userNAME", user.getNAME());	
-			return "redirect:index2.jsp";
+			return "redirect:home.do";
 		} else
 			return "/users/login.jsp";
 	}

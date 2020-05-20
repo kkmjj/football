@@ -29,6 +29,8 @@
 </form>
 <!-- - -->
 
+
+
 <table  border="1" cellpadding="0" cellspacing="0" width="700">
 
 <tr>
@@ -36,7 +38,7 @@
 	<th bgcolor="orange" with="100">제목</th>
 	<th bgcolor="orange" with="100">작성자</th>
 	<th bgcolor="orange" with="100">등록일</th>
-	<th bgcolor="orange" with="100">조회수</th>
+	
 </tr>
 
 <c:forEach items="${postlist}" var="postlist">

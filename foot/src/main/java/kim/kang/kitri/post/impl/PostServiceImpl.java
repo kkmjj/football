@@ -28,5 +28,14 @@ public class PostServiceImpl implements PostService {
 		
 		return postDAO.getPostList(vo);
 	}
+   
+   
+   //±Ûµî·Ï
+   public void InsertList(PostVO vo)
+   {
+	   postDAO.PostInsertList(vo);
+	  // return postDAO.
+   }
+   
 	
 }

@@ -22,6 +22,10 @@ public class PostDAO {
 	//검색 조회
 	private final String POST_Search_List = "select * from POST where writer like '%'||?||'%' order by id desc";
 	
+	//
+	private final String POST_Insert 
+	="insert into POST(ID,WRITER,DATETIME,PER,CONTENT,STATUS,ZIP_CODE,ADDRESS,ADDRESS_DETAIL) "
+			+ "values(POST_SEQ.NEXTVAL,?,?,?,?,'Y',?,?,?)";
 	
 	
 	public List<PostVO> getPostSearchList(PostVO vo)
@@ -44,10 +48,18 @@ public class PostDAO {
 
 			return jdbcTemplate.query(POST_List, new PostRowMapper());
 			
-		
-		 
+			
 	}
 	
+	
+	
+	public void PostInsertList(PostVO vo)
+	{
+	
+			jdbcTemplate.update(POST_Insert,vo.getWriter(),vo.getDATETIME(),vo.getPER(),vo.getCONTENT()
+					,vo.getZIP_CODE(),vo.getADDRESS(),vo.getADDRESS_DETAIL());
+			
+	}
 	
 	
 
