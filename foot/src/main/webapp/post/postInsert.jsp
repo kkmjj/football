@@ -27,19 +27,19 @@
 	
 	            <div class="col-md-12 col-lg-8 mb-5">
 	                
-	                <form action="../signupUser.do" method="post" class="p-5 bg-white">
+	                <form action="PostInsert.do" method="post" class="p-5 bg-white">
                         <div class="form-group" align="left">
                             <label >제목</label>
                             <input type="text" class="form-control" id="title" name="title">
                         </div>
                         <div class="form-group" align="left">
                             <label class="mr-4">모집인원</label>
-                            <input type="text" class="form-control" id="per" name="per" style="width: 20%; display: inline;">
+                            <input type="text" class="form-control" id="PER" name="PER" style="width: 20%; display: inline;">
                             <label class="mr-1">명</label>
                         </div>
                         <div class="form-group" align="left">
                             <label >날짜</label>
-                            <input type="date" class="form-control" id="ID" name="ID" >
+                            <input type="date" class="form-control" id="DATETIME" name="DATETIME" >
                         </div>
                         <div class="form-group" align="left">
                             <input type="text" class="form-control mr-1" id="hour" name="hour" style="width: 40%; display: inline;">
@@ -63,7 +63,7 @@
                         </div>
                         <div class="form-group" align="left">
                             <label for="name">내용</label>
-                            <input type="textarea" class="form-control" id="content" name="content">
+                            <input type="textarea" class="form-control" id="CONTENT" name="CONTENT">
                         </div>
                         <div class="form-group" align="center">
                             <button type="submit" class="btn btn-primary" id="registerBtn">등록</button>

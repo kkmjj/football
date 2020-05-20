@@ -26,17 +26,21 @@ public class PostDAO {
 	}
 	
 	
-	//�׳���ȸ
+	//占쌓놂옙占쏙옙회
 	private final String POST_List ="select * from POST";
 	
-	//�˻� ��ȸ
+	//占싯삼옙 占쏙옙회
 	private final String POST_Search_List = "select * from POST where writer like '%'||?||'%' order by id desc";
 	
+	//
+	private final String POST_Insert 
+	="insert into POST(ID,WRITER,DATETIME,PER,CONTENT,STATUS,ZIP_CODE,ADDRESS,ADDRESS_DETAIL) "
+			+ "values(POST_SEQ.NEXTVAL,?,?,?,?,'Y',?,?,?)";
 	
 	
 	public List<PostVO> getPostSearchList(PostVO vo)
 	{
-		System.out.println("springjdbc�� ���� -�� ��� ��ȸ getSearchList �Լ� ����");
+		System.out.println("springjdbc占쏙옙 占쏙옙占쏙옙 -占쏙옙 占쏙옙占� 占쏙옙회 getSearchList 占쌉쇽옙 占쏙옙占쏙옙");
 		Object[] args = {vo.getSearchKeyword()};
 		if(vo.getSearchCondition().equals("writer"))
 		{
@@ -54,10 +58,18 @@ public class PostDAO {
 
 			return jdbcTemplate.query(POST_List, new PostRowMapper());
 			
-		
-		 
+			
 	}
 	
+	
+	
+	public void PostInsertList(PostVO vo)
+	{
+	
+			jdbcTemplate.update(POST_Insert,vo.getWRITER(),vo.getDATETIME(),vo.getPER(),vo.getCONTENT()
+					,vo.getZIP_CODE(),vo.getADDRESS(),vo.getADDRESS_DETAIL());
+			
+	}
 	
 	
 }

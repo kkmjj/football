@@ -138,9 +138,10 @@
 			<div class="row">
 				<div class="col-lg-12 pr-lg-4">
 					<div class="row">
-						<% if(user != null) { %>
+					<% String userId = (String)session.getAttribute("userID"); 
+						if(userId != null) { %>
 						<div class="col-md-12 ftco-animate text-lg-right">
-							<a href="/postinsert.do" class="btn btn-primary mb-4">공고 등록</a>
+							<a href="PostInsertPage.do" class="btn btn-primary mb-4">공고 등록</a>
 						</div>
 						<% } %>
 						<!-- end -->

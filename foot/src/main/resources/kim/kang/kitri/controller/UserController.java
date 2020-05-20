@@ -1,29 +1,18 @@
 package kim.kang.kitri.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kim.kang.kitri.apply.ApplyService;
-import kim.kang.kitri.apply.ApplyVO;
 import kim.kang.kitri.post.PostService;
-import kim.kang.kitri.post.PostVO;
-import kim.kang.kitri.post.impl.PostRowMapper;
 import kim.kang.kitri.user.UserService;
 import kim.kang.kitri.user.UserVO;
-import kim.kang.kitri.user.impl.UserDAO;
 
 @Controller
 public class UserController {
@@ -44,16 +33,16 @@ public class UserController {
 			session.setAttribute("userGRADE", user.getGRADE());
 			session.setAttribute("userID", user.getID());
 			session.setAttribute("userNAME", user.getNAME());	
-			return "index.jsp";
+			return "home.do";
 		} else
-			return "/users/login.jsp";
+			return "loginPage.do";
 	}
 
 	
 	@RequestMapping(value = "/signupUser.do", method = RequestMethod.POST)
 	public String signupUser(UserVO vo) {
 		userService.signupUser(vo);
-		return "redirect:/users/login.jsp";
+		return "loginPage.do";
 	}
 	
 	@RequestMapping(value = "/signup.do", method = RequestMethod.GET)
@@ -88,7 +77,7 @@ public class UserController {
 	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:index.jsp";
+		return "home.do";
 	}
 	
 	@RequestMapping(value = "/findidpw.do", method = RequestMethod.POST)
@@ -136,7 +125,7 @@ public class UserController {
 	@RequestMapping(value = "/logoutPage.do")
 	public String logoutPage(HttpSession session) {
 		session.invalidate();
-		return "redirect:/";
+		return "home.do";
 	}
 	
 }

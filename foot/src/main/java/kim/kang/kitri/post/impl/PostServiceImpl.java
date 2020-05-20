@@ -30,10 +30,18 @@ public class PostServiceImpl implements PostService {
 		return postDAO.getPostList(vo);
 	}
 
-@Override
-public List<PostVO> idFindPostList(String postIdList) {
-	// TODO Auto-generated method stub
-	return postDAO.idFindPostList(postIdList);
-}
+ 
+	public List<PostVO> idFindPostList(String postIdList) {
+		// TODO Auto-generated method stub
+		return postDAO.idFindPostList(postIdList);
+	}
+	   
+  
+   public void InsertList(PostVO vo)
+   {
+	   postDAO.PostInsertList(vo);
+	  // return postDAO.
+   }
+   
 	
 }
