@@ -1,60 +1,85 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
+<%@ include file="/includes/header.jsp" %>
+
 <body>
-
-
-
-
-<form action="../PostInsert.do" method="post">
-<table border="1" cellpadding="0" cellspacing="0" >
+	<%@ include file="/includes/navbar.jsp" %>
 	
 
-	<tr>
-		<td bgcolor="orange" >∞Ê±‚Ω√∞£</td>			<!-- ≥ªøÎ∞˙ ¡¶∏Ò¿∫ ºˆ¡§∞°¥…«œ∞‘ ±∏º∫µ«¿÷æÓ name∞™¿ª ¡ˆ¡§  -->
-		<td align="left"><input  name="DATETIME" type="date"></textarea></td>
-	</tr>
-	<tr>
-		<td bgcolor="orange" >»Ò∏¡¿Œø¯</td>
-		<td align="left"><input name="PER" type="text"/></td>
-	</tr>
-	<tr>
-		<td bgcolor="orange" >≥ªøÎ</td>
-		<td align="left"><input name="CONTENT" type="text" cols="40" rows="10"/></td>
-	</tr>
-	</tr>
-	<tr>
-		<td bgcolor="orange" >ZIP_CODE</td>
-		<td align="left"><input name="ZIP_CODE" type="text"/></td>
-	</tr>
-	<tr>
-		<td bgcolor="orange" >ADDRESS</td>
-		<td align="left"><input name="ADDRESS" type="text"/></td>
-	</tr>
-	<tr>
-		<td bgcolor="orange" >ADDRESS_DETAIL</td>
-		<td align="left"><input name="ADDRESS_DETAIL" type="text"/></td>
-	</tr>
+	<div class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');"
+	    data-stellar-background-ratio="0.5">
+	    <div class="overlay"></div>
+	    <div class="container">
+	        <div class="row no-gutters slider-text align-items-end justify-content-start">
+	            <div class="col-md-12 ftco-animate text-center mb-5">
+	                <p class="breadcrumbs mb-0"><span class="mr-3"><a href="index.jsp">Post 
+	                    <i class="ion-ios-arrow-forward"></i></a></span> <span>Insert</span></p>
+	                <h1 class="mb-3 bread">Í≥µÍ≥† Îì±Î°ù</h1>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
-	<tr>
-		<td colspan="2" align="center"><input type="submit" value="±€ µÓ∑œ" /></td>
-		
-	</tr>
+	<section class="ftco-section bg-light">
+	    <div class="container">
+	        <div class="row align-items-center justify-content-center">
+	
+	            <div class="col-md-12 col-lg-8 mb-5">
+	                
+	                <form action="PostInsert.do" method="post" class="p-5 bg-white">
+                        <div class="form-group" align="left">
+                            <label >Ï†úÎ™©</label>
+                            <input type="text" class="form-control" id="title" name="title">
+                        </div>
+                        <div class="form-group" align="left">
+                            <label class="mr-4">Î™®ÏßëÏù∏Ïõê</label>
+                            <input type="text" class="form-control" id="PER" name="PER" style="width: 20%; display: inline;">
+                            <label class="mr-1">Î™Ö</label>
+                        </div>
+                        <div class="form-group" align="left">
+                            <label >ÎÇ†Ïßú</label>
+                            <input type="date" class="form-control" id="DATETIME" name="DATETIME" >
+                        </div>
+                        <div class="form-group" align="left">
+                            <input type="text" class="form-control mr-1" id="hour" name="hour" style="width: 40%; display: inline;">
+                            <label class="mr-4">Ïãú</label>
+                            <input type="text" class="form-control mr-1" id="min" name="min" style="width: 40%; display: inline;">
+                            <label class="">Î∂Ñ</label>
+                        </div>
+                        <div class="form-group" align="left">
+                            <label >Î™®ÏûÑ Ïû•ÏÜå</label><br>
+                            <input class="form-control" style="width: 40%; display: inline;" placeholder="Ïö∞Ìé∏Î≤àÌò∏"
+                                name="ZIP_CODE" id="ZIP_CODE" type="text" >
+                            <button type="button" class="btn btn-warning" onclick="execPostCode();">
+                            <i class="fa fa-search"></i> Ïö∞Ìé∏Î≤àÌò∏ Ï∞æÍ∏∞</button>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" style="top: 5px;" placeholder="ÎèÑÎ°úÎ™Ö Ï£ºÏÜå" name="ADDRESS"
+                                id="ADDRESS" type="text"  />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="ÏÉÅÏÑ∏Ï£ºÏÜå" name="ADDRESS_DETAIL" id="ADDRESS_DETAIL" type="text" />
+                        </div>
+                        <div class="form-group" align="left">
+                            <label for="name">ÎÇ¥Ïö©</label>
+                            <input type="textarea" class="form-control" id="CONTENT" name="CONTENT">
+                        </div>
+                        <div class="form-group" align="center">
+                            <button type="submit" class="btn btn-primary" id="registerBtn">Îì±Î°ù</button>
+                        </div>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	
 
-</table>
+	<%@ include file="/includes/footer.jsp" %>
+	
 
-</form>
-
-
-
-
-
-
+	<%@ include file="/includes/scripts.jsp" %>
 
 </body>
+
 </html>

@@ -11,15 +11,26 @@ import kim.kang.kitri.post.PostVO;
 @Repository
 public class PostDAO {
 
-	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+
+	public List<PostVO> myPostList(PostVO vo) {
+		String myPOST_List = "select * from POST where writer = ?";
+		Object[] args = { vo.getWRITER()};
+		return jdbcTemplate.query(myPOST_List, args, new PostRowMapper());
+	}
+	
+	public List<PostVO> idFindPostList(PostVO vo, String postIdList) {
+		String myPOST_List = "select * from POST where ID IN ("+postIdList+")";
+		Object[] args = { vo.getWRITER()};
+		return jdbcTemplate.query(myPOST_List, args, new PostRowMapper());
+	}
 	
 	
-	//±×³ÉÁ¶È¸
+	//å ìŒ“ë†‚ì˜™å ì™ì˜™íšŒ
 	private final String POST_List ="select * from POST";
 	
-	//°Ë»ö Á¶È¸
+	//å ì‹¯ì‚¼ì˜™ å ì™ì˜™íšŒ
 	private final String POST_Search_List = "select * from POST where writer like '%'||?||'%' order by id desc";
 	
 	//
@@ -30,7 +41,7 @@ public class PostDAO {
 	
 	public List<PostVO> getPostSearchList(PostVO vo)
 	{
-		System.out.println("springjdbc·Î Àû¿ë -±Û ¸ñ·Ï Á¶È¸ getSearchList ÇÔ¼ö Àû¿ë");
+		System.out.println("springjdbcå ì™ì˜™ å ì™ì˜™å ì™ì˜™ -å ì™ì˜™ å ì™ì˜™å ï¿½ å ì™ì˜™íšŒ getSearchList å ìŒ‰ì‡½ì˜™ å ì™ì˜™å ì™ì˜™");
 		Object[] args = {vo.getSearchKeyword()};
 		if(vo.getSearchCondition().equals("writer"))
 		{
@@ -56,11 +67,10 @@ public class PostDAO {
 	public void PostInsertList(PostVO vo)
 	{
 	
-			jdbcTemplate.update(POST_Insert,vo.getWriter(),vo.getDATETIME(),vo.getPER(),vo.getCONTENT()
+			jdbcTemplate.update(POST_Insert,vo.getWRITER(),vo.getDATETIME(),vo.getPER(),vo.getCONTENT()
 					,vo.getZIP_CODE(),vo.getADDRESS(),vo.getADDRESS_DETAIL());
 			
 	}
 	
 	
-
 }

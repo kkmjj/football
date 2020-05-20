@@ -1,1 +1,7 @@
 Servers/
+
+foot/target/
+
+
+### Java ###
+*.class

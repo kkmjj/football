@@ -9,37 +9,40 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kim.kang.kitri.apply.ApplyService;
 import kim.kang.kitri.post.PostService;
+import kim.kang.kitri.user.UserService;
 import kim.kang.kitri.user.UserVO;
-import kim.kang.kitri.user.impl.UserDAO;
 
 @Controller
 public class UserController {
 	@Autowired
-	UserDAO UserService;
+	UserService userService;
 	@Autowired
-	private PostService postservice;
+	PostService postservice;
+	@Autowired
+	ApplyService applyService;
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String login(UserVO vo, HttpSession session, Model model) {
 		//model.addAttribute("postlist", jdbcTemplate.query("select * from POST", new PostRowMapper()));
-		UserVO user = UserService.getUser(vo);
+		UserVO user = userService.getUser(vo);
 		if (user != null) {
 			session.setAttribute("userGRADE", user.getGRADE());
 			session.setAttribute("userID", user.getID());
 			session.setAttribute("userNAME", user.getNAME());	
-			return "redirect:home.do";
+			return "home.do";
 		} else
-			return "/users/login.jsp";
+			return "loginPage.do";
 	}
 
 	
 	@RequestMapping(value = "/signupUser.do", method = RequestMethod.POST)
 	public String signupUser(UserVO vo) {
-		UserService.signupUser(vo);
-		return "redirect:/users/login.jsp";
+		userService.signupUser(vo);
+		return "loginPage.do";
 	}
 	
 	
@@ -48,12 +51,10 @@ public class UserController {
 		UserVO loginUser = new UserVO();
 		loginUser.setID((String)session.getAttribute("userID"));
 		loginUser.setPASSWORD((String)session.getAttribute("userPASSWORD"));
-		loginUser = UserService.getUser(loginUser); 
+		loginUser = userService.getUser(loginUser); 
 		loginUser.setGRADE(vo.getGRADE());
-		
-		UserService.updateUser(loginUser);
+		userService.updateUser(loginUser);
 		session.setAttribute("userGRADE", loginUser.getGRADE());
-		
 		return "/users/mypage.jsp";
 	}
 	
@@ -61,19 +62,19 @@ public class UserController {
 	public String deleteUser(UserVO vo, HttpSession session) {
 		vo.setID((String)session.getAttribute("userID"));
 		session.invalidate();
-		UserService.deleteUser(vo);
+		userService.deleteUser(vo);
 		return "/users/login.jsp";
 	}
 	
 	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:index.jsp";
+		return "home.do";
 	}
 	
 	@RequestMapping(value = "/findidpw.do", method = RequestMethod.POST)
 	public String findidpw(UserVO vo, HttpSession session) {
-		UserVO findUser = UserService.findUser(vo);
+		UserVO findUser = userService.findUser(vo);
 		if(findUser!=null) {
 			session.setAttribute("userID", findUser.getID());
 			session.setAttribute("userPASSWORD", findUser.getPASSWORD());
@@ -81,6 +82,27 @@ public class UserController {
 		}  else {
 			session.setAttribute("findMessage", "해당 내역으로 가입 된 정보를 찾을 수 없습니다");
 		}
-		return "redirect:/users/findidpwResult.jsp";
+		return "/users/findidpwResult.jsp";
 	}
+	
+	
+	@RequestMapping(value = "/loginPage.do")
+	public String loginPage() {
+		return "/users/login.jsp";
+	}
+	
+	@RequestMapping(value = "/myPages.do")
+	public String myPage(HttpSession session) {
+		 if(session.getAttribute("userID")!=null) {
+			 return "mypage.do";
+		 }
+		return "redirect:/loginPage.do";
+	}
+	
+	@RequestMapping(value = "/logoutPage.do")
+	public String logoutPage(HttpSession session) {
+		session.invalidate();
+		return "home.do";
+	}
+	
 }

@@ -38,21 +38,27 @@ public class PostController {
 	String contition,@RequestParam(value = "searchKeyword", defaultValue = "", required = false) String keyword, 
 	PostVO vo, Model model){ // handleRequest(HttpServletRequest request, HttpServletResponse response) 
 		
-		
+		System.out.println("postlist.do ");
 		if(vo.getSearchCondition() ==null) vo.setSearchCondition("writer");
 		if(vo.getSearchKeyword()==null) vo.setSearchKeyword("");
-		
-		
-		// 키워드 없이 전송 누르면 기본적으로 제목에 해당되는 모든 값을 출력 
-		
 		
 		System.out.println(keyword);
 		System.out.println(contition);
 		model.addAttribute("postlist", postservice.getPostSearchList(vo));
 		
 		return "index.jsp";
+	}	
+	
+	
+	
+	@RequestMapping("/PostInsertPage.do")
+	public String InsertListPage() {
+		
+	
+		
+		
+		return "post/postInsert.jsp";
 	}
-
 	
 	
 	
@@ -63,7 +69,7 @@ public class PostController {
 	
 		HttpSession session = request.getSession();
 		System.out.println(session.getAttribute("userID"));
-		vo.setWriter((String)session.getAttribute("userID"));
+		vo.setWRITER((String)session.getAttribute("userID"));
 		
 		postservice.InsertList(vo);
 		

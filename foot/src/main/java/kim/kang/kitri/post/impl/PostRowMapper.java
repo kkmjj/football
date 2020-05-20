@@ -13,7 +13,7 @@ public class PostRowMapper implements RowMapper<PostVO> {
 	public PostVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		PostVO post = new PostVO();
 		post.setID(rs.getInt("ID"));
-		post.setWriter(rs.getString(("WRITER")));
+		post.setWRITER(rs.getString(("WRITER")));
 		post.setDATETIME(rs.getDate(("DATETIME")));
 		post.setPER(rs.getInt("PER"));
 		post.setCONTENT(rs.getString("CONTENT"));
@@ -22,7 +22,7 @@ public class PostRowMapper implements RowMapper<PostVO> {
 		post.setADDRESS(rs.getString("ADDRESS"));
 		post.setADDRESS_DETAIL(rs.getString("ADDRESS_DETAIL"));
 		
-		System.out.println("postMapper"+post.getWriter());
+		System.out.println("postMapper"+post.getWRITER());
 		return post;
 	}
 }

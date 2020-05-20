@@ -2,7 +2,6 @@ package kim.kang.kitri.post;
 
 import java.util.List;
 
-
 public interface PostService {
 
 	// 그냥 바로 조회 
@@ -14,6 +13,8 @@ public interface PostService {
 	
 	//글 등록 
 	void InsertList(PostVO vo);
+
 	
+	public List<PostVO> myPostList(PostVO vo);
 	
 }

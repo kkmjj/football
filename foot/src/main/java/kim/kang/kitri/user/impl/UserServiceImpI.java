@@ -34,4 +34,9 @@ public class UserServiceImpI implements UserService {
 	public UserVO sessionUser(UserVO vo) {
 		return userDAO.sessionUser(vo);
 	}
+	@Override
+	public UserVO idGetUser(UserVO vo) {
+		// TODO Auto-generated method stub
+		return userDAO.idGetUser(vo);
+	}
 }
