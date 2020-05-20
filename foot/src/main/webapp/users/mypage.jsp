@@ -77,7 +77,7 @@
                             <label for="">주소</label><br>
                             <input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호"
                                 name="ZIP_CODE" id="ZIP_CODE" type="text" value="${user.ZIP_CODE}" readonly>
-                            <button type="button" class="btn btn-warning" onclick="execPostCode();">
+                            <button type="button" class="btn btn-warning" onclick="goPopup();">
                             <i class="fa fa-search"></i> 우편번호 찾기</button>
                         </div>
                         <div class="form-group">
