@@ -1,5 +1,8 @@
 package kim.kang.kitri.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kim.kang.kitri.apply.ApplyService;
+import kim.kang.kitri.apply.ApplyVO;
 import kim.kang.kitri.post.PostService;
+import kim.kang.kitri.post.PostVO;
 import kim.kang.kitri.user.UserService;
 import kim.kang.kitri.user.UserVO;
 

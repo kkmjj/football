@@ -21,9 +21,9 @@ public class PostController {
 	private PostService postservice;
 	
 	
-	// ¸ŞÀÎ °ø°í ¸®½ºÆ® 
+	// home.do ë¨¼ì € ì‹¤í–‰í•˜ê³  index í˜ì´ì§€ë¡œ ë„˜ì–´ê°€ê¸° 
 	@RequestMapping("/home.do")
-	public String getPostList(PostVO vo, Model model){ // handleRequest(HttpServletRequest request, HttpServletResponse response) 
+	public String getPostList(PostVO vo, Model model){ 
 		
 	
 		model.addAttribute("postlist", postservice.getPostList(vo));
@@ -32,13 +32,13 @@ public class PostController {
 	}
 	
 	
-	// °Ë»ö Ã£±â ±¸Çö 
+	// ê²€ìƒ‰ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ index.jsp ì— ì ìš© 
 	@RequestMapping("/PostSearchList.do")
 	public String getPostSearchList(@RequestParam(value = "searchCondition", defaultValue = "writer", required = false)
 	String contition,@RequestParam(value = "searchKeyword", defaultValue = "", required = false) String keyword, 
-	PostVO vo, Model model){ // handleRequest(HttpServletRequest request, HttpServletResponse response) 
+	PostVO vo, Model model){
 		
-		System.out.println("postlist.do ");
+		System.out.println("postlist.do");
 		if(vo.getSearchCondition() ==null) vo.setSearchCondition("writer");
 		if(vo.getSearchKeyword()==null) vo.setSearchKeyword("");
 		
@@ -50,19 +50,16 @@ public class PostController {
 	}	
 	
 	
-	
+	//index í˜ì´ì§€ì—ì„œ ë“±ë¡ì„ ëˆ„ë¥´ê²Œ ë˜ë©´ -> postInsertí˜ì´ì§€ë¡œ ë„˜ì–´ê° 
 	@RequestMapping("/PostInsertPage.do")
 	public String InsertListPage() {
-		
 	
-		
-		
 		return "post/postInsert.jsp";
 	}
 	
 	
 	
-	//°Ô½Ã±Û µî·ÏÇÏ±â -> µî·ÏÇÏ°í ¸ŞÀÎÀ¸·Î ³Ñ¾î°¡±â 
+	//postInsert í˜ì´ì§€ì—ì„œ ë“±ë¡ ì™„ë£Œí•˜ë©´ home.doë¡œ ê°€ì„œ  index í˜ì´ì§€ë¡œ ë„˜ì–´ê° 
 	@RequestMapping("/PostInsert.do")
 	public String InsertList(HttpServletRequest request,PostVO vo) {
 		
