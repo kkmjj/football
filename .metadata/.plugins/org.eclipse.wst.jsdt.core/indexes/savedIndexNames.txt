@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\Users\Administrator\Desktop\kitri\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-985300124.index
-2838443295.index
-3540661080.index
-2733602560.index
-4029683695.index
-2393256552.index

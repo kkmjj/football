@@ -1,6 +1,8 @@
 Servers/
 
-foot/target/
+.metadata/
+
+foot/target/classes
 
 
 ### Java ###
