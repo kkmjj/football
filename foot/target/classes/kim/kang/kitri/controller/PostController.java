@@ -23,8 +23,8 @@ public class PostController {
 	
 	// home.do 먼저 실행하고 index 페이지로 넘어가기 
 	@RequestMapping("/home.do")
-	public String getPostList(PostVO vo, Model model){ 
-		
+	public String getPostList( Model model){ 
+		PostVO vo = new PostVO();
 	
 		model.addAttribute("postlist", postservice.getPostList(vo));
 		
@@ -74,6 +74,20 @@ public class PostController {
 	}
 	
 	
+	
+	//postInsert 페이지에서 등록 완료하면 home.do로 가서  index 페이지로 넘어감 
+	@RequestMapping("/PostDetail.do")
+	public String DetailPost(HttpServletRequest request,PostVO vo) {
+		
+	
+		HttpSession session = request.getSession();
+		System.out.println(session.getAttribute("userID"));
+		vo.setWRITER((String)session.getAttribute("userID"));
+		
+		postservice.InsertList(vo);
+		
+		return "postDetail.jsp";
+	}
 	
 	
 	
