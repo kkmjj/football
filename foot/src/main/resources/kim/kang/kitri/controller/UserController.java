@@ -160,9 +160,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/evaluPage.do")
-	public String evaluPage(HttpSession session) {
-		return "home.jsp";
+	public String evaluPage() {
+		return "evalu/evaluInsert.jsp";
 	}
+	
 	@RequestMapping(value = "/logoutPage.do")
 	public String logoutPage(HttpSession session) {
 		session.invalidate();
