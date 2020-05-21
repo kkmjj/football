@@ -75,8 +75,8 @@ public class PostController {
 	
 	
 	
-	
-	
+
+//postInsert 페이지에서 등록 완료하면 home.do로 가서  index 페이지로 넘어감 
 	@RequestMapping("/PostDetail.do")
 	public String DetailPost(String id,Model model) {
 	
@@ -85,6 +85,14 @@ public class PostController {
 		System.out.println(id);
 		
 		return "post/postDetail.jsp";
+	}
+	
+	// PostDetail 페이지에서 수정이 필요할시 나타나는 페이지
+	@RequestMapping("/PostUpdatePage.do")
+	public String UpdatePostPage() {
+		
+		
+		return "post/postUpdate.jsp";
 	}
 	
 	

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -122,10 +123,11 @@ public class UserController {
 			model.addAttribute("user", userService.idGetUser(userVO));
 			postVO.setWRITER((String) session.getAttribute("userID"));
 			List<PostVO> myPostList = postservice.myPostList(postVO);
-			LocalDateTime now = LocalDateTime.now();
+			SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
+			Date date = new Date();
 			for (int i = 0; i < myPostList.size(); i++) {
 				if (myPostList.get(i).getSTATUS().equals("N")) {
-					if (now.isBefore(LocalDateTime.ofInstant(myPostList.get(i).getDATETIME().toInstant(),ZoneId.systemDefault()))) {
+					if (date.compareTo(myPostList.get(i).getDATETIME())>0) {
 						myPostList.get(i).setSTATUS("E");
 						//postservice.evaluationOK(myPostList.get(i));
 					}
@@ -144,7 +146,7 @@ public class UserController {
 				List<PostVO> myApplyList = postservice.idFindPostList(applyPostIDList);
 				for (int i = 0; i < myApplyList.size(); i++) {
 					if (myApplyList.get(i).getSTATUS().equals("N")) {
-						if (now.isBefore(LocalDateTime.ofInstant(myApplyList.get(i).getDATETIME().toInstant(),ZoneId.systemDefault()))) {
+						if (date.compareTo(myApplyList.get(i).getDATETIME())>0) {
 							myApplyList.get(i).setSTATUS("E");
 							//postservice.evaluationOK(myApplyList.get(i));
 						}
