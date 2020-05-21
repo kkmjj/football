@@ -9,11 +9,39 @@ public class PostVO {
 	private int PER;
 	private String CONTENT;
 	private String STATUS;
-	private String searchCondition;
-	private String searchKeyword;
+
 	private String ZIP_CODE;
 	private String ADDRESS;
 	private String ADDRESS_DETAIL;
+	
+	private String TITLE;
+	private String HOUR;
+	private String MIN;
+	
+	public String getTITLE() {
+		return TITLE;
+	}
+	public void setTITLE(String tITLE) {
+		TITLE = tITLE;
+	}
+	public String getHOUR() {
+		return HOUR;
+	}
+	public void setHOUR(String hOUR) {
+		HOUR = hOUR;
+	}
+	public String getMIN() {
+		return MIN;
+	}
+	public void setMIN(String mIN) {
+		MIN = mIN;
+	}
+	//검색시 사용 
+	private String searchCondition;
+	private String searchKeyword;
+	
+	//상세시 등록자 정보 불러오기 
+	
 	public int getID() {
 		return ID;
 	}

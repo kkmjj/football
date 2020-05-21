@@ -15,6 +15,7 @@ public class PostDAO {
 	private JdbcTemplate jdbcTemplate;
 
 	public List<PostVO> myPostList(PostVO vo) {
+		
 		String myPOST_List = "select * from POST where writer = ?";
 		Object[] args = { vo.getWRITER()};
 		return jdbcTemplate.query(myPOST_List, args, new PostRowMapper());
@@ -26,21 +27,24 @@ public class PostDAO {
 	}
 	
 	
-	//占쌓놂옙占쏙옙회
+	//다 출력
 	private final String POST_List ="select * from POST";
 	
-	//占싯삼옙 占쏙옙회
+	//검색 찾기
 	private final String POST_Search_List = "select * from POST where writer like '%'||?||'%' order by id desc";
 	
-	//
+	//삽입 
 	private final String POST_Insert 
-	="insert into POST(ID,WRITER,DATETIME,PER,CONTENT,STATUS,ZIP_CODE,ADDRESS,ADDRESS_DETAIL) "
-			+ "values(POST_SEQ.NEXTVAL,?,?,?,?,'Y',?,?,?)";
+	="insert into POST(ID,TITLE,STATUS,WRITER,PER,DATETIME,HOUR,MIN,ZIP_CODE,ADDRESS,ADDRESS_DETAIL,CONTENT) "
+			+ "values(POST_SEQ.NEXTVAL,?,'Y',?,?,?,?,?,?,?,?,?)";
+	
+	
+	private final String POST_Detail ="select ";
 	
 	
 	public List<PostVO> getPostSearchList(PostVO vo)
 	{
-		System.out.println("springjdbc占쏙옙 占쏙옙占쏙옙 -占쏙옙 占쏙옙占� 占쏙옙회 getSearchList 占쌉쇽옙 占쏙옙占쏙옙");
+
 		Object[] args = {vo.getSearchKeyword()};
 		if(vo.getSearchCondition().equals("writer"))
 		{
@@ -54,7 +58,7 @@ public class PostDAO {
 	
 	public List<PostVO> getPostList(PostVO vo)
 	{
-		System.out.println("dfdfdfdfdfdfdf");
+		
 
 			return jdbcTemplate.query(POST_List, new PostRowMapper());
 			
@@ -66,10 +70,19 @@ public class PostDAO {
 	public void PostInsertList(PostVO vo)
 	{
 	
-			jdbcTemplate.update(POST_Insert,vo.getWRITER(),vo.getDATETIME(),vo.getPER(),vo.getCONTENT()
-					,vo.getZIP_CODE(),vo.getADDRESS(),vo.getADDRESS_DETAIL());
+			jdbcTemplate.update(POST_Insert,vo.getTITLE(),vo.getWRITER(),vo.getPER(),vo.getDATETIME(),
+					vo.getHOUR(),vo.getMIN(),vo.getZIP_CODE(),vo.getADDRESS(),vo.getADDRESS_DETAIL(),vo.getCONTENT());
 			
 	}
+	
+	
+//	public List<PostVO> DetailPost(PostVO vo)
+//	{
+//	
+//			//return jdbcTemplate.query(psc, rse);
+//			
+//	}
+//	
 	
 	
 }
