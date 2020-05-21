@@ -33,7 +33,7 @@
 					<h1>title</h1>
 				</div>
 				<div class="row col-3 align-items-center justify-content-end">
-					<a href="/item_modify?num=id"><button
+					<a href="PostUpdatePage.do"><button
 							class="btn btn-dark btn-sm mr-2" type="button" id="modify">수정</button></a>
 					<a href="/item_delete?num=id"><button
 							class="btn btn-dark btn-sm mr-2" type="button" id="delete">삭제</button></a>
