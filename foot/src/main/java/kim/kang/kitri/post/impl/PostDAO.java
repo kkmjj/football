@@ -31,7 +31,7 @@ public class PostDAO {
 	private final String POST_List ="select * from POST";
 	
 	//검색 찾기
-	private final String POST_Search_List = "select * from POST where writer like '%'||?||'%' order by id desc";
+	private final String POST_Search_DATE_List = "select * from POST where DATETIME BETWEEN ? AND ? order by id desc";
 	
 	//삽입 
 	private final String POST_Insert 
@@ -43,17 +43,16 @@ public class PostDAO {
 	private final String POST_Detail ="select * from POST join users on POST.WRITER=users.id where post.id=?";
 	
 	
-	public List<PostVO> getPostSearchList(PostVO vo)
+	public List<PostVO> getPostDATESearchList(PostVO vo)
 	{
 
-		Object[] args = {vo.getSearchKeyword()};
-		if(vo.getSearchCondition().equals("writer"))
-		{
-			return jdbcTemplate.query(POST_Search_List,args, new PostRowMapper());
-			
-		}
+		Object[] args = {vo.getStart(), vo.getEnd()};
 		
-		return null;
+			return jdbcTemplate.query(POST_Search_DATE_List,args, new PostRowMapper());
+			
+		
+	
+		
 	}
 	
 	

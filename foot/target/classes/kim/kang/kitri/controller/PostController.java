@@ -33,18 +33,12 @@ public class PostController {
 	
 	
 	// 검색 버튼을 누르면 index.jsp 에 적용 
-	@RequestMapping("/PostSearchList.do")
-	public String getPostSearchList(@RequestParam(value = "searchCondition", defaultValue = "writer", required = false)
-	String contition,@RequestParam(value = "searchKeyword", defaultValue = "", required = false) String keyword, 
-	PostVO vo, Model model){
+	@RequestMapping("/PostDATESearchList.do")
+	public String getPostSearchList(String contition,@RequestParam(value = "start", defaultValue = "", required = false)
+	String start,@RequestParam(value = "end", defaultValue = "", required = false) String end, PostVO vo, Model model){
 		
-		System.out.println("postlist.do");
-		if(vo.getSearchCondition() ==null) vo.setSearchCondition("writer");
-		if(vo.getSearchKeyword()==null) vo.setSearchKeyword("");
 		
-		System.out.println(keyword);
-		System.out.println(contition);
-		model.addAttribute("postlist", postservice.getPostSearchList(vo));
+		model.addAttribute("postlist", postservice.getPostDATESearchList(vo));
 		
 		return "index.jsp";
 	}	
@@ -75,18 +69,24 @@ public class PostController {
 	
 	
 	
-	//postInsert 페이지에서 등록 완료하면 home.do로 가서  index 페이지로 넘어감 
+
+//postInsert 페이지에서 등록 완료하면 home.do로 가서  index 페이지로 넘어감 
 	@RequestMapping("/PostDetail.do")
-	public String DetailPost(HttpServletRequest request,PostVO vo) {
-		
+	public String DetailPost(String id,Model model) {
 	
-		HttpSession session = request.getSession();
-		System.out.println(session.getAttribute("userID"));
-		vo.setWRITER((String)session.getAttribute("userID"));
 		
-		postservice.InsertList(vo);
+		model.addAttribute("postdetail",postservice.DetailPost(id));
+		System.out.println(id);
 		
-		return "postDetail.jsp";
+		return "post/postDetail.jsp";
+	}
+	
+	// PostDetail 페이지에서 수정이 필요할시 나타나는 페이지
+	@RequestMapping("/PostUpdatePage.do")
+	public String UpdatePostPage() {
+		
+		
+		return "post/postUpdate.jsp";
 	}
 	
 	

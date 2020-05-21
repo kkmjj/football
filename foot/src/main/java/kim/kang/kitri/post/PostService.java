@@ -7,8 +7,8 @@ public interface PostService {
 	//전체 공고 
 	List<PostVO> getPostList(PostVO vo);
 	
-	//검색 공고
-	List<PostVO> getPostSearchList(PostVO vo);
+	//날짜 검색 공고
+	List<PostVO> getPostDATESearchList(PostVO vo);
 	
 	
 	//공고 삽입

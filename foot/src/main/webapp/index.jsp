@@ -83,14 +83,14 @@
 
 										<div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
 											aria-labelledby="v-pills-nextgen-tab">
-											<form action="#" class="search-job">
+											<form action="PostDATESearchList.do" class="search-job">
 												<div class="row no-gutters">
 													<div class="col-md mr-md-2">
 														<div class="form-group">
 															<div class="form-field">
 																<div class="icon"><span class="icon-briefcase"></span>
 																</div>
-																<input type="date" class="form-control"
+																<input type="date" class="form-control" id="start" name="start"
 																	placeholder="start">
 															</div>
 														</div>
@@ -100,7 +100,7 @@
 															<div class="form-field">
 																<div class="icon"><span class="icon-map-marker"></span>
 																</div>
-																<input type="date" class="form-control"
+																<input type="date" class="form-control" id="end" name="end"
 																	placeholder="end">
 															</div>
 														</div>
@@ -119,7 +119,7 @@
 
 										<div class="tab-pane fade" id="v-pills-2" role="tabpanel"
 											aria-labelledby="v-pills-performance-tab">
-											<form action="#" class="search-job">
+										<form action="#" class="search-job">
 												<div class="row">
 													<div class="col-md mr-md-2">
 														<div class="form-group">

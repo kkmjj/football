@@ -37,8 +37,8 @@ public class PostVO {
 		MIN = mIN;
 	}
 	//검색시 사용 
-	private String searchCondition;
-	private String searchKeyword;
+	private Date start;
+	private Date end;
 	
 	//상세시 등록자 정보 불러오기 
 	
@@ -46,6 +46,18 @@ public class PostVO {
 	
 	
 
+	public Date getStart() {
+		return start;
+	}
+	public void setStart(Date start) {
+		this.start = start;
+	}
+	public Date getEnd() {
+		return end;
+	}
+	public void setEnd(Date end) {
+		this.end = end;
+	}
 	public String getNAME() {
 		return NAME;
 	}
@@ -88,18 +100,7 @@ public class PostVO {
 	public void setSTATUS(String sTATUS) {
 		STATUS = sTATUS;
 	}
-	public String getSearchCondition() {
-		return searchCondition;
-	}
-	public void setSearchCondition(String searchCondition) {
-		this.searchCondition = searchCondition;
-	}
-	public String getSearchKeyword() {
-		return searchKeyword;
-	}
-	public void setSearchKeyword(String searchKeyword) {
-		this.searchKeyword = searchKeyword;
-	}
+
 	public String getZIP_CODE() {
 		return ZIP_CODE;
 	}
