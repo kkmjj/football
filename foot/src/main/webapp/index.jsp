@@ -148,7 +148,7 @@
 
 						<c:forEach items="${postlist}" var="postlist">
 							<div class="col-md-12 ftco-animate"
-								onclick="location.href = '/PostDetail.do?num=${postlist.ID}';">
+								onclick="location.href = 'PostDetailPage.do?num=${postlist.ID}';">
 								<div
 									class="job-post-item p-4 d-block d-lg-flex align-items-center">
 									<div class="one-third mb-4 mb-md-0">
