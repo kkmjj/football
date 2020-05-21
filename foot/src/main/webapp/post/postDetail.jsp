@@ -53,7 +53,7 @@
 									<h5>경기일</h5>
 								</td>
 								<td>
-									<h5>2020-05-21 18시 00분</h5>
+									<h5>${postdetail.DATETIME} ${postdetail.HOUR}시 ${postdetail.MIN}분</h5>
 								</td>
 							</tr>
 							<tr>
@@ -61,7 +61,7 @@
 									<h5>경기 장소</h5>
 								</td>
 								<td>
-									<h5>서울시 구로구 000경기장</h5>
+									<h5>${postdetail.ADDRESS} ${postdetail.ADDRESS_DETAIL}</h5>
 								</td>
 							</tr>
 							<tr>
@@ -69,7 +69,7 @@
 									<h5>모집 인원</h5>
 								</td>
 								<td>
-									<h5>5명</h5>
+									<h5>${postdetail.PER}명</h5>
 								</td>
 							</tr>
 							<tr><td></td><td></td></tr>
@@ -81,8 +81,8 @@
 								</td>
 								<td>
 									<ul>
-										<li>아이디 : 주최자 아이디</li>
-										<li>이름 : 주최자 이름</li>
+										<li>아이디 :${ postdetail.WRITER}</li>
+										<li>이름 : ${ postdetail.NAME}</li>
 										<li>평균 평점 : 75점</li>
 									</ul>
 								</td>
@@ -93,7 +93,7 @@
 							<h3>상세설명</h3>
 							<div id="content"
 								style="overflow-y: scroll; min-height: 300px; max-height: 700px">
-								내용 정보가 들어감</div>
+								 ${ postdetail.CONTENT} </div>
 						</div>
 					</div>
 				</div>

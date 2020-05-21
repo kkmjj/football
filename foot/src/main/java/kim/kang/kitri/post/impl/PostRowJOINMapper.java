@@ -6,8 +6,9 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import kim.kang.kitri.post.PostVO;
+import kim.kang.kitri.user.UserVO;
 
-public class PostRowMapper implements RowMapper<PostVO> {
+public class PostRowJOINMapper implements RowMapper<PostVO> {
 	
 
 	public PostVO mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -24,6 +25,10 @@ public class PostRowMapper implements RowMapper<PostVO> {
 		post.setTITLE(rs.getString("TITLE"));
 		post.setHOUR(rs.getInt("HOUR"));
 		post.setMIN(rs.getInt("MIN"));
+		
+//		UserVO user = new UserVO();
+		post.setNAME(rs.getString("NAME"));
+		
 		
 		
 		System.out.println("postMapper"+post.getWRITER());

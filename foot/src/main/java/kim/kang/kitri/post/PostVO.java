@@ -15,8 +15,8 @@ public class PostVO {
 	private String ADDRESS_DETAIL;
 	
 	private String TITLE;
-	private String HOUR;
-	private String MIN;
+	private int HOUR;
+	private int MIN;
 	
 	public String getTITLE() {
 		return TITLE;
@@ -24,16 +24,16 @@ public class PostVO {
 	public void setTITLE(String tITLE) {
 		TITLE = tITLE;
 	}
-	public String getHOUR() {
+	public int getHOUR() {
 		return HOUR;
 	}
-	public void setHOUR(String hOUR) {
+	public void setHOUR(int hOUR) {
 		HOUR = hOUR;
 	}
-	public String getMIN() {
+	public int getMIN() {
 		return MIN;
 	}
-	public void setMIN(String mIN) {
+	public void setMIN(int mIN) {
 		MIN = mIN;
 	}
 	//검색시 사용 
@@ -42,6 +42,16 @@ public class PostVO {
 	
 	//상세시 등록자 정보 불러오기 
 	
+	private String NAME;
+	
+	
+
+	public String getNAME() {
+		return NAME;
+	}
+	public void setNAME(String nAME) {
+		NAME = nAME;
+	}
 	public int getID() {
 		return ID;
 	}

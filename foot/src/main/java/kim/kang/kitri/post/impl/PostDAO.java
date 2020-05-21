@@ -39,7 +39,8 @@ public class PostDAO {
 			+ "values(POST_SEQ.NEXTVAL,?,'Y',?,?,?,?,?,?,?,?,?)";
 	
 	
-	private final String POST_Detail ="select ";
+	//상세  sql 
+	private final String POST_Detail ="select * from POST join users on POST.WRITER=users.id where post.id=?";
 	
 	
 	public List<PostVO> getPostSearchList(PostVO vo)
@@ -76,13 +77,14 @@ public class PostDAO {
 	}
 	
 	
-//	public List<PostVO> DetailPost(PostVO vo)
-//	{
-//	
-//			//return jdbcTemplate.query(psc, rse);
-//			
-//	}
-//	
+	public PostVO DetailPost(String id)
+	{
+	
+		Object[] args = {id};
+		return jdbcTemplate.queryForObject(POST_Detail,args, new PostRowJOINMapper());
+			
+	}
+
 	
 	
 }

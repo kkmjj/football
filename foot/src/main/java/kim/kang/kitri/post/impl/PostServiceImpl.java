@@ -29,6 +29,12 @@ public class PostServiceImpl implements PostService {
 		
 		return postDAO.getPostList(vo);
 	}
+   
+   @Override
+   public PostVO DetailPost(String id) {
+	
+	return postDAO.DetailPost(id);
+   }
 
  
 	public List<PostVO> idFindPostList(String postIdList) {
@@ -42,6 +48,8 @@ public class PostServiceImpl implements PostService {
 	   postDAO.PostInsertList(vo);
 	  // return postDAO.
    }
+   
+   
    
 	
 }
