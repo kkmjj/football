@@ -1,4 +1,4 @@
-package kim.kang.kitri.applyimpl;
+package kim.kang.kitri.apply.impl;
 
 
 import java.sql.ResultSet;
