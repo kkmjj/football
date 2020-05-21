@@ -95,6 +95,10 @@
 								style="overflow-y: scroll; min-height: 300px; max-height: 700px">
 								 ${ postdetail.CONTENT} </div>
 						</div>
+						
+                        <div class="" align="center">
+                        	<a href="모집마감컨트롤러.do" class="btn btn-danger">모집 마감</a>
+                        </div>
 					</div>
 				</div>
 			</div>
