@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
 <%@ include file="/includes/header.jsp" %>
-
 <body>
 	<%@ include file="/includes/navbar.jsp" %>
-	
-	
 	<div class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');"
 	    data-stellar-background-ratio="0.5">
 	    <div class="overlay"></div>
@@ -20,11 +16,9 @@
 	        </div>
 	    </div>
 	</div>
-
 	<section class="ftco-section bg-light">
 	    <div class="container">
 	        <div class="row align-items-center justify-content-center">
-	
 	            <div class="col-md-12 col-lg-8 mb-5">	            
 	                <form action="userUpdate.do" method="post" class="p-5 bg-white">
                         <h3 class="page-title">개인 정보</h3>    
@@ -75,17 +69,17 @@
                         </div>
                         <div class="form-group" align="left">
                             <label for="">주소</label><br>
-                            <input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호"
+                            <input class="form-control" style="width: 40%; display: inline;"
                                 name="ZIP_CODE" id="ZIP_CODE" type="text" value="${user.ZIP_CODE}" readonly>
                             <button type="button" class="btn btn-warning" onclick="goPopup();">
                             <i class="fa fa-search"></i> 우편번호 찾기</button>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="ADDRESS"
+                            <input class="form-control" style="top: 5px;"name="ADDRESS"
                                 id="ADDRESS" type="text" value="${user.ADDRESS}" readonly />
                         </div>
                         <div class="form-group">
-                            <input class="form-control" placeholder="상세주소" name="ADDRESS_DETAIL" id="ADDRESS_DETAIL" 
+                            <input class="form-control" name="ADDRESS_DETAIL" id="ADDRESS_DETAIL" 
                             type="text" value="${user.ADDRESS_DETAIL}" />
                         </div>
                             <div class="form-group" align="center">
@@ -154,13 +148,8 @@
 	        </div>
 	    </div>
 	</section>
-	
-
 	<%@ include file="/includes/footer.jsp" %>
-	
-
 	<%@ include file="/includes/scripts.jsp" %>
-
 </body>
 
 </html>
