@@ -30,14 +30,16 @@
 
 			<div class="breadcrumb">
 				<div class="col-9">
-					<h1> ${ postdetail.TITLE}</h1>
+					<h3> ${ postdetail.TITLE}</h3>
 				</div>
+				<c:if test="${postdetail.WRITER == userID}">
 				<div class="row col-3 align-items-center justify-content-end">
 					<a href="PostUpdatePage.do"><button
 							class="btn btn-dark btn-sm mr-2" type="button" id="modify">수정</button></a>
 					<a href="/item_delete?num=id"><button
 							class="btn btn-dark btn-sm mr-2" type="button" id="delete">삭제</button></a>
 				</div>
+				</c:if>
 			</div>
 
 			<div class="row align-items-center justify-content-center">
@@ -95,10 +97,11 @@
 								style="overflow-y: scroll; min-height: 300px; max-height: 700px">
 								 ${ postdetail.CONTENT} </div>
 						</div>
-						
+						<c:if test="${postdetail.WRITER == userID}">
                         <div class="" align="center">
                         	<a href="모집마감컨트롤러.do" class="btn btn-danger">모집 마감</a>
                         </div>
+                        </c:if>
 					</div>
 				</div>
 			</div>

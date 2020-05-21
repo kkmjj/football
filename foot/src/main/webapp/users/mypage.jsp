@@ -23,8 +23,8 @@
 	<section class="ftco-section bg-light">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
-				<div class="col-md-12 col-lg-10 mb-5">
-					<form action="userUpdate.do" method="post" class="p-5 bg-white">
+				<div class="col-md-12 col-lg-10 p-5 bg-white mb-5">
+					<form action="userUpdate.do" method="post" class="">
 						<h3 class="page-title">개인 정보</h3>
 						<div class="form-group" align="left">
 							<label for="">아이디</label> <input type="text" class="form-control"
@@ -147,7 +147,6 @@
 					<div class="panel">
 						<div class="panel-body">
 							<table class="table table-hover">
-								<thead>
 								<colgroup>
 									<col width="10%">
 									<col width="*">
@@ -155,6 +154,7 @@
 									<col width="*">
 									<col width="*">
 								</colgroup>
+								<thead>
 									<tr>
 										<th>No.</th>
 										<th>날짜</th>
