@@ -36,7 +36,7 @@
 				<div class="row col-3 align-items-center justify-content-end">
 					<a href="PostUpdatePage.do"><button
 							class="btn btn-dark btn-sm mr-2" type="button" id="modify">수정</button></a>
-					<a href="/item_delete?num=id"><button
+					<a href="PostStatusD.do?id=${postdetail.ID}"><button
 							class="btn btn-dark btn-sm mr-2" type="button" id="delete">삭제</button></a>
 				</div>
 				</c:if>

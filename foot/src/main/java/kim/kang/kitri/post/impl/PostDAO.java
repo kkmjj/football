@@ -28,7 +28,7 @@ public class PostDAO {
 	
 	
 	//다 출력
-	private final String POST_List ="select * from POST";
+	private final String POST_List ="select * from POST WHERE STATUS='Y'";
 	
 	//검색 날짜 찾기
 	private final String POST_Search_DATE_List = "select * from POST where DATETIME BETWEEN ? AND ? order by id desc";
@@ -51,6 +51,9 @@ public class PostDAO {
 	
 	//모집 마감
 	private final String POST_STATUS_N = "UPDATE POST SET STATUS='N' WHERE ID=?";
+	//공고 삭제 시 STATUS = n
+	private final String POST_STATUS_D = "UPDATE POST SET STATUS='D' WHERE ID=?";
+	
 	
 	
 	public List<PostVO> getPostDATESearchList(PostVO vo)
@@ -114,7 +117,13 @@ public class PostDAO {
 		//Object[] args = {id};
 		jdbcTemplate.update(POST_STATUS_N, id);
 	}
-
+	
+	public void Post_Status_D(int id)
+	{
+		
+		//Object[] args = {id};
+		jdbcTemplate.update(POST_STATUS_D, id);
+	}
 	
 	
 }

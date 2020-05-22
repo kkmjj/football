@@ -68,7 +68,14 @@ public class PostController {
 		return "home.do";
 	}
 	
-	
+	@RequestMapping("/PostStatusD.do")
+	public String updateStatusD(int id)
+	{
+		
+		postservice.PostStatusD(id);
+		
+		return "home.do";
+	}
 	
 	
 	

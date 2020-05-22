@@ -62,6 +62,9 @@ public class PostServiceImpl implements PostService {
    		postDAO.Post_Status_N(id);
    	}
    
-   
+ 	public void PostStatusD(int id)
+   	{
+   		postDAO.Post_Status_D(id);
+   	}
 	
 }

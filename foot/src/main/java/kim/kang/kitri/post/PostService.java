@@ -23,7 +23,7 @@ public interface PostService {
 	//모집마감 만들기
 	void PostStatusN(int id);
 	
-	
+	void PostStatusD(int id);
 	
 	
 	public List<PostVO> myPostList(PostVO vo);
