@@ -167,7 +167,7 @@
 									<c:forEach items="${myApplyList}" var="myApplyList">
 										<tr>
 											<td>${ myApplyList.ID}</td>
-											<td>${ myApplyList.TITLE}</td>
+											<td>${ myApplyList.POST_TITLE}</td>
 											<td>${ myApplyList.DATETIME}</td>
 											<td>${ myApplyList.CONTENT}</td>
 											<c:if test="${myApplyList.STATUS == 'Y'}"><td>모집중</td></c:if>

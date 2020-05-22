@@ -30,15 +30,15 @@
 
 			<div class="breadcrumb">
 				<div class="col-9">
-					<h3> ${ postdetail.TITLE}</h3>
+					<h3>${ postdetail.TITLE}</h3>
 				</div>
 				<c:if test="${postdetail.WRITER == userID}">
-				<div class="row col-3 align-items-center justify-content-end">
-					<a href="PostUpdatePage.do"><button
-							class="btn btn-dark btn-sm mr-2" type="button" id="modify">수정</button></a>
-					<a href="PostStatusD.do?id=${postdetail.ID}"><button
-							class="btn btn-dark btn-sm mr-2" type="button" id="delete">삭제</button></a>
-				</div>
+					<div class="row col-3 align-items-center justify-content-end">
+						<a href="PostUpdatePage.do"><button
+								class="btn btn-dark btn-sm mr-2" type="button" id="modify">수정</button></a>
+						<a href="PostStatusD.do?id=${postdetail.ID}"><button
+								class="btn btn-dark btn-sm mr-2" type="button" id="delete">삭제</button></a>
+					</div>
 				</c:if>
 			</div>
 
@@ -55,7 +55,8 @@
 									<h5>경기일</h5>
 								</td>
 								<td>
-									<h5>${postdetail.DATETIME} ${postdetail.HOUR}시 ${postdetail.MIN}분</h5>
+									<h5>${postdetail.DATETIME}${postdetail.HOUR}시
+										${postdetail.MIN}분</h5>
 								</td>
 							</tr>
 							<tr>
@@ -63,7 +64,7 @@
 									<h5>경기 장소</h5>
 								</td>
 								<td>
-									<h5>${postdetail.ADDRESS} ${postdetail.ADDRESS_DETAIL}</h5>
+									<h5>${postdetail.ADDRESS}${postdetail.ADDRESS_DETAIL}</h5>
 								</td>
 							</tr>
 							<tr>
@@ -74,7 +75,10 @@
 									<h5>${postdetail.PER}명</h5>
 								</td>
 							</tr>
-							<tr><td></td><td></td></tr>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
 						</table>
 						<table>
 							<tr>
@@ -95,14 +99,15 @@
 							<h3>상세설명</h3>
 							<div id="content"
 								style="overflow-y: scroll; min-height: 300px; max-height: 700px">
-								 ${ postdetail.CONTENT} </div>
+								${ postdetail.CONTENT}</div>
 						</div>
 						<c:if test="${postdetail.WRITER == userID}">
-                        <div class="" align="center">
-                        	<a href="PostStatusN.do?id=${postdetail.ID}" class="btn btn-danger">모집 마감</a>
-                        	
-                        </div>
-                        </c:if>
+							<div class="" align="center">
+								<a href="PostStatusN.do?id=${postdetail.ID}"
+									class="btn btn-danger">모집 마감</a>
+
+							</div>
+						</c:if>
 					</div>
 				</div>
 			</div>
@@ -110,11 +115,13 @@
 			<div class="row align-items-center justify-content-center">
 				<div class="col-md-12 col-lg-12 mb-5">
 					<div class="p-5 bg-white">
-						<form method="post" action="/comment/add?num=id>">
+						<form method="post" action="apply.do">
 							<div class="input-group align-items-center" style="width: 100%;">
-								<input id="comment" type="text" style="width: 300px;"
-									name="comment" class="form-control" placeholder="내용을 입력하세요."
-									maxlength=255> <span class="input-group-btn">
+								<input type="hidden" id="postId" name="postId"
+									value="${postdetail.ID}" /> <input id="comment" type="text"
+									style="width: 300px;" name="userComment" class="form-control"
+									placeholder="내용을 입력하세요." maxlength=255> <span
+									class="input-group-btn">
 									<button id="comment" style="margin-left: 15px;"
 										class="btn btn-primary" type="submit">신청</button>
 									<button id="comment" style="margin-left: 15px;"
@@ -137,13 +144,15 @@
 								</tr>
 							</thead>
 							<tbody>
+								<c:forEach items="${postApplyUser}" var="postApplyUser">
+									<tr>
+										<td class="text-center">${postApplyUser.APPLICANT}</td>
+										<td class="text-left">${postApplyUser.CONTENT}</td>
+										<td class="text-center">${postApplyUser.STATUS}</td>
+									</tr>
+								</c:forEach>
 								<tr>
 									<td class="text-center" colspan="3">작성된 댓글이 없습니다.</td>
-								</tr>
-								<tr>
-									<td class="text-center">강지인</td>
-									<td class="text-left">하고싶습니다!</td>
-									<td class="text-center">수락/거절</td>
 								</tr>
 							</tbody>
 						</table>
