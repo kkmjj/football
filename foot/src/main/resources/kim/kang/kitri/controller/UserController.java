@@ -50,7 +50,7 @@ public class UserController {
 			return "home.do";
 		} else
 			session.setAttribute("loginFlag", "Fail");
-			return "users/login.jsp";
+		return "users/login.jsp";
 	}
 
 	@RequestMapping(value = "/signupUser.do", method = RequestMethod.POST)
@@ -135,9 +135,10 @@ public class UserController {
 			model.addAttribute("myPostList", myPostList);
 			//
 			applyVO.setAPPLICANT((String) session.getAttribute("userID"));
-			List<ApplyVO> myApplyList = applyService.myApplyList(applyVO);
-			
-			model.addAttribute("myApplyList", myApplyList);
+			String postIdSql = applyService.myApplyPostIdSql(applyVO);
+			System.out.println(postIdSql);
+			model.addAttribute("myApplyList", applyService.myApplyPostList(applyVO, postIdSql));
+
 			return "/users/mypage.jsp";
 		}
 		return "redirect:/loginPage.do";

@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kim.kang.kitri.apply.ApplyService;
+import kim.kang.kitri.apply.ApplyVO;
 import kim.kang.kitri.post.PostService;
 import kim.kang.kitri.post.PostVO;
 
@@ -22,7 +24,8 @@ public class PostController {
 
 	@Autowired
 	private PostService postservice;
-	
+	@Autowired
+	ApplyService applyService;
 	
 	// home.do 먼저 실행하고 index 페이지로 넘어가기 
 	@RequestMapping("/home.do")
@@ -112,11 +115,13 @@ public class PostController {
 
 	@RequestMapping("/PostDetail.do")
 	public String DetailPost(String id,Model model) {
-	
-		
+		ApplyVO applyVO = new ApplyVO();
+		applyVO.setPOST_ID(Integer.parseInt(id));
 		model.addAttribute("postdetail",postservice.DetailPost(id));
+		model.addAttribute("postApplyUser",applyService.PostApplyUsers(applyVO));
 		System.out.println(id);
-		
+		System.out.println(applyService.PostApplyUsers(applyVO));
+
 		return "post/postDetail.jsp";
 	}
 	

@@ -1,6 +1,5 @@
 package kim.kang.kitri.apply.impl;
 
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -8,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import kim.kang.kitri.apply.ApplyVO;
 
-public class ApplyRowMapper implements RowMapper<ApplyVO>{
+public class ApplyRowJoinMapper implements RowMapper<ApplyVO>{
 
 	@Override
 	public ApplyVO mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -21,6 +20,7 @@ public class ApplyRowMapper implements RowMapper<ApplyVO>{
 		apply.setDATETIME(rs.getDate("DATETIME"));
 		apply.setHOUR(rs.getInt("HOUR"));
 		apply.setMIN(rs.getInt("MIN"));
+		apply.setPOST_TITLE(rs.getString("TITLE"));
 		return apply;
 	}
 
