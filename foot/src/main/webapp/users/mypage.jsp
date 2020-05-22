@@ -157,9 +157,9 @@
 								<thead>
 									<tr>
 										<th>No.</th>
-										<th>날짜</th>
-										<th>장소</th>
-										<th>모집인원</th>
+										<th>공고 제목</th>
+										<th>신청 날짜</th>
+										<th>신청 내용</th>
 										<th>상태</th>
 									</tr>
 								</thead>
@@ -167,9 +167,9 @@
 									<c:forEach items="${myApplyList}" var="myApplyList">
 										<tr>
 											<td>${ myApplyList.ID}</td>
+											<td>${ myApplyList.TITLE}</td>
 											<td>${ myApplyList.DATETIME}</td>
-											<td>${ myApplyList.ADDRESS}</td>
-											<td>${ myApplyList.PER}</td>
+											<td>${ myApplyList.CONTENT}</td>
 											<c:if test="${myApplyList.STATUS == 'Y'}"><td>모집중</td></c:if>
 											<c:if test="${myApplyList.STATUS == 'N'}"><td>모집 마감</td></c:if>
 											<c:if test="${myApplyList.STATUS == 'E'}">
