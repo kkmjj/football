@@ -20,7 +20,8 @@ public interface PostService {
 	// 상세 공고 
 	public PostVO DetailPost(String id);
 	
-	
+	//모집마감 만들기
+	void PostStatusN(int id);
 	
 	
 	

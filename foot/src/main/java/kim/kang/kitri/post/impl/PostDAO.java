@@ -48,6 +48,11 @@ public class PostDAO {
 	private final String POST_Detail ="select * from POST join users on POST.WRITER=users.id where post.id=?";
 	
 	
+	
+	//모집 마감
+	private final String POST_STATUS_N = "UPDATE POST SET STATUS='N' WHERE ID=?";
+	
+	
 	public List<PostVO> getPostDATESearchList(PostVO vo)
 	{
 
@@ -101,6 +106,13 @@ public class PostDAO {
 		Object[] args = {id};
 		return jdbcTemplate.queryForObject(POST_Detail,args, new PostRowJOINMapper());
 			
+	}
+	
+	public void Post_Status_N(int id)
+	{
+		
+		//Object[] args = {id};
+		jdbcTemplate.update(POST_STATUS_N, id);
 	}
 
 	

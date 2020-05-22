@@ -1,10 +1,14 @@
 package kim.kang.kitri.post;
 
-import java.sql.Date;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class PostVO {
 	private int ID;
 	private String WRITER;
+	
+//	@DateTimeFormat(pattern="yy-MM-dd")
 	private Date DATETIME;
 	private int PER;
 	private String CONTENT;

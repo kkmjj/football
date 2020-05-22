@@ -1,9 +1,12 @@
 package kim.kang.kitri.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,6 +59,17 @@ public class PostController {
 	}	
 	
 	
+	@RequestMapping("/PostStatusN.do")
+	public String updateStatusN(int id)
+	{
+		
+		postservice.PostStatusN(id);
+		
+		return "home.do";
+	}
+	
+	
+	
 	
 	
 	
@@ -70,24 +84,25 @@ public class PostController {
 	
 	
 	
-	//postInsert 페이지에서 등록 완료하면 home.do로 가서  index 페이지로 넘어감 
-	@RequestMapping("/PostInsert.do")
-	public String InsertList(HttpServletRequest request,PostVO vo) {
+		//postInsert 페이지에서 등록 완료하면 home.do로 가서  index 페이지로 넘어감 
+		@RequestMapping("/PostInsert.do")
+		public String InsertList(HttpServletRequest request,PostVO vo) {
 		
-	
-		HttpSession session = request.getSession();
-		System.out.println(session.getAttribute("userID"));
-		vo.setWRITER((String)session.getAttribute("userID"));
 		
-		postservice.InsertList(vo);
+			HttpSession session = request.getSession();
+			System.out.println(session.getAttribute("userID"));
+			vo.setWRITER((String)session.getAttribute("userID"));
+			
+			postservice.InsertList(vo);
+			
+			return "home.do";
+		}
 		
-		return "home.do";
-	}
 	
 	
 	
 
-//postInsert 페이지에서 등록 완료하면 home.do로 가서  index 페이지로 넘어감 
+
 	@RequestMapping("/PostDetail.do")
 	public String DetailPost(String id,Model model) {
 	

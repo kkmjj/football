@@ -99,7 +99,8 @@
 						</div>
 						<c:if test="${postdetail.WRITER == userID}">
                         <div class="" align="center">
-                        	<a href="모집마감컨트롤러.do" class="btn btn-danger">모집 마감</a>
+                        	<a href="PostStatusN.do?id=${postdetail.ID}" class="btn btn-danger">모집 마감</a>
+                        	
                         </div>
                         </c:if>
 					</div>

@@ -23,7 +23,7 @@
 <script>
 $(function() {
     $( "#DATETIME" ).datepicker({
-         dateFormat: "yymmdd"
+         dateFormat: "yy/mm/dd"
   });
 });
 </script>

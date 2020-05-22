@@ -56,6 +56,11 @@ public class PostServiceImpl implements PostService {
 	  // return postDAO.
    }
    
+   //모집마감
+   	public void PostStatusN(int id)
+   	{
+   		postDAO.Post_Status_N(id);
+   	}
    
    
 	
