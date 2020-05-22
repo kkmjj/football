@@ -90,7 +90,7 @@
 															<div class="form-field">
 																<div class="icon"><span class="icon-briefcase"></span>
 																</div>
-																<input type="date" class="form-control" id="start" name="start"
+																<input type="text" class="form-control" id="startDate" name="start"
 																	placeholder="start">
 															</div>
 														</div>
@@ -100,7 +100,7 @@
 															<div class="form-field">
 																<div class="icon"><span class="icon-map-marker"></span>
 																</div>
-																<input type="date" class="form-control" id="end" name="end"
+																<input type="text" class="form-control" id="endDate" name="end"
 																	placeholder="end">
 															</div>
 														</div>
