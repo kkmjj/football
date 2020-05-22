@@ -1,6 +1,6 @@
 package kim.kang.kitri.post;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class PostVO {
 	private int ID;
@@ -36,9 +36,26 @@ public class PostVO {
 	public void setMIN(int mIN) {
 		MIN = mIN;
 	}
-	//검색시 사용 
+	//날짜 검색시 사용 
 	private Date start;
 	private Date end;
+	
+	//위치 검색시
+	private String region;
+	private String input_location;
+	
+	public String getRegion() {
+		return region;
+	}
+	public void setRegion(String region) {
+		this.region = region;
+	}
+	public String getInput_location() {
+		return input_location;
+	}
+	public void setInput_location(String input_location) {
+		this.input_location = input_location;
+	}
 	
 	//상세시 등록자 정보 불러오기 
 	

@@ -24,6 +24,12 @@ public class PostServiceImpl implements PostService {
 		return postDAO.getPostDATESearchList(vo);
 	}
 	
+	public List<PostVO> getPostlocationSearchList(PostVO vo) {
+		
+		return postDAO.getPostlocationSearchList(vo);
+	}
+	
+	
 	
    public List<PostVO> getPostList(PostVO vo) {
 		
@@ -39,6 +45,7 @@ public class PostServiceImpl implements PostService {
  
 	public List<PostVO> idFindPostList(String postIdList) {
 		// TODO Auto-generated method stub
+	
 		return postDAO.idFindPostList(postIdList);
 	}
 	   

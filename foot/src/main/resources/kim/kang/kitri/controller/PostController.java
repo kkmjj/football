@@ -44,6 +44,23 @@ public class PostController {
 	}	
 	
 	
+	// 검색 버튼을 누르면 index.jsp 에 적용 
+	@RequestMapping("/PostlocationSearchList.do")
+	public String getlocationSearchList(String contition,@RequestParam(value = "region", defaultValue = "", required = false)
+	String region,@RequestParam(value = "input_location", defaultValue = "", required = false) String input_location, PostVO vo, Model model){
+		
+		System.out.println("장소로 찾기 controller");
+		model.addAttribute("postlist", postservice.getPostlocationSearchList(vo));
+		
+		return "index.jsp";
+	}	
+	
+	
+	
+	
+	
+	
+	
 	//index 페이지에서 등록을 누르게 되면 -> postInsert페이지로 넘어감 
 	@RequestMapping("/PostInsertPage.do")
 	public String InsertListPage() {

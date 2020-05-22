@@ -119,7 +119,7 @@
 
 										<div class="tab-pane fade" id="v-pills-2" role="tabpanel"
 											aria-labelledby="v-pills-performance-tab">
-										<form action="#" class="search-job">
+										<form action="PostlocationSearchList.do" class="search-job">
 												<div class="row">
 													<div class="col-md mr-md-2">
 														<div class="form-group">
@@ -127,7 +127,7 @@
 																<div class="select-wrap">
 																	<div class="icon"><span
 																			class="icon-map-marker"></span></div>
-																	<select name="" id="" class="form-control">
+																	<select name="region" id="region" class="form-control">
 																		<option value="서울">서울</option>
 																		<option value="경기">경기</option>
 																		<option value="인천">인천</option>
@@ -155,7 +155,8 @@
 															<div class="form-field">
 																<div class="icon"><span class="icon-map-marker"></span>
 																</div>
-																<input type="text" class="form-control"
+																<input type="text" class="form-control" id="input_location"
+																name="input_location"
 																	placeholder="Location">
 															</div>
 														</div>
@@ -204,12 +205,12 @@
 										<div class="job-post-item-header align-items-center">
 											<span class="subadge">${ postlist.ID}</span>
 											<h2 class="mr-3 text-black">
-												<a href="#">${ postlist.DATETIME}</a>
+												<a>${ postlist.DATETIME}</a>
 											</h2>
 										</div>
 										<div class="job-post-item-body d-block d-md-flex">
 											<div class="mr-3">
-												<span class="icon-layers"></span> <a href="#">${ postlist.WRITER}</a>
+												<span class="icon-layers"></span> <a>${ postlist.WRITER}</a>
 											</div>
 											<div>
 												<span class="icon-my_location"></span> <span>${ postlist.ADDRESS}</span>

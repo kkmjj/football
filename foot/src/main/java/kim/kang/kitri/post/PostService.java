@@ -10,6 +10,9 @@ public interface PostService {
 	//날짜 검색 공고
 	List<PostVO> getPostDATESearchList(PostVO vo);
 	
+	//위치 검색 
+	List<PostVO> getPostlocationSearchList(PostVO vo);
+	
 	
 	//공고 삽입
 	void InsertList(PostVO vo);

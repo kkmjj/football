@@ -30,8 +30,13 @@ public class PostDAO {
 	//다 출력
 	private final String POST_List ="select * from POST";
 	
-	//검색 찾기
+	//검색 날짜 찾기
 	private final String POST_Search_DATE_List = "select * from POST where DATETIME BETWEEN ? AND ? order by id desc";
+	
+	
+	//검색 날짜 찾기
+	private final String POST_Search_location_List = "select * from POST where address like '%'||?||'%' and address_detail like '%'||?||'%'  order by id desc";
+	
 	
 	//삽입 
 	private final String POST_Insert 
@@ -54,6 +59,20 @@ public class PostDAO {
 	
 		
 	}
+	
+	
+	public List<PostVO> getPostlocationSearchList(PostVO vo)
+	{
+
+		Object[] args = {vo.getRegion(), vo.getInput_location()};
+		
+			return jdbcTemplate.query(POST_Search_location_List,args, new PostRowMapper());
+			
+		
+	
+		
+	}
+	
 	
 	
 	public List<PostVO> getPostList(PostVO vo)
