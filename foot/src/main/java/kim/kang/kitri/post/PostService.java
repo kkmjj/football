@@ -5,7 +5,9 @@ import java.util.List;
 public interface PostService {
 
 	//전체 공고 
-	List<PostVO> getPostList(PostVO vo);
+	List<PostVO> getPostList(Integer page);
+
+	int getPostListCnt();
 	
 	//날짜 검색 공고
 	List<PostVO> getPostDATESearchList(PostVO vo);
