@@ -16,3 +16,14 @@
 	<script src="resources/js/main.js"></script>
     <script src="resources/js/signup.js"></script>
     <script src="resources/js/addressapi.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
+<script>
+$(function() {
+    $( "#DATETIME" ).datepicker({
+         dateFormat: "yymmdd"
+  });
+});
+</script>

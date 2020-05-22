@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-group" align="left">
                             <label >날짜</label>
-                            <input type="date" class="form-control" id="DATETIME" name="DATETIME" >
+                            <input type="text" class="form-control" id="DATETIME" name="DATETIME" > 
                         </div>
                         <div class="form-group" align="left">
                             <input type="text" class="form-control mr-1" id="HOUR" name="HOUR" style="width: 40%; display: inline;">
