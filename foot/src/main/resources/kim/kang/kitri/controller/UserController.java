@@ -41,16 +41,16 @@ public class UserController {
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String login(UserVO vo, HttpSession session, Model model) {
-		// model.addAttribute("postlist", jdbcTemplate.query("select * from POST", new
-		// PostRowMapper()));
 		UserVO user = userService.getUser(vo);
 		if (user != null) {
+			session.setAttribute("loginFlag", "Succ");
 			session.setAttribute("userGRADE", user.getGRADE());
 			session.setAttribute("userID", user.getID());
 			session.setAttribute("userNAME", user.getNAME());
 			return "home.do";
 		} else
-			return "loginPage.do";
+			session.setAttribute("loginFlag", "Fail");
+			return "users/login.jsp";
 	}
 
 	@RequestMapping(value = "/signupUser.do", method = RequestMethod.POST)
@@ -121,49 +121,33 @@ public class UserController {
 		if (session.getAttribute("userID") != null) {
 			userVO.setID((String) session.getAttribute("userID"));
 			model.addAttribute("user", userService.idGetUser(userVO));
+			//
 			postVO.setWRITER((String) session.getAttribute("userID"));
 			List<PostVO> myPostList = postservice.myPostList(postVO);
-			SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
 			Date date = new Date();
 			for (int i = 0; i < myPostList.size(); i++) {
 				if (myPostList.get(i).getSTATUS().equals("N")) {
-					if (date.compareTo(myPostList.get(i).getDATETIME())>0) {
+					if (date.compareTo(myPostList.get(i).getDATETIME()) > 0) {
 						myPostList.get(i).setSTATUS("E");
-						//postservice.evaluationOK(myPostList.get(i));
 					}
 				}
 			}
-			model.addAttribute("myPostList",myPostList);
+			model.addAttribute("myPostList", myPostList);
+			//
 			applyVO.setAPPLICANT((String) session.getAttribute("userID"));
-			List<ApplyVO> applyList = applyService.myApplyList(applyVO);
-			System.out.println(applyList);
-			String applyPostIDList = "";
-			for (int i = 0; i < applyList.size(); i++) {
-				applyPostIDList += applyList.get(i).getPOST_ID() + ",";
-			}
-			if (applyPostIDList.length() != 0) {
-				applyPostIDList = applyPostIDList.substring(0, applyPostIDList.length() - 1);
-				List<PostVO> myApplyList = postservice.idFindPostList(applyPostIDList);
-				for (int i = 0; i < myApplyList.size(); i++) {
-					if (myApplyList.get(i).getSTATUS().equals("N")) {
-						if (date.compareTo(myApplyList.get(i).getDATETIME())>0) {
-							myApplyList.get(i).setSTATUS("E");
-							//postservice.evaluationOK(myApplyList.get(i));
-						}
-					}
-				}
-				model.addAttribute("myApplyList", myApplyList);
-			}
+			List<ApplyVO> myApplyList = applyService.myApplyList(applyVO);
+			
+			model.addAttribute("myApplyList", myApplyList);
 			return "/users/mypage.jsp";
 		}
 		return "redirect:/loginPage.do";
 	}
-	
+
 	@RequestMapping(value = "/evaluPage.do")
 	public String evaluPage() {
 		return "evalu/evaluInsert.jsp";
 	}
-	
+
 	@RequestMapping(value = "/logoutPage.do")
 	public String logoutPage(HttpSession session) {
 		session.invalidate();
