@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-<%@ include file="/includes/header.jsp" %>
+
+<%@ include file="/includes/header.jsp"%>
 
 <body>
-	<%@ include file="/includes/navbar.jsp" %>
+	<%@ include file="/includes/navbar.jsp"%>
 
 	<div class="hero-wrap hero-wrap-2"
 		style="background-image: url('images/bg_1.jpg');"
@@ -15,9 +15,8 @@
 				class="row no-gutters slider-text align-items-end justify-content-start">
 				<div class="col-md-12 ftco-animate text-center mb-5">
 					<p class="breadcrumbs mb-0">
-						<span class="mr-3"><a href="index.jsp">USER 
-						<i class="ion-ios-arrow-forward"></i></a></span>
-						<span>Login</span>
+						<span class="mr-3"><a href="index.jsp">USER <i
+								class="ion-ios-arrow-forward"></i></a></span> <span>Login</span>
 					</p>
 					<h1 class="mb-3 bread">Login</h1>
 				</div>
@@ -32,6 +31,9 @@
 				<div class="col-md-12 col-lg-8 mb-5">
 
 					<form action="login.do" method="post" class="p-5 bg-white">
+						<c:if test="${loginFlag == 'Fail'}">
+							<p style="color: red;">아이디 또는 비밀번호가 잘못되었습니다.</p>
+						</c:if>
 						<div class="form-group">
 							<label for="signin-id" class="control-label sr-only">ID</label> <input
 								type="text" class="form-control" id="usr" value=""
@@ -50,8 +52,8 @@
 							</div>
 						</div>
 
-						<a href="signup.do" class="mr-2">회원가입</a> 
-						<a href="findidpw.do" class="">아이디/비밀번호 찾기</a>
+						<a href="signup.do" class="mr-2">회원가입</a> <a href="findidpw.do"
+							class="">아이디/비밀번호 찾기</a>
 
 					</form>
 				</div>
@@ -60,10 +62,10 @@
 	</section>
 
 
-	<%@ include file="/includes/footer.jsp" %>
-	
+	<%@ include file="/includes/footer.jsp"%>
 
-	<%@ include file="/includes/scripts.jsp" %>
+
+	<%@ include file="/includes/scripts.jsp"%>
 
 </body>
 

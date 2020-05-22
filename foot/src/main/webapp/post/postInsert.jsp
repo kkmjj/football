@@ -42,9 +42,17 @@
                             <input type="text" class="form-control" id="DATETIME" name="DATETIME" > 
                         </div>
                         <div class="form-group" align="left">
-                            <input type="text" class="form-control mr-1" id="HOUR" name="HOUR" style="width: 40%; display: inline;">
+							<select name="HOUR" id="HOUR" class="form-control mr-1" style="width: 40%; display: inline;">
+								<% for(int i=1; i<=24; i++) { %>
+								<option value=<%=i%>><%=i%></option>
+								<% } %>
+							</select>
                             <label class="mr-4">시</label>
-                            <input type="text" class="form-control mr-1" id="MIN" name="MIN" style="width: 40%; display: inline;">
+							<select name="MIN" id="MIN" class="form-control mr-1" style="width: 40%; display: inline;">
+								<% for(int i=0; i<=50; i+=10) { %>
+								<option value=<%=i%>><%=i%></option>
+								<% } %>
+							</select>
                             <label class="">분</label>
                         </div>
                         <div class="form-group" align="left">
@@ -63,7 +71,8 @@
                         </div>
                         <div class="form-group" align="left">
                             <label for="name">내용</label>
-                            <input type="textarea" class="form-control" id="CONTENT" name="CONTENT">
+                            <input type="text" class="form-control" id="CONTENT" name="CONTENT"
+                            style="overflow-y: scroll; min-height: 300px; max-height: 700px">
                         </div>
                         <div class="form-group" align="center">
                             <button type="submit" class="btn btn-primary" id="registerBtn">등록</button>

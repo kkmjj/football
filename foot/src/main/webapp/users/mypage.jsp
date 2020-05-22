@@ -133,6 +133,7 @@
 											<td><a href="evaluPage.do" class="btn btn-sm btn-secondary">평가 등록</a></td>
 											</c:if>
 											<c:if test="${myPostList.STATUS == 'O'}"><td>평가 완료</td></c:if>
+											<c:if test="${myPostList.STATUS == 'C'}"><td>경기 취소</td></c:if>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -170,8 +171,9 @@
 											<td>${ myApplyList.POST_TITLE}</td>
 											<td>${ myApplyList.DATETIME}</td>
 											<td>${ myApplyList.CONTENT}</td>
-											<c:if test="${myApplyList.STATUS == 'Y'}"><td>모집중</td></c:if>
-											<c:if test="${myApplyList.STATUS == 'N'}"><td>모집 마감</td></c:if>
+											<c:if test="${myApplyList.STATUS == 'Y'}"><td>신청 완료</td></c:if>
+											<c:if test="${myApplyList.STATUS == 'N'}"><td>수락</td></c:if>
+											<c:if test="${myApplyList.STATUS == 'C'}"><td>거절</td></c:if>
 											<c:if test="${myApplyList.STATUS == 'E'}">
 											<td><a href="evaluPage.do" class="btn btn-sm btn-secondary">평가 등록</a></td>
 											</c:if>
