@@ -47,7 +47,7 @@ public class UserController {
 			session.setAttribute("userGRADE", user.getGRADE());
 			session.setAttribute("userID", user.getID());
 			session.setAttribute("userNAME", user.getNAME());
-			return "home.do";
+			return "redirect:home.do";
 		} else
 			session.setAttribute("loginFlag", "Fail");
 		return "users/login.jsp";
@@ -56,7 +56,7 @@ public class UserController {
 	@RequestMapping(value = "/signupUser.do", method = RequestMethod.POST)
 	public String signupUser(UserVO vo) {
 		userService.signupUser(vo);
-		return "loginPage.do";
+		return "redirect:loginPage.do";
 	}
 
 	@RequestMapping(value = "/signup.do", method = RequestMethod.GET)

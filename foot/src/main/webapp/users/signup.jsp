@@ -51,15 +51,15 @@
 							<label for="">비밀번호재입력</label> <input type="password"
 								class="form-control" id="pwd2" name="passcheck" placeholder="">
 						</div>
+						<div class="alert alert-success" id="alert-success">비밀번호가
+							일치합니다.</div>
+						<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지
+							않습니다.</div>
 						<div class="form-group" align="left">
 							<label for="gender" class="mr-2">성별</label> <input type="radio"
 								name="GENDER" value="M" class="ml-2" checked /> 남자 <input
 								type="radio" name="GENDER" value="F" class="ml-2" /> 여자
 						</div>
-						<div class="alert alert-success" id="alert-success">비밀번호가
-							일치합니다.</div>
-						<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지
-							않습니다.</div>
 						<div class="form-group" align="left">
 							<label for="tel">전화번호</label>
 							<div id="tel" class="custom-control-inline">
