@@ -29,9 +29,6 @@ public class PostRowJOINMapper implements RowMapper<PostVO> {
 //		UserVO user = new UserVO();
 		post.setNAME(rs.getString("NAME"));
 		
-		
-		
-		System.out.println("postMapper"+post.getWRITER());
 		return post;
 	}
 }

@@ -25,8 +25,6 @@ public class PostRowMapper implements RowMapper<PostVO> {
 		post.setHOUR(rs.getInt("HOUR"));
 		post.setMIN(rs.getInt("MIN"));
 		
-		
-		System.out.println("postMapper"+post.getWRITER());
 		return post;
 	}
 }

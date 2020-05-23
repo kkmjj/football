@@ -83,7 +83,7 @@
 
 										<div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
 											aria-labelledby="v-pills-nextgen-tab">
-											<form action="PostDATESearchList.do" class="search-job">
+											<form action="home.do" class="search-job">
 												<div class="row no-gutters">
 													<div class="col-md mr-md-2">
 														<div class="form-group">
@@ -119,7 +119,7 @@
 
 										<div class="tab-pane fade" id="v-pills-2" role="tabpanel"
 											aria-labelledby="v-pills-performance-tab">
-										<form action="PostlocationSearchList.do" class="search-job">
+										<form action="home.do" class="search-job">
 												<div class="row">
 													<div class="col-md mr-md-2">
 														<div class="form-group">
@@ -233,7 +233,9 @@
 										if(i == cur) {%>
 										<li class="active"><span><%=i %></span></li>
 										<% } else { %>
-										<li><a href="home.do?page=<%=i %>"><span><%=i %></span></a></li>
+										<li><a href="home.do?page=<%=i %>&start=<%=request.getAttribute("start")%>&end=<%=request.getAttribute("end")%>&region=<%=request.getAttribute("region")%>&input_location=<%=request.getAttribute("input_location")%>">
+										<span><%=i %></span></a>
+										</li>
 										<% }
 									}%>
 									<!-- <li><a href="#">&gt;</a></li> -->

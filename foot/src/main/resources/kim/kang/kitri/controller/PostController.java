@@ -25,36 +25,21 @@ public class PostController {
 	
 	// home.do 먼저 실행하고 index 페이지로 넘어가기 
 	@RequestMapping("/home.do")
-	public String getPostList(Integer page, Model model) {
+	public String getPostList(Integer page,
+			@RequestParam(value = "start", defaultValue = "1000/01/01", required = false) String start,
+			@RequestParam(value = "end", defaultValue = "3000/12/31", required = false) String end, 
+			@RequestParam(value = "region", defaultValue = "", required = false) String region,
+			@RequestParam(value = "input_location", defaultValue = "", required = false) String input_location,
+			PostVO vo, Model model ) {
 		if(page == null) page = 1;
 
 		model.addAttribute("page", page);
-		model.addAttribute("postlist", postservice.getPostList(page));
-		model.addAttribute("cnt", postservice.getPostListCnt()+1);
-
-		return "index.jsp";
-	}
-
-	// 검색 버튼을 누르면 index.jsp 에 적용
-	@RequestMapping("/PostDATESearchList.do")
-	public String getPostSearchList(String contition,
-			@RequestParam(value = "start", defaultValue = "", required = false) String start,
-			@RequestParam(value = "end", defaultValue = "", required = false) String end, PostVO vo, Model model) {
-
-		model.addAttribute("postlist", postservice.getPostDATESearchList(vo));
-
-		return "index.jsp";
-	}
-
-	// 검색 버튼을 누르면 index.jsp 에 적용
-	@RequestMapping("/PostlocationSearchList.do")
-	public String getlocationSearchList(String contition,
-			@RequestParam(value = "region", defaultValue = "", required = false) String region,
-			@RequestParam(value = "input_location", defaultValue = "", required = false) String input_location,
-			PostVO vo, Model model) {
-
-		System.out.println("장소로 찾기 controller");
-		model.addAttribute("postlist", postservice.getPostlocationSearchList(vo));
+		model.addAttribute("start", start);
+		model.addAttribute("end", end);
+		model.addAttribute("region", region);
+		model.addAttribute("input_location", input_location);
+		model.addAttribute("postlist", postservice.getPostList(page, start, end, region, input_location));
+		model.addAttribute("cnt", postservice.getPostListCnt(page, start, end, region, input_location)+1);
 
 		return "index.jsp";
 	}
@@ -87,7 +72,6 @@ public class PostController {
 	public String InsertList(HttpServletRequest request, PostVO vo) {
 
 		HttpSession session = request.getSession();
-		System.out.println(session.getAttribute("userID"));
 		vo.setWRITER((String) session.getAttribute("userID"));
 
 		postservice.InsertList(vo);

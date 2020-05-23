@@ -18,25 +18,15 @@ public class PostServiceImpl implements PostService {
 	public List<PostVO> myPostList(PostVO vo) {
 		return postDAO.myPostList(vo);
 	}
+	
+	public List<PostVO> getPostList(Integer page, String start, String end, String region, String input_location) {
 
-	public List<PostVO> getPostDATESearchList(PostVO vo) {
-
-		return postDAO.getPostDATESearchList(vo);
+		return postDAO.getPostList(page, start, end, region, input_location);
 	}
 
-	public List<PostVO> getPostlocationSearchList(PostVO vo) {
+	public int getPostListCnt(Integer page, String start, String end, String region, String input_location) {
 
-		return postDAO.getPostlocationSearchList(vo);
-	}
-
-	public List<PostVO> getPostList(Integer page) {
-
-		return postDAO.getPostList(page);
-	}
-
-	public int getPostListCnt() {
-
-		return postDAO.getPostListCnt();
+		return postDAO.getPostListCnt(page, start, end, region, input_location);
 	}
 
 	@Override

@@ -26,57 +26,39 @@ public class PostDAO {
 		return jdbcTemplate.query(myPOST_List, new PostRowMapper());
 	}
 
-	// ï¿½ë– ç•°ì’•ì °
-	private final String POST_List = "select * from (select ROW_NUMBER() over(order by id desc) NUM, p.* from POST p where status = 'Y' order by id desc) where num BETWEEN ? AND ?";
+	// ÀüÃ¼ Ãâ·Â
+	private final String POST_List = "select * from (select ROW_NUMBER() over(order by id desc) NUM, p.* from POST p where status = 'Y' and DATETIME BETWEEN ? AND ? and address like '%'||?||'%' and address_detail like '%'||?||'%' order by id desc) where num BETWEEN ? AND ?";
 	
-	private final String POST_List_Cnt = "select * from POST where status = 'Y'";
+	private final String POST_List_Cnt = "select * from POST where status = 'Y' and DATETIME BETWEEN ? AND ? and address like '%'||?||'%' and address_detail like '%'||?||'%'";
 
-	// å¯ƒï¿½ï¿½ê¹‹ ï¿½ê¶‡ï§ï¿½ ï§¡ì–˜ë¦°
-	private final String POST_Search_DATE_List = "select * from POST where DATETIME BETWEEN ? AND ? order by id desc";
 
-	// å¯ƒï¿½ï¿½ê¹‹ ï¿½ê¶‡ï§ï¿½ ï§¡ì–˜ë¦°
-	private final String POST_Search_location_List = "select * from POST where address like '%'||?||'%' and address_detail like '%'||?||'%'  order by id desc";
-
-	// ï¿½ê¶«ï¿½ì—¯
+	// »ğÀÔ
 	private final String POST_Insert = "insert into POST(ID,TITLE,STATUS,WRITER,PER,DATETIME,HOUR,MIN,ZIP_CODE,ADDRESS,ADDRESS_DETAIL,CONTENT) "
 			+ "values(POST_SEQ.NEXTVAL,?,'Y',?,?,?,?,?,?,?,?,?)";
 
-	// ï¿½ê¸½ï¿½ê½­ sql
+	// »ó¼¼ sql
 	private final String POST_Detail = "select * from POST join users on POST.WRITER=users.id where post.id=?";
 
-	// ï§â‘¥ì­› ï§ë‡ì»§
+	// ¸ğÁı ¸¶°¨
 	private final String POST_STATUS_N = "UPDATE POST SET STATUS='N' WHERE ID=?";
-	// æ€¨ë“¦í€¬ ï¿½ê¶˜ï¿½ì £ ï¿½ë–† STATUS = n
+	// °ø°í »èÁ¦ ½Ã  STATUS = D
 	private final String POST_STATUS_D = "UPDATE POST SET STATUS='D' WHERE ID=?";
 
-	public List<PostVO> getPostDATESearchList(PostVO vo) {
 
-		Object[] args = { vo.getStart(), vo.getEnd() };
-
-		return jdbcTemplate.query(POST_Search_DATE_List, args, new PostRowMapper());
-
-	}
-
-	public List<PostVO> getPostlocationSearchList(PostVO vo) {
-
-		Object[] args = { vo.getRegion(), vo.getInput_location() };
-
-		return jdbcTemplate.query(POST_Search_location_List, args, new PostRowMapper());
-
-	}
-
-	public List<PostVO> getPostList(Integer page) {
+	public List<PostVO> getPostList(Integer page, String start, String end, String region, String input_location) {
 		
-		Object[] args = { page*10-9, page*10 };
+		Object[] args = { start, end, region, input_location, page*10-9, page*10 };
+
 
 		return jdbcTemplate.query(POST_List, args, new PostRowMapper());
 
 	}
 
-	public int getPostListCnt() {
-		List<PostVO> vo = jdbcTemplate.query(POST_List_Cnt, new PostRowMapper());
+	public int getPostListCnt(Integer page, String start, String end, String region, String input_location) {
+		Object[] args = { start, end, region, input_location };
+//		List<PostVO> vo = jdbcTemplate.query(POST_List_Cnt, args, new PostRowMapper());
 		
-		return vo.size()/10;
+		return jdbcTemplate.query(POST_List_Cnt, args, new PostRowMapper()).size()/10;
 
 	}
 
