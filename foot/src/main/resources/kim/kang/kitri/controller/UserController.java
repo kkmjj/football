@@ -108,11 +108,11 @@ public class UserController {
 	@RequestMapping(value = "/findidpw.do", method = RequestMethod.POST)
 	public String findidpw(UserVO vo, HttpSession session) {
 		List<UserVO> findUser = userService.findUser(vo);
-		if (findUser != null) {
+		if (findUser.size() != 0) {
 			session.setAttribute("findUser", findUser);
-			session.setAttribute("findMessage", "your id/pw");
+			session.setAttribute("findMessage", "Y");
 		} else {
-			session.setAttribute("findMessage", "not find");
+			session.setAttribute("findMessage", "N");
 		}
 		return "/users/findidpwResult.jsp";
 	}
