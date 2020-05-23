@@ -55,6 +55,7 @@ public class UserController {
 
 	@RequestMapping(value = "/signupUser.do", method = RequestMethod.POST)
 	public String signupUser(UserVO vo) {
+		
 		userService.signupUser(vo);
 		return "redirect:loginPage.do";
 	}
@@ -77,6 +78,7 @@ public class UserController {
 		vo.setTEL1((String) request.getAttribute("TEL1"));
 		vo.setTEL2((String) request.getAttribute("TEL2"));
 		vo.setTEL3((String) request.getAttribute("TEL3"));
+		vo.setZIP_CODE((String) request.getAttribute("ZIP_CODE"));
 		vo.setADDRESS((String) request.getAttribute("ADDRESS"));
 		vo.setADDRESS_DETAIL((String) request.getAttribute("ADDRESS_DETAIL"));
 		userService.updateUser(vo);
@@ -98,12 +100,16 @@ public class UserController {
 		return "home.do";
 	}
 
+	@RequestMapping(value = "/findidpwPage.do", method = RequestMethod.GET)
+	public String findidpw() {
+		return "/users/findidpw.jsp";
+	}
+	
 	@RequestMapping(value = "/findidpw.do", method = RequestMethod.POST)
 	public String findidpw(UserVO vo, HttpSession session) {
-		UserVO findUser = userService.findUser(vo);
+		List<UserVO> findUser = userService.findUser(vo);
 		if (findUser != null) {
-			session.setAttribute("userID", findUser.getID());
-			session.setAttribute("userPASSWORD", findUser.getPASSWORD());
+			session.setAttribute("findUser", findUser);
 			session.setAttribute("findMessage", "your id/pw");
 		} else {
 			session.setAttribute("findMessage", "not find");

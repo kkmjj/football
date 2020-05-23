@@ -1,5 +1,7 @@
 package kim.kang.kitri.user.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -34,10 +36,10 @@ public class UserDAO {
 		jdbcTemplate.update(signupUser, args);
 	};
 
-	public UserVO findUser(UserVO vo) {
+	public List<UserVO> findUser(UserVO vo) {
 		String findUser = "SELECT * FROM users WHERE NAME=? AND TEL1 =? AND TEL2=? AND TEL3=?";
 		Object[] args = { vo.getNAME(), vo.getTEL1(), vo.getTEL2(), vo.getTEL3() };
-		return jdbcTemplate.queryForObject(findUser, args, new UserRowMapper());
+		return jdbcTemplate.query(findUser, args, new UserRowMapper());
 	};
 
 	public void updateUser(UserVO vo) {

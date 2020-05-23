@@ -1,5 +1,7 @@
 package kim.kang.kitri.user;
 
+import java.util.List;
+
 public interface UserService {
 	public UserVO getUser(UserVO vo);
 
@@ -7,7 +9,7 @@ public interface UserService {
 	
 	public void signupUser(UserVO vo);
 
-	public UserVO findUser(UserVO vo);
+	public List<UserVO> findUser(UserVO vo);
 
 	public void updateUser(UserVO vo);
 

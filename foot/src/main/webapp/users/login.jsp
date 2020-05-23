@@ -52,7 +52,7 @@
 							</div>
 						</div>
 
-						<a href="signup.do" class="mr-2">회원가입</a> <a href="findidpw.do"
+						<a href="signup.do" class="mr-2">회원가입</a> <a href="findidpwPage.do"
 							class="">아이디/비밀번호 찾기</a>
 
 					</form>

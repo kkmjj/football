@@ -30,7 +30,7 @@
 
 				<div class="col-md-12 col-lg-8 mb-5">
 
-					<form action="../signupUser.do" method="post" class="p-5 bg-white">
+					<form action="signupUser.do" method="post" class="p-5 bg-white">
 						<div class="form-group" align="left">
 							<label for="name">이름</label> <input type="text"
 								class="form-control" id="NAME" name="NAME" placeholder="">

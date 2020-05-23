@@ -1,5 +1,7 @@
 package kim.kang.kitri.user.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +21,7 @@ public class UserServiceImpI implements UserService {
 		userDAO.signupUser(vo);
 	}
 	@Override
-	public UserVO findUser(UserVO vo) {
+	public List<UserVO> findUser(UserVO vo) {
 		return userDAO.findUser(vo);
 	}
 	@Override
