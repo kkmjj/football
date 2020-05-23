@@ -52,9 +52,19 @@
 								class="form-control" id="NAME" name="NAME" value="${user.NAME}">
 						</div>
 						<div class="form-group" align="left">
-							<label for="gender" class="mr-2">성별</label> <input type="radio"
-								name="GENDER" value="M" class="ml-2" checked /> 남자 <input
-								type="radio" name="GENDER" value="F" class="ml-2" /> 여자
+							<label for="gender" class="mr-2">성별</label>
+							<c:if test="${userGENDER == 'M'}"> 
+							<input type="radio" name="GENDER" value="M" class="ml-2" checked /> 남자 
+							<input type="radio" name="GENDER" value="F" class="ml-2" /> 여자
+							</c:if>
+							<c:if test="${userGENDER == 'F'}"> 
+							<input type="radio" name="GENDER" value="M" class="ml-2" /> 남자 
+							<input type="radio" name="GENDER" value="F" class="ml-2" checked /> 여자
+							</c:if>
+							<c:if test="${userGENDER == null}"> 
+							<input type="radio" name="GENDER" value="M" class="ml-2" /> 남자 
+							<input type="radio" name="GENDER" value="F" class="ml-2" /> 여자
+							</c:if>
 						</div>
 						<div class="form-group" align="left">
 							<label for="tel">전화번호</label>
