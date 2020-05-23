@@ -115,20 +115,23 @@
 			<div class="row align-items-center justify-content-center">
 				<div class="col-md-12 col-lg-12 mb-5">
 					<div class="p-5 bg-white">
-						<form method="post" action="apply.do">
-							<div class="input-group align-items-center" style="width: 100%;">
-								<input type="hidden" id="postId" name="postId"
-									value="${postdetail.ID}" /> <input id="comment" type="text"
-									style="width: 300px;" name="userComment" class="form-control"
-									placeholder="내용을 입력하세요." maxlength=255> <span
-									class="input-group-btn">
-									<button id="comment" style="margin-left: 15px;"
-										class="btn btn-primary" type="submit">신청</button>
-									<button id="comment" style="margin-left: 15px;"
-										class="btn btn-primary" type="submit" disabled="disabled">신청</button>
-								</span>
-							</div>
-						</form>
+						<c:if test="${userID != null}">
+						<c:if test="${postdetail.WRITER != userID}">
+							<form method="post" action="apply.do">
+								<div class="input-group align-items-center"
+									style="width: 100%;">
+									<input type="hidden" id="postId" name="postId" value="${postdetail.ID}" />
+									<input id="comment" type="text"
+										style="width: 300px;" name="userComment" class="form-control"
+										placeholder="내용을 입력하세요." maxlength=255> 
+									<span class="input-group-btn">
+										<button id="comment" style="margin-left: 15px;"
+											class="btn btn-primary" type="submit">신청</button>
+									</span>
+								</div>
+							</form>
+						</c:if>
+						</c:if>
 						<br>
 						<table class="table table-hover">
 							<colgroup>
