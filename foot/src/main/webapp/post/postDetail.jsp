@@ -25,9 +25,9 @@
 		</div>
 	</div>
 
+	<c:if test="${postdetail.STATUS != 'D'}">
 	<section class="ftco-section bg-light">
 		<div class="container">
-
 			<div class="breadcrumb">
 				<div class="col-9">
 					<h3>${ postdetail.TITLE}</h3>
@@ -224,6 +224,22 @@
 			</div>
 		</div>
 	</section>
+	</c:if>
+	
+	
+	<c:if test="${postdetail.STATUS == 'D'}">
+	<section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-md-12 col-lg-12">
+					<div class="p-5 bg-white">
+					<h3>이미 삭제된 공고입니다.</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	</c:if>
 
 
 	<%@ include file="/includes/footer.jsp"%>
