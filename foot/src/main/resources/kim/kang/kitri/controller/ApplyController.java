@@ -28,7 +28,7 @@ public class ApplyController {
 	ApplyService applyService;
 
 	@RequestMapping(value = "/apply.do")
-	public String evaluPage(HttpSession session, HttpServletRequest request, RedirectAttributes redirect) {
+	public String apply(HttpSession session, HttpServletRequest request, RedirectAttributes redirect) {
 		ApplyVO applyVO = new ApplyVO();
 		Date date = new Date();
 		applyVO.setPOST_ID(Integer.parseInt(request.getParameter("postId")));
@@ -39,8 +39,13 @@ public class ApplyController {
 		applyVO.setMIN(date.getMinutes());
 		applyVO.setSTATUS("Y");
 		applyService.applyUser(applyVO);
-		
-		return "redirect:PostDetail.do?id="+request.getParameter("postId");
+
+		return "redirect:PostDetail.do?id=" + request.getParameter("postId");
 	}
 
+	@RequestMapping(value = "/applyCancel.do")
+	public String applyCancel(String postID, String applyUserID, HttpSession session, HttpServletRequest request, RedirectAttributes redirect) {
+		applyService.applyStatus_D(Integer.parseInt(postID), applyUserID);
+		return "redirect:PostDetail.do?id="+postID;
+	}
 }
