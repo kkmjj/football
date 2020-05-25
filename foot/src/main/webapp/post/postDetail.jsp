@@ -117,6 +117,7 @@
 					<div class="p-5 bg-white">
 						<c:if test="${userID != null}">
 						<c:if test="${postdetail.WRITER != userID}">
+						<c:if test="${flag == 0}">
 							<form method="post" action="apply.do">
 								<div class="input-group align-items-center"
 									style="width: 100%;">
@@ -130,6 +131,7 @@
 									</span>
 								</div>
 							</form>
+						</c:if>
 						</c:if>
 						</c:if>
 						<br>
@@ -147,7 +149,6 @@
 								</tr>
 							</thead>
 							<tbody>
-								<h5>${flag}</h5>
 								<c:forEach items="${postApplyUser}" var="postApplyUser">
 									<tr>
 										<td class="text-center">${postApplyUser.APPLICANT}</td>
