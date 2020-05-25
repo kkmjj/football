@@ -34,8 +34,6 @@
 				</div>
 				<c:if test="${postdetail.WRITER == userID}">
 					<div class="row col-3 align-items-center justify-content-end">
-						<a href="PostUpdatePage.do"><button
-								class="btn btn-dark btn-sm mr-2" type="button" id="modify">수정</button></a>
 						<a href="PostStatusD.do?id=${postdetail.ID}"><button
 								class="btn btn-dark btn-sm mr-2" type="button" id="delete">삭제</button></a>
 					</div>
@@ -55,7 +53,7 @@
 									<h5>경기일</h5>
 								</td>
 								<td>
-									<h5>${postdetail.DATETIME}${postdetail.HOUR}시
+									<h5>${postdetail.DATETIME} ${postdetail.HOUR}시
 										${postdetail.MIN}분</h5>
 								</td>
 							</tr>
@@ -64,7 +62,7 @@
 									<h5>경기 장소</h5>
 								</td>
 								<td>
-									<h5>${postdetail.ADDRESS}${postdetail.ADDRESS_DETAIL}</h5>
+									<h5>${postdetail.ADDRESS} ${postdetail.ADDRESS_DETAIL}</h5>
 								</td>
 							</tr>
 							<tr>
