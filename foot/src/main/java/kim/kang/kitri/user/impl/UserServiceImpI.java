@@ -41,4 +41,13 @@ public class UserServiceImpI implements UserService {
 		// TODO Auto-generated method stub
 		return userDAO.idGetUser(vo);
 	}
+	
+	
+	@Override
+	public int UserCount() {
+		// TODO Auto-generated method stub
+		return userDAO.UserCount();
+	}
+	
+	
 }

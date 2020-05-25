@@ -19,7 +19,10 @@ import kim.kang.kitri.evaluation.EvaluationService;
 import kim.kang.kitri.post.PostService;
 import kim.kang.kitri.post.PostVO;
 import kim.kang.kitri.user.UserService;
+<<<<<<< HEAD
 import kim.kang.kitri.user.UserVO;
+=======
+>>>>>>> 0fb3d1a3e31e758e9282a02af2a4f7fc4edcf256
 
 @Controller
 public class PostController {
@@ -30,8 +33,15 @@ public class PostController {
 
 	@Autowired
 	ApplyService applyService;
+<<<<<<< HEAD
 	@Autowired
 	UserService userService;
+=======
+	
+	@Autowired
+	UserService userService;
+	
+>>>>>>> 0fb3d1a3e31e758e9282a02af2a4f7fc4edcf256
 	// home.do 먼저 실행하고 index 페이지로 넘어가기 
 	@RequestMapping("/home.do")
 	public String getPostList(Integer page,
@@ -42,6 +52,11 @@ public class PostController {
 			PostVO vo, Model model ) {
 		if(page == null) page = 1;
 
+		
+		
+		
+		model.addAttribute("PostCount",postservice.postCount());
+		model.addAttribute("UserCount",userService.UserCount());
 		model.addAttribute("page", page);
 		model.addAttribute("start", start);
 		model.addAttribute("end", end);
@@ -106,6 +121,7 @@ public class PostController {
 			postApplyUser.get(i).setTEL3(userVO.getTEL3());
 		}
 		model.addAttribute("postApplyUser",postApplyUser);
+		model.addAttribute("flag", applyService.flag_apply((String) session.getAttribute("userID"),applyVO));
 
 		return "post/postDetail.jsp";
 	}

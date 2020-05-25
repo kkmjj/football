@@ -36,4 +36,10 @@ public class ApplyServiceImpl implements ApplyService{
 		
 	}
 	
+	
+	@Override
+	public int flag_apply(String id,ApplyVO vo) {
+		// TODO Auto-generated method stub
+		return applyDAO.flag_apply(id,vo);
+	}
 }

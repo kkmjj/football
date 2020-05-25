@@ -27,7 +27,7 @@
 												<span class="flaticon-worldwide"></span>
 											</div>
 											<div class="desc text-left">
-												<strong class="number" data-number="46">0</strong> <span>Countries</span>
+												<strong class="number" data-number="17">0</strong> <span>Countries</span>
 											</div>
 										</div>
 									</div>
@@ -40,7 +40,7 @@
 												<span class="flaticon-visitor"></span>
 											</div>
 											<div class="desc text-left">
-												<strong class="number" data-number="450">0</strong> <span>Companies</span>
+												<strong class="number" data-number=${UserCount}>0</strong> <span>Users</span>
 											</div>
 										</div>
 									</div>
@@ -53,8 +53,7 @@
 												<span class="flaticon-resume"></span>
 											</div>
 											<div class="desc text-left">
-												<strong class="number" data-number="80000">0</strong> <span>Active
-													Employees</span>
+												<strong class="number" data-number=${PostCount}>0</strong> <span>Post</span>
 											</div>
 										</div>
 									</div>

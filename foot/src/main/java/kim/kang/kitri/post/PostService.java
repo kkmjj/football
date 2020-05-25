@@ -28,5 +28,7 @@ public interface PostService {
 	public List<PostVO> idFindPostList(String postIdList);
 	
 	public void Post_Status_O(int id);
+	
+	public int postCount();
 
 }
