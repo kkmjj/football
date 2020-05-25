@@ -116,8 +116,8 @@
 				<div class="col-md-12 col-lg-12 mb-5">
 					<div class="p-5 bg-white">
 					<h3>신청 현황</h3>
-						<c:if test="${userID != null}">
 						<c:if test="${postdetail.WRITER != userID}">
+						<c:if test="${userID != null}">
 						<c:if test="${flag == 0}">
 							<form method="post" action="apply.do">
 								<div class="input-group align-items-center"
@@ -134,8 +134,50 @@
 							</form>
 						</c:if>
 						</c:if>
-						</c:if>
 						<br>
+						<table class="table table-hover">
+							<colgroup>
+								<col width="20%">
+								<col width="*">
+								<col width="20%">
+							</colgroup>
+							<thead class="thead-dark">
+								<tr>
+									<th class="text-center">작성자</th>
+									<th class="text-center">내용</th>
+									<th class="text-center">상태</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${postApplyUser}" var="postApplyUser">
+									<tr>
+										<td class="text-center">${postApplyUser.APPLICANT}</td>
+										<td class="text-left">${postApplyUser.CONTENT}</td>
+										<c:if test="${postApplyUser.STATUS == 'Y'}">
+										<c:if test="${postApplyUser.APPLICANT == userID}">
+										<td class="text-center">
+										<a href="evaluPage.do?postID=${postdetail.ID}" class="btn btn-sm btn-primary">신청 취소</a>
+										</td>
+										</c:if>
+										<c:if test="${postApplyUser.APPLICANT != userID}">
+										<td class="text-center">신청</td>
+										</c:if>
+										</c:if>										
+										<c:if test="${postApplyUser.STATUS == 'N'}"><td>수락</td></c:if>
+										<c:if test="${postApplyUser.STATUS == 'E'}"><td>경기 종료</td></c:if>
+										<c:if test="${postApplyUser.STATUS == 'O'}"><td>평가 완료</td></c:if>
+										<c:if test="${postApplyUser.STATUS == 'C'}"><td>거절</td></c:if>
+									</tr>
+								</c:forEach>
+								<c:if test="${postApplyUser.size() == 0}">
+								<tr>
+									<td class="text-center" colspan="3">신청된 공고가 없습니다.</td>
+								</tr>
+								</c:if>
+							</tbody>
+						</table>
+						</c:if>
+						<c:if test="${postdetail.WRITER == userID}">
 						<table class="table table-hover">
 							<colgroup>
 								<col width="20%">
@@ -166,11 +208,14 @@
 										<c:if test="${postApplyUser.STATUS == 'C'}"><td>거절</td></c:if>
 									</tr>
 								</c:forEach>
+								<c:if test="${postApplyUser.size() == 0}">
 								<tr>
-									<td class="text-center" colspan="3">작성된 댓글이 없습니다.</td>
+									<td class="text-center" colspan="3">신청된 공고가 없습니다.</td>
 								</tr>
+								</c:if>
 							</tbody>
 						</table>
+						</c:if>
 					</div>
 				</div>
 			</div>
