@@ -37,11 +37,11 @@
 						<div class="form-group" align="left">
 							<label for="">비밀번호</label> <input type="password"
 								class="form-control" id="pwd1" name="PASSWORD"
-								value="${user.PASSWORD}">
+								value="${user.PASSWORD}" onkeyup="submit_change();">
 						</div>
 						<div class="form-group" align="left">
 							<label for="">비밀번호재입력</label> <input type="password"
-								class="form-control" id="pwd2" name="passcheck" value="">
+								class="form-control" id="pwd2" name="passcheck" value="" onkeyup="submit_change();">
 						</div>
 						<div class="alert alert-success" id="alert-success">비밀번호가
 							일치합니다.</div>
@@ -103,7 +103,7 @@
 								id="ADDRESS_DETAIL" type="text" value="${user.ADDRESS_DETAIL}" />
 						</div>
 						<div class="form-group" align="center">
-							<button type="submit" class="btn btn-primary" id="registerBtn">수정</button>
+							<button type="submit" class="btn btn-primary" id="usersubmit" disabled>수정</button>
 						</div>
 					</form>
 				</div>
@@ -205,6 +205,7 @@
 	</section>
 	<%@ include file="/includes/footer.jsp"%>
 	<%@ include file="/includes/scripts.jsp"%>
+    <script src="resources/js/signup.js"></script>
 </body>
 
 </html>

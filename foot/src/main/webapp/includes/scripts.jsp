@@ -14,7 +14,6 @@
 	<script src="resources/js/jquery.animateNumber.min.js"></script>
 	<script src="resources/js/scrollax.min.js"></script>
 	<script src="resources/js/main.js"></script>
-    <script src="resources/js/signup.js"></script>
     <script src="resources/js/addressapi.js"></script>
     
     <!-- date picker 관련 js -->
