@@ -201,8 +201,8 @@
 										<td class="text-center">${postApplyUser.TEL1}-${postApplyUser.TEL2}-${postApplyUser.TEL3}</td>
 										<c:if test="${postApplyUser.STATUS == 'Y'}">
 										<td class="text-center">
-										<a href="ApplyStatusN.do?id=${postApplyUser.ID}" class="btn btn-sm btn-primary">수락</a>
-										<a href="evaluPage.do?id=${postApplyUser.ID}" class="btn btn-sm btn-danger">거절</a>
+										<a href="ApplyStatusN.do?postID=${postdetail.ID}&applyUserID=${postApplyUser.APPLICANT}" class="btn btn-sm btn-primary">수락</a>
+										<a href="ApplyStatusC.do?postID=${postdetail.ID}&applyUserID=${postApplyUser.APPLICANT}" class="btn btn-sm btn-danger">거절</a>
 										</td>
 										</c:if>										
 										<c:if test="${postApplyUser.STATUS == 'N'}"><td class="text-center">수락</td></c:if>

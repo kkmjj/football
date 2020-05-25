@@ -15,4 +15,6 @@ public interface ApplyService {
 	
 	public void applyStatus_O(int id);
 	public void applyStatus_D(int postID, String applyUserID);
+	public void applyStatus_N(int postID, String applyUserID);
+	public void applyStatus_C(int postID, String applyUserID);
 }

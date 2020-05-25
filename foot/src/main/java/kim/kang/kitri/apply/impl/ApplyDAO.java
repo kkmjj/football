@@ -80,4 +80,14 @@ public class ApplyDAO {
 		String POST_STATUS_O = "delete APPLY WHERE POST_ID="+postID+"and APPLICANT='"+applyUserID+"'";
 		jdbcTemplate.update(POST_STATUS_O);
 	}
+	
+	public void applyStatus_N(int postID, String applyUserID) {
+		String POST_STATUS_N = "UPDATE APPLY SET STATUS='N' WHERE POST_ID="+postID+"and APPLICANT='"+applyUserID+"'";
+		jdbcTemplate.update(POST_STATUS_N);
+	}
+	
+	public void applyStatus_C(int postID, String applyUserID) {
+		String POST_STATUS_C = "UPDATE APPLY SET STATUS='C' WHERE POST_ID="+postID+"and APPLICANT='"+applyUserID+"'";
+		jdbcTemplate.update(POST_STATUS_C);
+	}
 }

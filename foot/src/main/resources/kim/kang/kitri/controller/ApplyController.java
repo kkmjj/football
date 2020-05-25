@@ -48,4 +48,16 @@ public class ApplyController {
 		applyService.applyStatus_D(Integer.parseInt(postID), applyUserID);
 		return "redirect:PostDetail.do?id="+postID;
 	}
+	
+	@RequestMapping(value = "/ApplyStatusN.do")
+	public String ApplyStatusN(String postID, String applyUserID, HttpSession session, HttpServletRequest request, RedirectAttributes redirect) {
+		applyService.applyStatus_N(Integer.parseInt(postID), applyUserID);
+		return "redirect:PostDetail.do?id="+postID;
+	}
+	
+	@RequestMapping(value = "/ApplyStatusC.do")
+	public String ApplyStatusC(String postID, String applyUserID, HttpSession session, HttpServletRequest request, RedirectAttributes redirect) {
+		applyService.applyStatus_C(Integer.parseInt(postID), applyUserID);
+		return "redirect:PostDetail.do?id="+postID;
+	}
 }

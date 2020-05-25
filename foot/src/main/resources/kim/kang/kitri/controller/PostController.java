@@ -76,14 +76,7 @@ public class PostController {
 		return "home.do";
 	}
 	
-	@RequestMapping("/ApplyStatusN.do")	// N이 수락 완료 
-	public String ApplyStatusN(String id, Model model) {
-		
-		
-		applyService.applyStatus_N(id);
-		
-		return "redirect:PostDetail.do?id="+id;
-	}
+
 	
 	
 	

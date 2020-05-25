@@ -53,4 +53,12 @@ public class ApplyServiceImpl implements ApplyService{
 	public void applyStatus_D(int postID, String applyUserID) {
 		applyDAO.applyStatus_D(postID, applyUserID);
 	}
+	@Override
+	public void applyStatus_N(int postID, String applyUserID) {
+		applyDAO.applyStatus_N(postID, applyUserID);
+	}
+	@Override
+	public void applyStatus_C(int postID, String applyUserID) {
+		applyDAO.applyStatus_C(postID, applyUserID);
+	}
 }
