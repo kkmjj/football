@@ -89,7 +89,7 @@
 									<ul>
 										<li>아이디 :${ postdetail.WRITER}</li>
 										<li>이름 : ${ postdetail.NAME}</li>
-										<li>평균 평점 : 75점</li>
+										<li>평균 평점 : ${ userEvalu} 점</li>
 									</ul>
 								</td>
 							</tr>
@@ -149,7 +149,7 @@
 							<tbody>
 								<c:forEach items="${postApplyUser}" var="postApplyUser">
 									<tr>
-										<td class="text-center">${postApplyUser.APPLICANT}</td>
+										<td class="text-center">${postApplyUser.APPLICANT}(평점: ${postApplyUser.APPLY_SCORE})</td>
 										<td class="text-left">${postApplyUser.CONTENT}</td>
 										<td class="text-center">${postApplyUser.STATUS}</td>
 									</tr>

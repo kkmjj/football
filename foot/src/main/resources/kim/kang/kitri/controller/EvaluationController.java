@@ -24,6 +24,7 @@ public class EvaluationController {
 	private PostService postservice;
 	@Autowired
 	ApplyService applyService;
+	
 	@RequestMapping(value = "/evaluPage.do")
 	public String evaluPage(String postID, Model model, HttpServletRequest request) {
 		model.addAttribute("postdetail", postservice.DetailPost(postID));

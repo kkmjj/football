@@ -18,5 +18,11 @@ public class EvaluationServiceImpl implements EvaluationService{
 	public void userEvaluation(EvaluationVO vo) {
 		evaluationDAO.userEvaluation(vo);
 	}
+	
+	@Override
+	public double userEvaluScore(String RATER) {
+		// TODO Auto-generated method stub
+		return evaluationDAO.userEvaluScore(RATER);
+	}
 
 }

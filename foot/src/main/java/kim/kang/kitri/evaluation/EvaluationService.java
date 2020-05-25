@@ -4,4 +4,6 @@ public interface EvaluationService {
 	public EvaluationVO scan(EvaluationVO vo);
 	
 	public void userEvaluation(EvaluationVO vo);
+	
+	public double userEvaluScore(String RATER);
 }

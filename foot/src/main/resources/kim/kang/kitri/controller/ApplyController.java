@@ -40,7 +40,6 @@ public class ApplyController {
 		applyVO.setSTATUS("Y");
 		applyService.applyUser(applyVO);
 		
-	
 		return "redirect:PostDetail.do?id="+request.getParameter("postId");
 	}
 
