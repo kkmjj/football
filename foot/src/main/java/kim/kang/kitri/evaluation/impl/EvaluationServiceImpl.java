@@ -14,5 +14,9 @@ public class EvaluationServiceImpl implements EvaluationService{
 	public EvaluationVO scan(EvaluationVO vo) {
 		return evaluationDAO.scan(vo);
 	}
+	@Override
+	public void userEvaluation(EvaluationVO vo) {
+		evaluationDAO.userEvaluation(vo);
+	}
 
 }

@@ -26,24 +26,25 @@ public class PostDAO {
 		return jdbcTemplate.query(myPOST_List, new PostRowMapper());
 	}
 
-	// ÀüÃ¼ Ãâ·Â
+	// ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½
 	private final String POST_List = "select * from (select ROW_NUMBER() over(order by id desc) NUM, p.* from POST p where status = 'Y' and DATETIME BETWEEN ? AND ? and address like '%'||?||'%' and address_detail like '%'||?||'%' order by id desc) where num BETWEEN ? AND ?";
 	
 	private final String POST_List_Cnt = "select * from POST where status = 'Y' and DATETIME BETWEEN ? AND ? and address like '%'||?||'%' and address_detail like '%'||?||'%'";
 
 
-	// »ðÀÔ
+	// ï¿½ï¿½ï¿½ï¿½
 	private final String POST_Insert = "insert into POST(ID,TITLE,STATUS,WRITER,PER,DATETIME,HOUR,MIN,ZIP_CODE,ADDRESS,ADDRESS_DETAIL,CONTENT) "
 			+ "values(POST_SEQ.NEXTVAL,?,'Y',?,?,?,?,?,?,?,?,?)";
 
-	// »ó¼¼ sql
+	// ï¿½ï¿½ sql
 	private final String POST_Detail = "select * from POST join users on POST.WRITER=users.id where post.id=?";
 
-	// ¸ðÁý ¸¶°¨
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	private final String POST_STATUS_N = "UPDATE POST SET STATUS='N' WHERE ID=?";
-	// °ø°í »èÁ¦ ½Ã  STATUS = D
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½  STATUS = D
 	private final String POST_STATUS_D = "UPDATE POST SET STATUS='D' WHERE ID=?";
 
+	
 
 	public List<PostVO> getPostList(Integer page, String start, String end, String region, String input_location) {
 		
@@ -88,4 +89,11 @@ public class PostDAO {
 		jdbcTemplate.update(POST_STATUS_D, id);
 	}
 
+	public void Post_Status_O(int id) {
+		String POST_STATUS_O = "UPDATE POST SET STATUS='O' WHERE ID=?";
+		// Object[] args = {id};
+		jdbcTemplate.update(POST_STATUS_O, id);
+	}
+	
+	
 }

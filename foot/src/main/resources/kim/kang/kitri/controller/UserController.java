@@ -150,10 +150,7 @@ public class UserController {
 		return "redirect:/loginPage.do";
 	}
 
-	@RequestMapping(value = "/evaluPage.do")
-	public String evaluPage() {
-		return "evalu/evaluInsert.jsp";
-	}
+
 
 	@RequestMapping(value = "/logoutPage.do")
 	public String logoutPage(HttpSession session) {
