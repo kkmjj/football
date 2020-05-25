@@ -143,14 +143,17 @@ public class UserController {
 			applyVO.setAPPLICANT((String) session.getAttribute("userID"));
 			String postIdSql = applyService.myApplyPostIdSql(applyVO);
 			List<ApplyVO> myApplyList = applyService.myApplyPostList(applyVO, postIdSql);
-			for(int i=0; i<myApplyList.size(); i++) {
-				PostVO postVO2 = postservice.DetailPost(String.valueOf(myApplyList.get(i).getPOST_ID()));
-				if (postVO2.getSTATUS().equals("N")) {
-					if (date.compareTo(postVO2.getDATETIME()) > 0) {
-						myApplyList.get(i).setSTATUS("E");
+			if(myApplyList!=null) {
+				for(int i=0; i<myApplyList.size(); i++) {
+					PostVO postVO2 = postservice.DetailPost(String.valueOf(myApplyList.get(i).getPOST_ID()));
+					if (postVO2.getSTATUS().equals("N")) {
+						if (date.compareTo(postVO2.getDATETIME()) > 0) {
+							myApplyList.get(i).setSTATUS("E");
+						}
 					}
 				}
 			}
+
 			model.addAttribute("myApplyList", myApplyList);
 
 			return "/users/mypage.jsp";
