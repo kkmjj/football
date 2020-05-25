@@ -198,8 +198,8 @@
 										<td class="text-left">${postApplyUser.CONTENT}</td>
 										<c:if test="${postApplyUser.STATUS == 'Y'}">
 										<td class="text-center">
-										<a href="evaluPage.do?postID=${postdetail.ID}" class="btn btn-sm btn-primary">수락</a>
-										<a href="evaluPage.do?postID=${postdetail.ID}" class="btn btn-sm btn-danger">거절</a>
+										<a href="ApplyStatusN.do?id=${postApplyUser.ID}" class="btn btn-sm btn-primary">수락</a>
+										<a href="evaluPage.do?id=${postApplyUser.ID}" class="btn btn-sm btn-danger">거절</a>
 										</td>
 										</c:if>										
 										<c:if test="${postApplyUser.STATUS == 'N'}"><td>수락</td></c:if>

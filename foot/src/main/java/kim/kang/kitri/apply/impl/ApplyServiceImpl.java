@@ -36,6 +36,13 @@ public class ApplyServiceImpl implements ApplyService{
 		
 	}
 	
+	@Override
+	public void applyStatus_N(String id) {
+		
+		applyDAO.applyStatus_N(id);
+	}
+	
+	
 	
 	@Override
 	public int flag_apply(String id,ApplyVO vo) {

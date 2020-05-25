@@ -68,6 +68,21 @@ public class PostController {
 
 		return "home.do";
 	}
+	
+	@RequestMapping("/ApplyStatusN.do")	// N이 수락 완료 
+	public String ApplyStatusN(String id, Model model) {
+		
+		
+		applyService.applyStatus_N(id);
+		
+		return "redirect:PostDetail.do?id="+id;
+	}
+	
+	
+	
+	
+	
+	
 
 	// index 페이지에서 등록을 누르게 되면 -> postInsert페이지로 넘어감
 	@RequestMapping("/PostInsertPage.do")
@@ -91,6 +106,8 @@ public class PostController {
 	@RequestMapping("/PostDetail.do")
 	public String DetailPost(HttpServletRequest request,String id, Model model) {
 		ApplyVO applyVO = new ApplyVO();
+		
+		
 		applyVO.setPOST_ID(Integer.parseInt(id)); // 이미 공고 아이디를 넘김 
 		
 		HttpSession session = request.getSession();
