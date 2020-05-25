@@ -20,7 +20,11 @@ public class ApplyDAO {
 				+ "from apply, post where APPLICANT = ? and post_id in (" + PostIdSql + ") and post.id in (" + PostIdSql
 				+ ") and post_id = post.id";
 		Object[] args = { vo.getAPPLICANT() };
-		return jdbcTemplate.query(myApplyList, args, new ApplyRowJoinMapper());
+		try {
+			return jdbcTemplate.query(myApplyList, args, new ApplyRowJoinMapper());
+		} catch(Exception e){
+			return null;	
+		}
 	}
 
 	public void applyUser(ApplyVO vo) {
