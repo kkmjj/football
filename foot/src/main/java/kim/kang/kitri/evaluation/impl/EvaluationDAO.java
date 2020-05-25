@@ -1,6 +1,7 @@
 package kim.kang.kitri.evaluation.impl;
 
 import java.awt.geom.Arc2D.Double;
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,11 @@ public class EvaluationDAO {
 		}catch(Exception e) {
 			return 0;
 		}
+	}
+	
+	public List<EvaluationVO> postEvaluList(String postID) {
+		String evaluationScan = "select * from evaluation where POST_ID ="+postID;
+		return jdbcTemplate.query(evaluationScan, new EvaluationRowMapper());
 	}
 }
 

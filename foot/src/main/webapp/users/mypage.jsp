@@ -143,7 +143,7 @@
 											<td><a href="evaluPage.do?postID=${myPostList.ID}" class="btn btn-sm btn-secondary">평가 등록</a></td>
 											</c:if>
 											<c:if test="${myPostList.STATUS == 'O'}">
-											<td><a href="evaluPage.do?postID=${myPostList.ID}" class="btn btn-sm btn-secondary">평가 조회</a></td>
+											<td><a href="evaluList.do?postID=${myPostList.ID}" class="btn btn-sm btn-secondary">평가 조회</a></td>
 											</c:if>
 											<c:if test="${myPostList.STATUS == 'C'}"><td>경기 취소</td></c:if>
 											<c:if test="${myPostList.STATUS == 'D'}"><td>삭제</td></c:if>
@@ -191,7 +191,7 @@
 											<td><a href="evaluPage2.do?postID=${myApplyList.POST_ID}&applyID=${myApplyList.ID}" class="btn btn-sm btn-secondary">평가 등록</a></td>
 											</c:if>
 											<c:if test="${myApplyList.STATUS == 'O'}">
-											<td><a href="evaluPage2.do?postID=${myApplyList.POST_ID}&applyID=${myApplyList.ID}" class="btn btn-sm btn-secondary">평가 조회</a></td>
+											<td><a href="evaluList.do?postID=${myApplyList.POST_ID}" class="btn btn-sm btn-secondary">평가 조회</a></td>
 											</c:if>
 										</tr>
 									</c:forEach>

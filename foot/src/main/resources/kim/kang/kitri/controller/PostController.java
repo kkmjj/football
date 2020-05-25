@@ -107,8 +107,7 @@ public class PostController {
 	public String DetailPost(String id, HttpSession session, Model model, HttpServletRequest request) {
 		ApplyVO applyVO = new ApplyVO();
 		applyVO.setPOST_ID(Integer.parseInt(id)); // 이미 공고 아이디를 넘김 
-
-
+		PostVO postVO = postservice.DetailPost(id);
 		model.addAttribute("postdetail", postservice.DetailPost(id));
 		List<ApplyVO> postApplyUser = applyService.PostApplyUsers(applyVO);
 		for(int i=0; i<postApplyUser.size(); i++) {
@@ -122,7 +121,7 @@ public class PostController {
 		}
 		model.addAttribute("postApplyUser",postApplyUser);
 		model.addAttribute("flag", applyService.flag_apply((String) session.getAttribute("userID"),applyVO));
-		
+		request.setAttribute("userEvalu", String.valueOf(evaluationService.userEvaluScore(postVO.getWRITER())));
 
 		return "post/postDetail.jsp";
 	}

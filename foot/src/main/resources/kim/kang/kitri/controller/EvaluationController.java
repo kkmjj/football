@@ -61,4 +61,13 @@ public class EvaluationController {
 		applyService.applyStatus_O(Integer.parseInt(applyID));
 		return "myPage.do";
 	}
+	
+	@RequestMapping(value = "/evaluList.do")
+	public String evaluList(String postID, Model model, HttpServletRequest request) {
+		model.addAttribute("postdetail", postservice.DetailPost(postID));
+		model.addAttribute("postApplyUser", evaluationService.postEvaluList(postID));
+		PostVO postVO = postservice.DetailPost(postID);
+		request.setAttribute("userEvalu", String.valueOf(evaluationService.userEvaluScore(postVO.getWRITER())));
+		return "evalu/evaluList.jsp";
+	}
 }

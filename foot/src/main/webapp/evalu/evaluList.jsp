@@ -106,7 +106,7 @@
 			<div class="row align-items-center justify-content-center">
 				<div class="col-md-12 col-lg-12 mb-5">
 					<div class="p-5 bg-white">
-					<h3>신청 현황</h3>
+					<h3>평가 리스트</h3>
 						<c:if test="${postdetail.WRITER != userID}">
 						<c:if test="${userID != null}">
 						<c:if test="${flag == 0}">
@@ -178,35 +178,19 @@
 							</colgroup>
 							<thead class="thead-dark">
 								<tr>
-									<th class="text-center">작성자</th>
-									<th class="text-center">내용</th>
-									<th class="text-center">연락처</th>
-									<th class="text-center">상태</th>
+									<th class="text-center">평가자</th>
+									<th class="text-center">코멘트</th>
+									<th class="text-center">점수</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach items="${postApplyUser}" var="postApplyUser">
 									<tr>
-										<td class="text-center">${postApplyUser.APPLICANT}</td>
+										<td class="text-left">${postApplyUser.RATER}</td>
 										<td class="text-left">${postApplyUser.CONTENT}</td>
-										<td class="text-center">${postApplyUser.TEL1}-${postApplyUser.TEL2}-${postApplyUser.TEL3}</td>
-										<c:if test="${postApplyUser.STATUS == 'Y'}">
-										<td class="text-center">
-										<a href="ApplyStatusN.do?postID=${postdetail.ID}&applyUserID=${postApplyUser.APPLICANT}" class="btn btn-sm btn-primary">수락</a>
-										<a href="ApplyStatusC.do?postID=${postdetail.ID}&applyUserID=${postApplyUser.APPLICANT}" class="btn btn-sm btn-danger">거절</a>
-										</td>
-										</c:if>										
-										<c:if test="${postApplyUser.STATUS == 'N'}"><td class="text-center">수락</td></c:if>
-										<c:if test="${postApplyUser.STATUS == 'E'}"><td class="text-center">경기 종료</td></c:if>
-										<c:if test="${postApplyUser.STATUS == 'O'}"><td class="text-center">평가 완료</td></c:if>
-										<c:if test="${postApplyUser.STATUS == 'C'}"><td class="text-center">거절</td></c:if>
+										<td class="text-left">${postApplyUser.SCORE}</td>
 									</tr>
 								</c:forEach>
-								<c:if test="${postApplyUser.size() == 0}">
-								<tr>
-									<td class="text-center" colspan="3">신청된 공고가 없습니다.</td>
-								</tr>
-								</c:if>
 							</tbody>
 						</table>
 						</c:if>
