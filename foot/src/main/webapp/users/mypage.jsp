@@ -53,15 +53,15 @@
 						</div>
 						<div class="form-group" align="left">
 							<label for="gender" class="mr-2">성별</label>
-							<c:if test="${userGENDER == 'M'}"> 
+							<c:if test="${user.GENDER == 'M'}"> 
 							<input type="radio" name="GENDER" value="M" class="ml-2" checked /> 남자 
 							<input type="radio" name="GENDER" value="F" class="ml-2" /> 여자
 							</c:if>
-							<c:if test="${userGENDER == 'F'}"> 
+							<c:if test="${user.GENDER == 'F'}"> 
 							<input type="radio" name="GENDER" value="M" class="ml-2" /> 남자 
 							<input type="radio" name="GENDER" value="F" class="ml-2" checked /> 여자
 							</c:if>
-							<c:if test="${userGENDER == null}"> 
+							<c:if test="${user.GENDER == null}"> 
 							<input type="radio" name="GENDER" value="M" class="ml-2" /> 남자 
 							<input type="radio" name="GENDER" value="F" class="ml-2" /> 여자
 							</c:if>

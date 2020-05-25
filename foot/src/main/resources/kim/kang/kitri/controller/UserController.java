@@ -69,21 +69,38 @@ public class UserController {
 	public String addressFind() {
 		return "users/jusoPopup.jsp";
 	}
-
-	@RequestMapping(value = "/updateUser.do", method = RequestMethod.POST)
+	
+	@RequestMapping(value = "/userUpdate.do", method = RequestMethod.POST)
 	public String updateUser(UserVO vo, HttpSession session, HttpServletRequest request) {
 		vo.setID((String) session.getAttribute("userID"));
-		vo.setPASSWORD((String) request.getAttribute("PASSWORD"));
-		vo.setNAME((String) request.getAttribute("NAME"));
-		vo.setTEL1((String) request.getAttribute("TEL1"));
-		vo.setTEL2((String) request.getAttribute("TEL2"));
-		vo.setTEL3((String) request.getAttribute("TEL3"));
-		vo.setZIP_CODE((String) request.getAttribute("ZIP_CODE"));
-		vo.setADDRESS((String) request.getAttribute("ADDRESS"));
-		vo.setADDRESS_DETAIL((String) request.getAttribute("ADDRESS_DETAIL"));
+		if((String) request.getAttribute("PASSWORD")!=null) {
+			vo.setPASSWORD((String) request.getAttribute("PASSWORD"));
+		}
+		if((String) request.getAttribute("NAME")!=null) {
+			vo.setNAME((String) request.getAttribute("NAME"));
+		}
+		if((String) request.getAttribute("TEL1")!=null) {
+			vo.setTEL1((String) request.getAttribute("TEL1"));
+		}
+		if((String) request.getAttribute("TEL2")!=null) {
+			vo.setTEL1((String) request.getAttribute("TEL1"));
+		}
+		if((String) request.getAttribute("TEL3")!=null) {
+			vo.setTEL1((String) request.getAttribute("TEL1"));
+		}
+		if((String) request.getAttribute("ZIP_CODE")!=null) {
+			vo.setZIP_CODE((String) request.getAttribute("ZIP_CODE"));
+		}
+		if((String) request.getAttribute("ADDRESS")!=null) {
+			vo.setADDRESS((String) request.getAttribute("ADDRESS"));
+		}
+		if((String) request.getAttribute("ADDRESS_DETAIL")!=null) {
+			vo.setADDRESS_DETAIL((String) request.getAttribute("ADDRESS_DETAIL"));
+		}
+		//vo.setGENDER((String) request.getAttribute("GENDER"));
 		userService.updateUser(vo);
 		// session.setAttribute("userGRADE", loginUser.getGRADE());
-		return "/users/mypage.jsp";
+		return "redirect:myPage.do";
 	}
 
 //	@RequestMapping(value = "/users/deleteUser.do", method = RequestMethod.POST)
