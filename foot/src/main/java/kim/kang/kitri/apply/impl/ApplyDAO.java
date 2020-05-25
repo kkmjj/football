@@ -1,5 +1,6 @@
 package kim.kang.kitri.apply.impl;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
@@ -50,5 +51,14 @@ public class ApplyDAO {
 		return jdbcTemplate.query(sql, args, new ApplyRowMapper());
 	}
 	
+
+	public int flag_apply(String id,ApplyVO vo) 
+	{
+		
+		String sql = "select count(*) from apply where applicant = ? and post_id=?";
+		Object[] args = {id ,vo.getPOST_ID()};
+		System.out.println(id+" "+vo.getPOST_ID());
+		return jdbcTemplate.queryForObject(sql, args, Integer.class);
+}
 	
 }

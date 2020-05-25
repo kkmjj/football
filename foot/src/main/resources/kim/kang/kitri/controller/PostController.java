@@ -80,13 +80,18 @@ public class PostController {
 	}
 
 	@RequestMapping("/PostDetail.do")
-	public String DetailPost(String id, Model model) {
+	public String DetailPost(HttpServletRequest request,String id, Model model) {
 		ApplyVO applyVO = new ApplyVO();
-		applyVO.setPOST_ID(Integer.parseInt(id));
+		applyVO.setPOST_ID(Integer.parseInt(id)); // 이미 공고 아이디를 넘김 
+		
+		HttpSession session = request.getSession();
 
+		
+		model.addAttribute("flag", applyService.flag_apply((String) session.getAttribute("userID"),applyVO));
 		model.addAttribute("postdetail", postservice.DetailPost(id));
 		model.addAttribute("postApplyUser",applyService.PostApplyUsers(applyVO));
-
+		
+		
 		return "post/postDetail.jsp";
 	}
 

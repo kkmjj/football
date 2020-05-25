@@ -147,6 +147,7 @@
 								</tr>
 							</thead>
 							<tbody>
+								<h5>${flag}</h5>
 								<c:forEach items="${postApplyUser}" var="postApplyUser">
 									<tr>
 										<td class="text-center">${postApplyUser.APPLICANT}</td>
