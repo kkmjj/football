@@ -45,11 +45,11 @@
 						</div>
 						<div class="form-group" align="left">
 							<label for="">비밀번호</label> <input type="password"
-								class="form-control" id="pwd1" name="PASSWORD" placeholder="">
+								class="form-control" id="pwd1" name="PASSWORD" placeholder="" onkeyup="submit_change();">
 						</div>
 						<div class="form-group" align="left">
 							<label for="">비밀번호재입력</label> <input type="password"
-								class="form-control" id="pwd2" name="passcheck" placeholder="">
+								class="form-control" id="pwd2" name="passcheck" placeholder="" onkeyup="submit_change();">
 						</div>
 						<div class="alert alert-success" id="alert-success">비밀번호가
 							일치합니다.</div>
@@ -98,7 +98,7 @@
 								name="ADDRESS_DETAIL" id="ADDRESS_DETAIL" type="text" />
 						</div>
 						<div class="form-group" align="center">
-							<button type="submit" class="btn btn-primary" id="registerBtn">회원가입</button>
+							<button type="submit" class="btn btn-primary" id="usersubmit" disabled>회원가입</button>
 							<button type="reset" class="btn btn-warning">초기화</button>
 						</div>
 					</form>
@@ -112,6 +112,7 @@
 
 
 	<%@ include file="/includes/scripts.jsp"%>
+    <script src="resources/js/signup.js"></script>
 
 </body>
 
