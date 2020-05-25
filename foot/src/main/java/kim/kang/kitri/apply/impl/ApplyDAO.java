@@ -77,7 +77,7 @@ public class ApplyDAO {
 	}
 	
 	public void applyStatus_D(int postID, String applyUserID) {
-		String POST_STATUS_O = "UPDATE APPLY SET STATUS='D' WHERE POST_ID="+postID+"and APPLICANT='"+applyUserID+"'";
+		String POST_STATUS_O = "delete APPLY WHERE POST_ID="+postID+"and APPLICANT='"+applyUserID+"'";
 		jdbcTemplate.update(POST_STATUS_O);
 	}
 }
