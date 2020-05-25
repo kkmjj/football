@@ -42,4 +42,8 @@ public class ApplyServiceImpl implements ApplyService{
 		// TODO Auto-generated method stub
 		return applyDAO.flag_apply(id,vo);
 	}
+	@Override
+	public void applyStatus_D(int postID, String applyUserID) {
+		applyDAO.applyStatus_D(postID, applyUserID);
+	}
 }

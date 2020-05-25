@@ -156,7 +156,7 @@
 										<c:if test="${postApplyUser.STATUS == 'Y'}">
 										<c:if test="${postApplyUser.APPLICANT == userID}">
 										<td class="text-center">
-										<a href="evaluPage.do?postID=${postdetail.ID}" class="btn btn-sm btn-primary">신청 취소</a>
+										<a href="applyCancel.do?postID=${postdetail.ID}&applyUserID=${postApplyUser.APPLICANT}" class="btn btn-sm btn-primary">신청 취소</a>
 										</td>
 										</c:if>
 										<c:if test="${postApplyUser.APPLICANT != userID}">

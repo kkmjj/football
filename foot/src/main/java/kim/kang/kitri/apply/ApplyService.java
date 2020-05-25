@@ -9,4 +9,5 @@ public interface ApplyService {
 	public List<ApplyVO> PostApplyUsers(ApplyVO vo);
 	public int flag_apply(String id,ApplyVO vo);
 	public void applyStatus_O(int id);
+	public void applyStatus_D(int postID, String applyUserID);
 }
