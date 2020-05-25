@@ -1,10 +1,12 @@
 package kim.kang.kitri.evaluation;
 
+
 public class EvaluationVO {
 	int ID;
 	int POST_ID;
 	String RATER;
 	int SCORE;
+	String CONTENT;
 	public int getID() {
 		return ID;
 	}
@@ -35,5 +37,4 @@ public class EvaluationVO {
 	public void setCONTENT(String cONTENT) {
 		CONTENT = cONTENT;
 	}
-	String CONTENT;
 }

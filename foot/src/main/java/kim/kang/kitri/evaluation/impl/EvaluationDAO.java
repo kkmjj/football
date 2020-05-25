@@ -14,5 +14,13 @@ public class EvaluationDAO {
 		Object[] args = { vo.getPOST_ID() ,vo.getRATER()};
 		return jdbcTemplate.queryForObject(evaluationScan, args, new EvaluationRowMapper());
 	}
+	
+	
+
+	public void userEvaluation(EvaluationVO vo) {
+		String userEvaluation = "insert into evaluation(ID, POST_ID, RATER, SCORE, CONTENT) values((SELECT NVL(MAX(ID), 0) + 1 FROM evaluation), ?, ?, ?, ?)";
+		Object[] args = { vo.getPOST_ID() ,vo.getRATER(), vo.getSCORE(), vo.getCONTENT()};
+		jdbcTemplate.update(userEvaluation, args);
+	}
 }
 

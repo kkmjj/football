@@ -55,4 +55,10 @@ public class PostServiceImpl implements PostService {
 		postDAO.Post_Status_D(id);
 	}
 
+	@Override
+	public void Post_Status_O(int id) {
+		// TODO Auto-generated method stub
+		postDAO.Post_Status_O(id);
+	}
+
 }

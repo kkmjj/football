@@ -140,7 +140,7 @@
 											<c:if test="${myPostList.STATUS == 'Y'}"><td>모집중</td></c:if>
 											<c:if test="${myPostList.STATUS == 'N'}"><td>모집 마감</td></c:if>
 											<c:if test="${myPostList.STATUS == 'E'}">
-											<td><a href="evaluPage.do" class="btn btn-sm btn-secondary">평가 등록</a></td>
+											<td><a href="evaluPage.do?postID=${myPostList.ID}" class="btn btn-sm btn-secondary">평가 등록</a></td>
 											</c:if>
 											<c:if test="${myPostList.STATUS == 'O'}"><td>평가 완료</td></c:if>
 											<c:if test="${myPostList.STATUS == 'C'}"><td>경기 취소</td></c:if>

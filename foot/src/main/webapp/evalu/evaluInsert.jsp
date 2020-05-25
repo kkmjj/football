@@ -33,10 +33,10 @@
 
 					<div class="breadcrumb">
 						<div class="col-12 align-items-center">
-							<h3 class="align-items-center">공고 제목 TITLE</h3>
+							<h3 class="align-items-center">${ postdetail.TITLE}</h3>
 						</div>
 					</div>
-					<form action="PostInsert.do" method="post" class="p-5 bg-white">
+					<form action="evalu.do?postID=${ postdetail.ID}" method="post" class="p-5 bg-white">
 						<table class="table" style="font-size: 30px; color: black;">
 							<colgroup>
 								<col width="25%">
@@ -48,7 +48,8 @@
 								</td>
 								<td>
 									<%-- <h5>${postdetail.DATETIME} ${postdetail.HOUR}시 ${postdetail.MIN}분</h5> --%>
-									<h5>2020-05-21 18시 00분</h5>
+									<h5>${postdetail.DATETIME} ${postdetail.HOUR}시
+										${postdetail.MIN}분</h5>
 								</td>
 							</tr>
 							<tr>
@@ -57,7 +58,7 @@
 								</td>
 								<td>
 									<%-- <h5>${postdetail.ADDRESS} ${postdetail.ADDRESS_DETAIL}</h5> --%>
-									<h5>서울시 구로구</h5>
+									<h5>${postdetail.ADDRESS}${postdetail.ADDRESS_DETAIL}</h5>
 								</td>
 							</tr>
 							<tr>
@@ -67,7 +68,7 @@
 						</table>
 						<div class="form-group" align="left">
 							<label class="mr-4">점수</label> <input type="text"
-								class="form-control" id="PER" name="PER"
+								class="form-control" id="SCORE" name="SCORE"
 								style="width: 20%; display: inline;"
 								onkeydown='onlyNumber(event)' onkeyup='removeChar(event)'>
 							<label class="mr-1">점</label>
