@@ -41,7 +41,7 @@ public class ApplyController {
 		applyService.applyUser(applyVO);
 		
 	
-		return "PostDetail.do?id="+request.getParameter("postId");
+		return "redirect:PostDetail.do?id="+request.getParameter("postId");
 	}
 
 }
