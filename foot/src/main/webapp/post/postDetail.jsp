@@ -89,7 +89,7 @@
 									<ul>
 										<li>아이디 :${ postdetail.WRITER}</li>
 										<li>이름 : ${ postdetail.NAME}</li>
-										<li>평균 평점 : 75점</li>
+										<li>평균 평점 : ${ userEvalu} 점</li>
 									</ul>
 								</td>
 							</tr>
@@ -151,7 +151,7 @@
 							<tbody>
 								<c:forEach items="${postApplyUser}" var="postApplyUser">
 									<tr>
-										<td class="text-center">${postApplyUser.APPLICANT}</td>
+										<td class="text-center">${postApplyUser.APPLICANT}(평점: ${postApplyUser.APPLY_SCORE})</td>
 										<td class="text-left">${postApplyUser.CONTENT}</td>
 										<c:if test="${postApplyUser.STATUS == 'Y'}">
 										<c:if test="${postApplyUser.APPLICANT == userID}">
@@ -183,11 +183,13 @@
 								<col width="20%">
 								<col width="*">
 								<col width="20%">
+								<col width="20%">
 							</colgroup>
 							<thead class="thead-dark">
 								<tr>
 									<th class="text-center">작성자</th>
 									<th class="text-center">내용</th>
+									<th class="text-center">연락처</th>
 									<th class="text-center">상태</th>
 								</tr>
 							</thead>
@@ -196,16 +198,17 @@
 									<tr>
 										<td class="text-center">${postApplyUser.APPLICANT}</td>
 										<td class="text-left">${postApplyUser.CONTENT}</td>
+										<td class="text-center">${postApplyUser.TEL1}-${postApplyUser.TEL2}-${postApplyUser.TEL3}</td>
 										<c:if test="${postApplyUser.STATUS == 'Y'}">
 										<td class="text-center">
 										<a href="ApplyStatusN.do?id=${postApplyUser.ID}" class="btn btn-sm btn-primary">수락</a>
 										<a href="evaluPage.do?id=${postApplyUser.ID}" class="btn btn-sm btn-danger">거절</a>
 										</td>
 										</c:if>										
-										<c:if test="${postApplyUser.STATUS == 'N'}"><td>수락</td></c:if>
-										<c:if test="${postApplyUser.STATUS == 'E'}"><td>경기 종료</td></c:if>
-										<c:if test="${postApplyUser.STATUS == 'O'}"><td>평가 완료</td></c:if>
-										<c:if test="${postApplyUser.STATUS == 'C'}"><td>거절</td></c:if>
+										<c:if test="${postApplyUser.STATUS == 'N'}"><td class="text-center">수락</td></c:if>
+										<c:if test="${postApplyUser.STATUS == 'E'}"><td class="text-center">경기 종료</td></c:if>
+										<c:if test="${postApplyUser.STATUS == 'O'}"><td class="text-center">평가 완료</td></c:if>
+										<c:if test="${postApplyUser.STATUS == 'C'}"><td class="text-center">거절</td></c:if>
 									</tr>
 								</c:forEach>
 								<c:if test="${postApplyUser.size() == 0}">
@@ -219,7 +222,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</section>
 

@@ -12,6 +12,35 @@ public class ApplyVO {
 	private int HOUR;
 	private int MIN;
 	private String POST_TITLE;
+	private double APPLY_SCORE;
+	private String TEL1;
+	private String TEL2;
+	private String TEL3; 
+
+	public String getTEL1() {
+		return TEL1;
+	}
+	public void setTEL1(String tEL1) {
+		TEL1 = tEL1;
+	}
+	public String getTEL2() {
+		return TEL2;
+	}
+	public void setTEL2(String tEL2) {
+		TEL2 = tEL2;
+	}
+	public String getTEL3() {
+		return TEL3;
+	}
+	public void setTEL3(String tEL3) {
+		TEL3 = tEL3;
+	}
+	public double getAPPLY_SCORE() {
+		return APPLY_SCORE;
+	}
+	public void setAPPLY_SCORE(double aPPLY_SCORE) {
+		APPLY_SCORE = aPPLY_SCORE;
+	}
 	public String getPOST_TITLE() {
 		return POST_TITLE;
 	}

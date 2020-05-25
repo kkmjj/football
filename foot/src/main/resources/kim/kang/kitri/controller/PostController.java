@@ -1,5 +1,7 @@
 package kim.kang.kitri.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,21 +11,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+
 import kim.kang.kitri.apply.ApplyService;
 import kim.kang.kitri.apply.ApplyVO;
+import kim.kang.kitri.evaluation.EvaluationService;
 import kim.kang.kitri.post.PostService;
 import kim.kang.kitri.post.PostVO;
 import kim.kang.kitri.user.UserService;
+import kim.kang.kitri.user.UserVO;
 
 @Controller
 public class PostController {
-
+	@Autowired
+	EvaluationService evaluationService;
 	@Autowired
 	private PostService postservice;
 
 	@Autowired
 	ApplyService applyService;
-	
+
 	@Autowired
 	UserService userService;
 	
@@ -104,20 +111,26 @@ public class PostController {
 	}
 
 	@RequestMapping("/PostDetail.do")
-	public String DetailPost(HttpServletRequest request,String id, Model model) {
+	public String DetailPost(String id, HttpSession session, Model model, HttpServletRequest request) {
 		ApplyVO applyVO = new ApplyVO();
-		
-		
 		applyVO.setPOST_ID(Integer.parseInt(id)); // 이미 공고 아이디를 넘김 
-		
-		HttpSession session = request.getSession();
 
-		
-		model.addAttribute("flag", applyService.flag_apply((String) session.getAttribute("userID"),applyVO));
+
 		model.addAttribute("postdetail", postservice.DetailPost(id));
-		model.addAttribute("postApplyUser",applyService.PostApplyUsers(applyVO));
+		List<ApplyVO> postApplyUser = applyService.PostApplyUsers(applyVO);
+		for(int i=0; i<postApplyUser.size(); i++) {
+			postApplyUser.get(i).setAPPLY_SCORE(evaluationService.userEvaluScore(postApplyUser.get(i).getAPPLICANT()));
+			UserVO userVO = new UserVO();
+			userVO.setID(postApplyUser.get(i).getAPPLICANT());
+			userVO = userService.idGetUser(userVO);
+			postApplyUser.get(i).setTEL1(userVO.getTEL1());
+			postApplyUser.get(i).setTEL2(userVO.getTEL2());
+			postApplyUser.get(i).setTEL3(userVO.getTEL3());
+		}
+		model.addAttribute("postApplyUser",postApplyUser);
+		model.addAttribute("flag", applyService.flag_apply((String) session.getAttribute("userID"),applyVO));
 		
-		
+
 		return "post/postDetail.jsp";
 	}
 
