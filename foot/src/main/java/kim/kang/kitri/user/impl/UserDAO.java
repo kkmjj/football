@@ -60,5 +60,12 @@ public class UserDAO {
 		Object[] args = { vo.getID() };
 		return jdbcTemplate.queryForObject(getUser, args, new UserRowMapper());
 	};
+	
+	public int UserCount()
+	{
+		String sql = "select count(*) from users";
+		
+		return jdbcTemplate.queryForObject(sql, Integer.class);
+	}
 
 }

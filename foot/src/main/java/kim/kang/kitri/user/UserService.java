@@ -16,4 +16,6 @@ public interface UserService {
 	public void deleteUser(UserVO vo);
 	
 	public UserVO idGetUser(UserVO vo);
+	
+	public int UserCount();
 }

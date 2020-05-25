@@ -96,4 +96,12 @@ public class PostDAO {
 	}
 	
 	
+	public int postCount()
+	{
+		String sql = "select count(*) from post";
+		
+		return jdbcTemplate.queryForObject(sql, Integer.class);
+	}
+	
+	
 }

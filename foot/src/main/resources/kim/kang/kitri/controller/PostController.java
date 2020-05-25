@@ -13,6 +13,7 @@ import kim.kang.kitri.apply.ApplyService;
 import kim.kang.kitri.apply.ApplyVO;
 import kim.kang.kitri.post.PostService;
 import kim.kang.kitri.post.PostVO;
+import kim.kang.kitri.user.UserService;
 
 @Controller
 public class PostController {
@@ -22,6 +23,9 @@ public class PostController {
 
 	@Autowired
 	ApplyService applyService;
+	
+	@Autowired
+	UserService userService;
 	
 	// home.do 먼저 실행하고 index 페이지로 넘어가기 
 	@RequestMapping("/home.do")
@@ -33,6 +37,11 @@ public class PostController {
 			PostVO vo, Model model ) {
 		if(page == null) page = 1;
 
+		
+		
+		
+		model.addAttribute("PostCount",postservice.postCount());
+		model.addAttribute("UserCount",userService.UserCount());
 		model.addAttribute("page", page);
 		model.addAttribute("start", start);
 		model.addAttribute("end", end);
