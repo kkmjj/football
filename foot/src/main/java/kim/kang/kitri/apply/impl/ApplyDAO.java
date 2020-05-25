@@ -25,8 +25,8 @@ public class ApplyDAO {
 
 	public void applyUser(ApplyVO vo) {
 		String myApplyList = "INSERT INTO APPLY(ID, POST_ID, APPLICANT, CONTENT, STATUS, DATETIME, HOUR, MIN)  values((SELECT NVL(MAX(ID), 0) + 1 FROM apply), ?, ?, ?, ?, ?, ?, ?)";
-		jdbcTemplate.update(myApplyList,vo.getPOST_ID(), vo.getAPPLICANT(), vo.getCONTENT(), vo.getSTATUS(), vo.getDATETIME(),vo.getHOUR(),
-				vo.getMIN());
+		jdbcTemplate.update(myApplyList, vo.getPOST_ID(), vo.getAPPLICANT(), vo.getCONTENT(), vo.getSTATUS(),
+				vo.getDATETIME(), vo.getHOUR(), vo.getMIN());
 	}
 
 	public String myApplyPostIdSql(ApplyVO vo) {
@@ -42,23 +42,23 @@ public class ApplyDAO {
 		}
 		return myApplyPostId;
 	}
-	
-	
+
 	public List<ApplyVO> PostApplyUsers(ApplyVO vo) {
-		String myApplyPostId = "";
 		String sql = "select * from apply where post_id = ?";
 		Object[] args = { vo.getPOST_ID() };
 		return jdbcTemplate.query(sql, args, new ApplyRowMapper());
 	}
-	
 
-	public int flag_apply(String id,ApplyVO vo) 
-	{
-		
+	public int flag_apply(String id, ApplyVO vo) {
+
 		String sql = "select count(*) from apply where applicant = ? and post_id=?";
-		Object[] args = {id ,vo.getPOST_ID()};
-		System.out.println(id+" "+vo.getPOST_ID());
+		Object[] args = { id, vo.getPOST_ID() };
+		System.out.println(id + " " + vo.getPOST_ID());
 		return jdbcTemplate.queryForObject(sql, args, Integer.class);
-}
-	
+	}
+
+	public void applyStatus_O(int id) {
+		String POST_STATUS_O = "UPDATE POST SET STATUS='O' WHERE ID=?";
+		jdbcTemplate.update(POST_STATUS_O, id);
+	}
 }
