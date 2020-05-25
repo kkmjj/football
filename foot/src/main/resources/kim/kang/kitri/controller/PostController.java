@@ -19,10 +19,7 @@ import kim.kang.kitri.evaluation.EvaluationService;
 import kim.kang.kitri.post.PostService;
 import kim.kang.kitri.post.PostVO;
 import kim.kang.kitri.user.UserService;
-<<<<<<< HEAD
 import kim.kang.kitri.user.UserVO;
-=======
->>>>>>> 0fb3d1a3e31e758e9282a02af2a4f7fc4edcf256
 
 @Controller
 public class PostController {
@@ -33,15 +30,10 @@ public class PostController {
 
 	@Autowired
 	ApplyService applyService;
-<<<<<<< HEAD
-	@Autowired
-	UserService userService;
-=======
-	
+
 	@Autowired
 	UserService userService;
 	
->>>>>>> 0fb3d1a3e31e758e9282a02af2a4f7fc4edcf256
 	// home.do 먼저 실행하고 index 페이지로 넘어가기 
 	@RequestMapping("/home.do")
 	public String getPostList(Integer page,
