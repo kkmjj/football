@@ -7,4 +7,5 @@ public interface ApplyService {
 	public List<ApplyVO> myApplyPostList(ApplyVO vo, String PostIdSql);
 	public void applyUser(ApplyVO vo);
 	public List<ApplyVO> PostApplyUsers(ApplyVO vo);
+	public void applyStatus_O(int id);
 }

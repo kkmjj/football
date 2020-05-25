@@ -30,5 +30,10 @@ public class ApplyServiceImpl implements ApplyService{
 		
 		return applyDAO.PostApplyUsers(vo);
 	}
+	@Override
+	public void applyStatus_O(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

@@ -185,7 +185,7 @@
 											<c:if test="${myApplyList.STATUS == 'N'}"><td>수락</td></c:if>
 											<c:if test="${myApplyList.STATUS == 'C'}"><td>거절</td></c:if>
 											<c:if test="${myApplyList.STATUS == 'E'}">
-											<td><a href="evaluPage.do" class="btn btn-sm btn-secondary">평가 등록</a></td>
+											<td><a href="evaluPage2.do?postID=${myApplyList.POST_ID}&applyID=${myApplyList.ID}" class="btn btn-sm btn-secondary">평가 등록</a></td>
 											</c:if>
 											<c:if test="${myApplyList.STATUS == 'O'}"><td>평가 완료</td></c:if>
 										</tr>

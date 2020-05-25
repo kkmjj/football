@@ -139,11 +139,19 @@ public class UserController {
 				}
 			}
 			model.addAttribute("myPostList", myPostList);
-			//
+			
 			applyVO.setAPPLICANT((String) session.getAttribute("userID"));
 			String postIdSql = applyService.myApplyPostIdSql(applyVO);
-			System.out.println(postIdSql);
-			model.addAttribute("myApplyList", applyService.myApplyPostList(applyVO, postIdSql));
+			List<ApplyVO> myApplyList = applyService.myApplyPostList(applyVO, postIdSql);
+			for(int i=0; i<myApplyList.size(); i++) {
+				PostVO postVO2 = postservice.DetailPost(String.valueOf(myApplyList.get(i).getPOST_ID()));
+				if (postVO2.getSTATUS().equals("N")) {
+					if (date.compareTo(postVO2.getDATETIME()) > 0) {
+						myApplyList.get(i).setSTATUS("E");
+					}
+				}
+			}
+			model.addAttribute("myApplyList", myApplyList);
 
 			return "/users/mypage.jsp";
 		}
@@ -157,5 +165,4 @@ public class UserController {
 		session.invalidate();
 		return "home.do";
 	}
-
 }

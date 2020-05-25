@@ -44,11 +44,13 @@ public class ApplyDAO {
 	
 	
 	public List<ApplyVO> PostApplyUsers(ApplyVO vo) {
-		String myApplyPostId = "";
 		String sql = "select * from apply where post_id = ?";
 		Object[] args = { vo.getPOST_ID() };
 		return jdbcTemplate.query(sql, args, new ApplyRowMapper());
 	}
 	
-	
+	public void applyStatus_O(int id) {
+		String POST_STATUS_O = "UPDATE POST SET STATUS='O' WHERE ID=?";
+		jdbcTemplate.update(POST_STATUS_O, id);
+	}
 }
