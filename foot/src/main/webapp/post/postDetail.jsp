@@ -115,6 +115,7 @@
 			<div class="row align-items-center justify-content-center">
 				<div class="col-md-12 col-lg-12 mb-5">
 					<div class="p-5 bg-white">
+					<h3>신청 현황</h3>
 						<c:if test="${userID != null}">
 						<c:if test="${postdetail.WRITER != userID}">
 						<c:if test="${flag == 0}">
@@ -153,7 +154,16 @@
 									<tr>
 										<td class="text-center">${postApplyUser.APPLICANT}</td>
 										<td class="text-left">${postApplyUser.CONTENT}</td>
-										<td class="text-center">${postApplyUser.STATUS}</td>
+										<c:if test="${postApplyUser.STATUS == 'Y'}">
+										<td class="text-center">
+										<a href="evaluPage.do?postID=${postdetail.ID}" class="btn btn-sm btn-primary">수락</a>
+										<a href="evaluPage.do?postID=${postdetail.ID}" class="btn btn-sm btn-danger">거절</a>
+										</td>
+										</c:if>										
+										<c:if test="${postApplyUser.STATUS == 'N'}"><td>수락</td></c:if>
+										<c:if test="${postApplyUser.STATUS == 'E'}"><td>경기 종료</td></c:if>
+										<c:if test="${postApplyUser.STATUS == 'O'}"><td>평가 완료</td></c:if>
+										<c:if test="${postApplyUser.STATUS == 'C'}"><td>거절</td></c:if>
 									</tr>
 								</c:forEach>
 								<tr>
