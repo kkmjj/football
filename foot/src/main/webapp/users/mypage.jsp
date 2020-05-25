@@ -109,7 +109,7 @@
 				</div>
 			</div>
 			<div class="row align-items-center justify-content-center">
-				<div class="col-md-12 col-lg-10 p-5 bg-white">
+				<div class="col-md-12 col-lg-12 p-5 bg-white">
 					<h3 class="page-title">등록 공고 정보</h3>
 					<div class="panel">
 						<div class="panel-body">
@@ -142,8 +142,11 @@
 											<c:if test="${myPostList.STATUS == 'E'}">
 											<td><a href="evaluPage.do?postID=${myPostList.ID}" class="btn btn-sm btn-secondary">평가 등록</a></td>
 											</c:if>
-											<c:if test="${myPostList.STATUS == 'O'}"><td>평가 완료</td></c:if>
+											<c:if test="${myPostList.STATUS == 'O'}">
+											<td><a href="evaluPage.do?postID=${myPostList.ID}" class="btn btn-sm btn-secondary">평가 조회</a></td>
+											</c:if>
 											<c:if test="${myPostList.STATUS == 'C'}"><td>경기 취소</td></c:if>
+											<c:if test="${myPostList.STATUS == 'D'}"><td>삭제</td></c:if>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -153,7 +156,7 @@
 				</div>
 			</div>
 			<div class="row align-items-center justify-content-center">
-				<div class="col-md-12 col-lg-10 p-5 bg-white">
+				<div class="col-md-12 col-lg-12 p-5 bg-white">
 					<h3 class="page-title">신청 정보</h3>
 					<div class="panel">
 						<div class="panel-body">
@@ -187,7 +190,9 @@
 											<c:if test="${myApplyList.STATUS == 'E'}">
 											<td><a href="evaluPage2.do?postID=${myApplyList.POST_ID}&applyID=${myApplyList.ID}" class="btn btn-sm btn-secondary">평가 등록</a></td>
 											</c:if>
-											<c:if test="${myApplyList.STATUS == 'O'}"><td>평가 완료</td></c:if>
+											<c:if test="${myApplyList.STATUS == 'O'}">
+											<td><a href="evaluPage2.do?postID=${myApplyList.POST_ID}&applyID=${myApplyList.ID}" class="btn btn-sm btn-secondary">평가 조회</a></td>
+											</c:if>
 										</tr>
 									</c:forEach>
 								</tbody>
