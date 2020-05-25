@@ -57,9 +57,19 @@ public class ApplyDAO {
 
 		String sql = "select count(*) from apply where applicant = ? and post_id=?";
 		Object[] args = { id, vo.getPOST_ID() };
-		System.out.println(id + " " + vo.getPOST_ID());
+		//System.out.println(id + " " + vo.getPOST_ID());
 		return jdbcTemplate.queryForObject(sql, args, Integer.class);
 	}
+	
+	public void applyStatus_N(String id) {
+
+		String sql = "UPDATE apply SET STATUS='N' where id=?";
+		int ids =Integer.parseInt(id);
+		Object[] args = {ids};
+		
+		jdbcTemplate.update(sql, args);
+	}
+	
 
 	public void applyStatus_O(int id) {
 		String POST_STATUS_O = "UPDATE POST SET STATUS='O' WHERE ID=?";

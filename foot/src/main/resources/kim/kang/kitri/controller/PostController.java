@@ -75,6 +75,21 @@ public class PostController {
 
 		return "home.do";
 	}
+	
+	@RequestMapping("/ApplyStatusN.do")	// N이 수락 완료 
+	public String ApplyStatusN(String id, Model model) {
+		
+		
+		applyService.applyStatus_N(id);
+		
+		return "redirect:PostDetail.do?id="+id;
+	}
+	
+	
+	
+	
+	
+	
 
 	// index 페이지에서 등록을 누르게 되면 -> postInsert페이지로 넘어감
 	@RequestMapping("/PostInsertPage.do")
@@ -98,9 +113,9 @@ public class PostController {
 	@RequestMapping("/PostDetail.do")
 	public String DetailPost(String id, HttpSession session, Model model, HttpServletRequest request) {
 		ApplyVO applyVO = new ApplyVO();
-		applyVO.setPOST_ID(Integer.parseInt(id));
-		PostVO postVO = postservice.DetailPost(id);
-		request.setAttribute("userEvalu", evaluationService.userEvaluScore(postVO.getWRITER()));
+		applyVO.setPOST_ID(Integer.parseInt(id)); // 이미 공고 아이디를 넘김 
+
+
 		model.addAttribute("postdetail", postservice.DetailPost(id));
 		List<ApplyVO> postApplyUser = applyService.PostApplyUsers(applyVO);
 		for(int i=0; i<postApplyUser.size(); i++) {
@@ -114,6 +129,7 @@ public class PostController {
 		}
 		model.addAttribute("postApplyUser",postApplyUser);
 		model.addAttribute("flag", applyService.flag_apply((String) session.getAttribute("userID"),applyVO));
+		
 
 		return "post/postDetail.jsp";
 	}
