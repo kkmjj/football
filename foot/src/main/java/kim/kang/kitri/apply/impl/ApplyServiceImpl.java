@@ -32,8 +32,7 @@ public class ApplyServiceImpl implements ApplyService{
 	}
 	@Override
 	public void applyStatus_O(int id) {
-		// TODO Auto-generated method stub
-		
+		applyDAO.applyStatus_O(id);
 	}
 	
 	@Override
