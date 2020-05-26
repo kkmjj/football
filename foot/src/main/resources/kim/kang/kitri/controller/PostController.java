@@ -90,6 +90,12 @@ public class PostController {
 
 		return "post/postInsert.jsp";
 	}
+	
+	@RequestMapping("/InsertDetailPage.do")
+	public String InserDetailPage() {
+
+		return "post/postInsertDetail.jsp";
+	}
 
 	// postInsert 페이지에서 등록 완료하면 home.do로 가서 index 페이지로 넘어감
 	@RequestMapping("/PostInsert.do")

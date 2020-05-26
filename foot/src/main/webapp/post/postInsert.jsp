@@ -31,69 +31,12 @@
 
 				<div class="col-md-12 col-lg-8 mb-5">
 
-					<form action="PostInsert.do" method="post" class="p-5 bg-white">
-						<div class="form-group" align="left">
-							<label>제목</label> <input type="text" class="form-control"
-								id="TITLE" name="TITLE" onkeyup="disable_change();">
-						</div>
-						<div class="form-group" align="left">
-							<label class="mr-4">모집인원</label> <input type="text"
-								class="form-control" id="PER" name="PER"
-								style="width: 20%; display: inline;" onkeyup="disable_change();">
-								<label class="mr-1">명</label>
-						</div>
-						<div class="form-group" align="left">
-							<label>날짜</label> <input type="text" class="form-control"
-								id="DATETIME" name="DATETIME" onkeyup="disable_change();">
-						</div>
-						<div class="form-group" align="left">
-							<select name="HOUR" id="HOUR" class="form-control mr-1"
-								style="width: 40%; display: inline;">
-								<%
-									for (int i = 1; i <= 24; i++) {
-								%>
-								<option value=<%=i%>><%=i%></option>
-								<%
-									}
-								%>
-							</select> <label class="mr-4">시</label> <select name="MIN" id="MIN"
-								class="form-control mr-1" style="width: 40%; display: inline;">
-								<%
-									for (int i = 0; i <= 50; i += 10) {
-								%>
-								<option value=<%=i%>><%=i%></option>
-								<%
-									}
-								%>
-							</select> <label class="">분</label>
-						</div>
-						<div class="form-group" align="left">
-							<label>모임 장소</label><br> <input class="form-control"
-								style="width: 40%; display: inline;" placeholder="우편번호"
-								name="ZIP_CODE" id="ZIP_CODE" type="text">
-							<button type="button" class="btn btn-warning"
-								onclick="goPopup();">
-								<i class="fa fa-search"></i> 우편번호 찾기
-							</button>
-						</div>
-						<div class="form-group">
-							<input class="form-control" style="top: 5px;"
-								placeholder="도로명 주소" name="ADDRESS" id="ADDRESS" type="text" onchange="disable_change();" />
-						</div>
-						<div class="form-group">
-							<input class="form-control" placeholder="상세주소"
-								name="ADDRESS_DETAIL" id="ADDRESS_DETAIL" type="text" onchange="disable_change();" />
-						</div>
-						<div class="form-group" align="left">
-							<label for="name">내용</label> <input type="text"
-								class="form-control" id="CONTENT" name="CONTENT"
-								style="overflow-y: scroll; min-height: 300px; max-height: 700px" onkeyup="disable_change();">
-						</div>
-						<div class="form-group" align="center">
-							<button type="submit" class="btn btn-primary" id="insertsubmit"
-								disabled>등록</button>
-						</div>
-					</form>
+					<div class="main-content p-5 bg-white">
+		                <div>
+		                  <iframe id="contentFrame" name="contentFrame" src="InsertDetailPage.do"
+		                  frameborder="0" width="100%" height="1200px" scrolling="no"></iframe>
+		                </div>
+					</div>
 				</div>
 			</div>
 		</div>

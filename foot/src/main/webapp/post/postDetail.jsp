@@ -132,6 +132,11 @@
 							</form>
 						</c:if>
 						</c:if>
+						<c:if test="${flag != 0}">
+							<div class="input-group align-items-center" style="width: 100%;">
+							이미 신청된 공고입니다.
+							</div>
+						</c:if>
 						<br>
 						<table class="table table-hover">
 							<colgroup>
@@ -169,7 +174,7 @@
 								</c:forEach>
 								<c:if test="${postApplyUser.size() == 0}">
 								<tr>
-									<td class="text-center" colspan="3">신청된 공고가 없습니다.</td>
+									<td class="text-center" colspan="3">신청 정보가 없습니다.</td>
 								</tr>
 								</c:if>
 							</tbody>
@@ -211,7 +216,7 @@
 								</c:forEach>
 								<c:if test="${postApplyUser.size() == 0}">
 								<tr>
-									<td class="text-center" colspan="3">신청된 공고가 없습니다.</td>
+									<td class="text-center" colspan="4">신청 정보가 없습니다.</td>
 								</tr>
 								</c:if>
 							</tbody>
