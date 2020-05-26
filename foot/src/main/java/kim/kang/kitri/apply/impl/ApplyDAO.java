@@ -72,8 +72,8 @@ public class ApplyDAO {
 	
 
 	public void applyStatus_O(int id) {
-		String POST_STATUS_O = "UPDATE POST SET STATUS='O' WHERE ID=?";
-		jdbcTemplate.update(POST_STATUS_O, id);
+		String POST_STATUS_O = "UPDATE apply SET STATUS='O' where id="+id;
+		jdbcTemplate.update(POST_STATUS_O);
 	}
 	
 	public void applyStatus_D(int postID, String applyUserID) {

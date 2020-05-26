@@ -36,7 +36,7 @@
 							<h3 class="align-items-center">${ postdetail.TITLE}</h3>
 						</div>
 					</div>
-					<form action="evalu.do?postID=${ postdetail.ID}" method="post" class="p-5 bg-white">
+					<form action="evalu2.do?postID=${ postdetail.ID}&applyID=${applyID}" method="post" class="p-5 bg-white">
 						<table class="table" style="font-size: 30px; color: black;">
 							<colgroup>
 								<col width="25%">

@@ -45,10 +45,11 @@ public class EvaluationController {
 	
 	
 	@RequestMapping(value = "/evaluPage2.do")
-	public String evaluPage2(String postID, Model model, HttpServletRequest request) {
+	public String evaluPage2(String applyID,String postID, Model model, HttpServletRequest request) {
 		model.addAttribute("postdetail", postservice.DetailPost(postID));
 		request.setAttribute("postID", postID);
-		return "evalu/evaluInsert.jsp";
+		request.setAttribute("applyID", applyID);
+		return "evalu/evaluInsert2.jsp";
 	}
 	
 	@RequestMapping(value = "/evalu2.do", method = RequestMethod.POST)

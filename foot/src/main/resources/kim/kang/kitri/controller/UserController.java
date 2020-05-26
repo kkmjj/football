@@ -163,8 +163,8 @@ public class UserController {
 			if(myApplyList!=null) {
 				for(int i=0; i<myApplyList.size(); i++) {
 					PostVO postVO2 = postservice.DetailPost(String.valueOf(myApplyList.get(i).getPOST_ID()));
-					if (postVO2.getSTATUS().equals("N")) {
-						if (date.compareTo(postVO2.getDATETIME()) > 0) {
+					if ( (postVO2.getSTATUS().equals("N") || postVO2.getSTATUS().equals("O")) ) {
+						if (myApplyList.get(i).getSTATUS().equals("N") && date.compareTo(postVO2.getDATETIME()) > 0) {
 							myApplyList.get(i).setSTATUS("E");
 						}
 					}
