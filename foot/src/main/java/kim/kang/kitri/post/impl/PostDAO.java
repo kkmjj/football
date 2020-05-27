@@ -1,5 +1,6 @@
 package kim.kang.kitri.post.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,7 @@ public class PostDAO {
 
 	
 
-	public List<PostVO> getPostList(Integer page, String start, String end, String region, String input_location) {
+	public List<PostVO> getPostList(Integer page, Date start, Date end, String region, String input_location) {
 		
 		Object[] args = { start, end, region, input_location, page*10-9, page*10 };
 
@@ -55,7 +56,7 @@ public class PostDAO {
 
 	}
 
-	public int getPostListCnt(Integer page, String start, String end, String region, String input_location) {
+	public int getPostListCnt(Integer page, Date start, Date end, String region, String input_location) {
 		Object[] args = { start, end, region, input_location };
 //		List<PostVO> vo = jdbcTemplate.query(POST_List_Cnt, args, new PostRowMapper());
 		

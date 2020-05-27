@@ -1,13 +1,14 @@
 package kim.kang.kitri.post;
 
+import java.util.Date;
 import java.util.List;
 
 public interface PostService {
 
 	//전체 공고 
-	List<PostVO> getPostList(Integer page, String start, String end, String region, String input_location);
+	List<PostVO> getPostList(Integer page, Date start, Date end, String region, String input_location);
 
-	int getPostListCnt(Integer page, String start, String end, String region, String input_location);
+	int getPostListCnt(Integer page, Date start, Date end, String region, String input_location);
 	
 	
 	//공고 삽입

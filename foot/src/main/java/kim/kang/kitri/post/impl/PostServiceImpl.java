@@ -1,5 +1,6 @@
 package kim.kang.kitri.post.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,12 @@ public class PostServiceImpl implements PostService {
 		return postDAO.myPostList(vo);
 	}
 	
-	public List<PostVO> getPostList(Integer page, String start, String end, String region, String input_location) {
+	public List<PostVO> getPostList(Integer page, Date start, Date end, String region, String input_location) {
 
 		return postDAO.getPostList(page, start, end, region, input_location);
 	}
 
-	public int getPostListCnt(Integer page, String start, String end, String region, String input_location) {
+	public int getPostListCnt(Integer page, Date start, Date end, String region, String input_location) {
 
 		return postDAO.getPostListCnt(page, start, end, region, input_location);
 	}

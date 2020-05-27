@@ -1,5 +1,7 @@
 package kim.kang.kitri.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,21 +39,21 @@ public class PostController {
 	// home.do 먼저 실행하고 index 페이지로 넘어가기 
 	@RequestMapping("/home.do")
 	public String getPostList(Integer page,
-			@RequestParam(value = "start", defaultValue = "1000/01/01", required = false) String start,
-			@RequestParam(value = "end", defaultValue = "3000/12/31", required = false) String end, 
+			@RequestParam(value = "start", defaultValue = "1000/01/01", required = false) Date start,
+			@RequestParam(value = "end", defaultValue = "3000/12/31", required = false) Date end, 
 			@RequestParam(value = "region", defaultValue = "", required = false) String region,
 			@RequestParam(value = "input_location", defaultValue = "", required = false) String input_location,
 			PostVO vo, Model model ) {
 		if(page == null) page = 1;
 
-		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 		
 		
 		model.addAttribute("PostCount",postservice.postCount());
 		model.addAttribute("UserCount",userService.UserCount());
 		model.addAttribute("page", page);
-		model.addAttribute("start", start);
-		model.addAttribute("end", end);
+		model.addAttribute("start", format.format(start));
+		model.addAttribute("end", format.format(end));
 		model.addAttribute("region", region);
 		model.addAttribute("input_location", input_location);
 		model.addAttribute("postlist", postservice.getPostList(page, start, end, region, input_location));
