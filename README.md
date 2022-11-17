@@ -1,18 +1,5 @@
-#football Project
+# 풋살 인원 모집 
 
-#view
-    home.jsp
-    -users
-        -login.jsp
-        -signup.jsp
-        -mypage.jsp
-    -post
-        -addPost.jsp
-        -modifyPost.jsp
-        -postDetail.jsp
-    -evaluation
-        -addEval.jsp
+한국기술정보 연구원 2020.09
 
 
-#java files
-    
